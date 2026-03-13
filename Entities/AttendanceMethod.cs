@@ -1,0 +1,13 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace EF_LSM.Entities
+{
+    public enum AttendanceMethod
+    {
+        Manual = 1,
+        Code = 2,
+        QR = 3
+    }
+}
