@@ -1,10 +1,12 @@
-﻿namespace EF_LSM
+﻿using EF_LSM.Entities.Data;
+
+namespace EF_LSM
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            AppDbContext context = new AppDbContext();
         }
     }
 }

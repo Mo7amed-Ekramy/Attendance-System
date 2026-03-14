@@ -15,7 +15,7 @@ namespace EF_LSM.Entities
         public string Title { get; set; }
 
         [Required]
-        public int Type { get; set; }
+        public AttendanceSessionType Type { get; set; }
 
         [Required]
         public bool IsRead { get; set; }

@@ -4,9 +4,11 @@ using System.Text;
 
 namespace EF_LSM.Entities
 {
-    public enum AttendanceType
-    {
-        Lecture,
-        Section
-    }
+    
+        public enum AttendanceSessionType
+        {
+            Lecture = 1,
+            Section = 2
+        }
+    
 }
