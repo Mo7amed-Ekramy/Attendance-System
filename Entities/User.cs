@@ -22,5 +22,6 @@ namespace EF_LSM.Entities
 
         [Required]
         public Role role { get; set; }
+        public ICollection<Section> Sections { get; set; } = new List<Section>();
     }
 }

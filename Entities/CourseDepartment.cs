@@ -1,25 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EF_LSM.Entities
 {
-    using System.ComponentModel.DataAnnotations;
-
-    namespace EF_LSM.Entities
+    public class CourseDepartment
     {
-        public class CourseDepartment
-        {
-            [Key]
-            public int Id { get; set; }
+        [Key]
+        public int Id { get; set; }
 
-            public int CourseId { get; set; }
+        [Required]
+        public int CourseId { get; set; }
 
-            public int DepartmentId { get; set; }
+        [Required]
+        public int DepartmentId { get; set; }
 
-            public Course Course { get; set; }
+        [ForeignKey(nameof(CourseId))]
+        public Course Course { get; set; }
 
-            public Department Department { get; set; }
-        }
+        [ForeignKey(nameof(DepartmentId))]
+        public Department Department { get; set; }
     }
 }

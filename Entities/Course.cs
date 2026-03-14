@@ -34,5 +34,7 @@ namespace EF_LSM.Entities
         public ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
 
         public ICollection<AttendanceSession> AttendanceSessions { get; set; } = new List<AttendanceSession>();
+
+        public ICollection<CourseDepartment> CourseDepartments { get; set; } = new List<CourseDepartment>();
     }
 }
