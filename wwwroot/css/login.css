@@ -1,0 +1,122 @@
+﻿:root {
+    --primary: #2F6FED;
+    --primary-dark: #1C54C7;
+    --bg: #F5F6FA;
+    --card-bg: #FFFFFF;
+    --text-main: #1F2937;
+    --text-muted: #6B7280;
+    --border: #D1D5DB;
+    --font-main: 'Inter', sans-serif;
+    --text-sm: 14px;
+    --text-md: 16px;
+    --text-lg: 22px;
+    --fw-normal: 400;
+    --fw-medium: 500;
+    --fw-bold: 600;
+}
+
+body {
+    background-color: var(--bg);
+    font-family: var(--font-main);
+    color: var(--text-main);
+    font-size: var(--text-md);
+}
+
+.row {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-md-4 {
+    max-width: 400px;
+    width: 100%;
+}
+
+section {
+    background: var(--card-bg);
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+    text-align: center;
+    font-size: var(--text-lg);
+    font-weight: var(--fw-bold);
+    margin-bottom: 8px;
+}
+
+.form-floating {
+    position: relative;
+}
+
+.form-control {
+    border: none;
+    border-bottom: 2px solid var(--border);
+    border-radius: 0;
+    box-shadow: none;
+    padding: 10px 5px;
+    font-size: var(--text-md);
+    transition: 0.2s;
+}
+
+    .form-control:focus {
+        border-bottom: 2px solid var(--primary);
+        outline: none;
+    }
+
+label {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-check-input {
+    margin-right: 8px;
+}
+
+#login-submit {
+    background-color: var(--primary);
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: var(--text-md);
+    font-weight: var(--fw-medium);
+    transition: 0.3s;
+}
+
+    #login-submit:hover {
+        background-color: var(--primary-dark);
+    }
+
+a {
+    text-decoration: none;
+    color: var(--primary);
+    font-size: var(--text-sm);
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+hr {
+    margin: 15px 0 25px;
+    border-color: var(--border);
+}
+
+@media (max-width: 576px) {
+    section {
+        padding: 25px 20px;
+    }
+
+    .col-md-4 {
+        padding: 0 10px;
+    }
+}

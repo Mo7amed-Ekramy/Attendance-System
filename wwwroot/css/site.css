@@ -20,3 +20,33 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+:root {
+    --primary: #2F6FED;
+    --primary-dark: #1C54C7;
+    --secondary: #00BFA6;
+    --bg: #F5F6FA;
+    --card-bg: #FFFFFF;
+    --text-main: #1F2937;
+    --text-muted: #6B7280;
+    --border: #D1D5DB;
+    --success: #22C55E;
+    --danger: #EF4444;
+    --warning: #F59E0B;
+}
+:root {
+    /* Fonts */
+    --font-main: 'Inter', sans-serif;
+    /* Font Sizes */
+    --text-xs: 12px;
+    --text-sm: 14px;
+    --text-md: 16px;
+    --text-lg: 18px;
+    --text-xl: 22px;
+    --text-2xl: 28px;
+    /* Font Weights */
+    --fw-light: 300;
+    --fw-normal: 400;
+    --fw-medium: 500;
+    --fw-bold: 600;
+}
