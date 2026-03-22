@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EF_LSM.Entities
 {
@@ -18,6 +19,12 @@ namespace EF_LSM.Entities
 
         [Range(1, 10)]
         public int Level { get; set; }
+
+        [Required]
+        public int DepartmentId { get; set; }
+
+        [ForeignKey(nameof(DepartmentId))]
+        public Department Department { get; set; }
 
         public ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
     }
