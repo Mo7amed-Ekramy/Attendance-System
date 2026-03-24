@@ -23,8 +23,14 @@ namespace EF_LSM.Entities
         [Required]
         public int DepartmentId { get; set; }
 
+        [Required]
+        public int DepartmentSectionId { get; set; }
+
         [ForeignKey(nameof(DepartmentId))]
         public Department Department { get; set; }
+
+        [ForeignKey(nameof(DepartmentSectionId))]
+        public DepartmentSection DepartmentSection { get; set; }
 
         public ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
     }
