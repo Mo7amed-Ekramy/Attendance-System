@@ -61,7 +61,7 @@ namespace EF_LSM.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("CourseId")
+                    b.Property<int>("CourseSectionId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
@@ -70,17 +70,12 @@ namespace EF_LSM.Migrations
                     b.Property<bool>("IsClosed")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("SectionId")
-                        .HasColumnType("int");
-
                     b.Property<int>("SessionType")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CourseId");
-
-                    b.HasIndex("SectionId");
+                    b.HasIndex("CourseSectionId");
 
                     b.ToTable("AttendanceSessions");
                 });
@@ -179,6 +174,35 @@ namespace EF_LSM.Migrations
                     b.ToTable("CoursePolicies");
                 });
 
+            modelBuilder.Entity("EF_LSM.Entities.CourseSection", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DepartmentSectionId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TAId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DepartmentSectionId");
+
+                    b.HasIndex("TAId");
+
+                    b.HasIndex("CourseId", "DepartmentSectionId")
+                        .IsUnique();
+
+                    b.ToTable("CourseSections");
+                });
+
             modelBuilder.Entity("EF_LSM.Entities.Department", b =>
                 {
                     b.Property<int>("Id")
@@ -208,6 +232,28 @@ namespace EF_LSM.Migrations
                     b.ToTable("Departments");
                 });
 
+            modelBuilder.Entity("EF_LSM.Entities.DepartmentSection", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("DepartmentId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Number")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DepartmentId", "Number")
+                        .IsUnique();
+
+                    b.ToTable("DepartmentSections");
+                });
+
             modelBuilder.Entity("EF_LSM.Entities.Enrollment", b =>
                 {
                     b.Property<int>("Id")
@@ -216,10 +262,7 @@ namespace EF_LSM.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CourseId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SectionId")
+                    b.Property<int>("CourseSectionId")
                         .HasColumnType("int");
 
                     b.Property<int>("StudentId")
@@ -227,11 +270,9 @@ namespace EF_LSM.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CourseId");
+                    b.HasIndex("CourseSectionId");
 
-                    b.HasIndex("SectionId");
-
-                    b.HasIndex("StudentId", "CourseId")
+                    b.HasIndex("StudentId", "CourseSectionId")
                         .IsUnique();
 
                     b.ToTable("Enrollments");
@@ -261,6 +302,8 @@ namespace EF_LSM.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("Notifications");
                 });
 
@@ -272,14 +315,14 @@ namespace EF_LSM.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("CourseSectionId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
                     b.Property<decimal>("MaxMark")
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("SectionId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -288,7 +331,7 @@ namespace EF_LSM.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SectionId");
+                    b.HasIndex("CourseSectionId");
 
                     b.ToTable("Quizzes");
                 });
@@ -323,38 +366,6 @@ namespace EF_LSM.Migrations
                     b.ToTable("QuizGrades");
                 });
 
-            modelBuilder.Entity("EF_LSM.Entities.Section", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("CourseId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("DepartmentId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Number")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TAId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DepartmentId");
-
-                    b.HasIndex("TAId");
-
-                    b.HasIndex("CourseId", "Number")
-                        .IsUnique();
-
-                    b.ToTable("Sections");
-                });
-
             modelBuilder.Entity("EF_LSM.Entities.Student", b =>
                 {
                     b.Property<int>("Id")
@@ -363,7 +374,10 @@ namespace EF_LSM.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("DepartmentId")
+                    b.Property<int>("DepartmentId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DepartmentSectionId")
                         .HasColumnType("int");
 
                     b.Property<string>("FullName")
@@ -382,6 +396,8 @@ namespace EF_LSM.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("DepartmentId");
+
+                    b.HasIndex("DepartmentSectionId");
 
                     b.HasIndex("UniversityId")
                         .IsUnique();
@@ -407,13 +423,13 @@ namespace EF_LSM.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<int>("Role")
+                        .HasColumnType("int");
+
                     b.Property<string>("UserName")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
-
-                    b.Property<int>("role")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -447,20 +463,13 @@ namespace EF_LSM.Migrations
 
             modelBuilder.Entity("EF_LSM.Entities.AttendanceSession", b =>
                 {
-                    b.HasOne("EF_LSM.Entities.Course", "Course")
+                    b.HasOne("EF_LSM.Entities.CourseSection", "CourseSection")
                         .WithMany("AttendanceSessions")
-                        .HasForeignKey("CourseId")
+                        .HasForeignKey("CourseSectionId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("EF_LSM.Entities.Section", "Section")
-                        .WithMany("AttendanceSessions")
-                        .HasForeignKey("SectionId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.Navigation("Course");
-
-                    b.Navigation("Section");
+                    b.Navigation("CourseSection");
                 });
 
             modelBuilder.Entity("EF_LSM.Entities.Course", b =>
@@ -495,24 +504,58 @@ namespace EF_LSM.Migrations
 
             modelBuilder.Entity("EF_LSM.Entities.CoursePolicy", b =>
                 {
-                    b.HasOne("EF_LSM.Entities.Course", null)
+                    b.HasOne("EF_LSM.Entities.Course", "Course")
                         .WithOne("CoursePolicy")
                         .HasForeignKey("EF_LSM.Entities.CoursePolicy", "CourseId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.Navigation("Course");
                 });
 
-            modelBuilder.Entity("EF_LSM.Entities.Enrollment", b =>
+            modelBuilder.Entity("EF_LSM.Entities.CourseSection", b =>
                 {
                     b.HasOne("EF_LSM.Entities.Course", "Course")
-                        .WithMany("Enrollments")
+                        .WithMany("CourseSections")
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("EF_LSM.Entities.Section", "Section")
+                    b.HasOne("EF_LSM.Entities.DepartmentSection", "DepartmentSection")
+                        .WithMany("CourseSections")
+                        .HasForeignKey("DepartmentSectionId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("EF_LSM.Entities.User", "TA")
+                        .WithMany("CourseSections")
+                        .HasForeignKey("TAId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+
+                    b.Navigation("DepartmentSection");
+
+                    b.Navigation("TA");
+                });
+
+            modelBuilder.Entity("EF_LSM.Entities.DepartmentSection", b =>
+                {
+                    b.HasOne("EF_LSM.Entities.Department", "Department")
+                        .WithMany("Sections")
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Department");
+                });
+
+            modelBuilder.Entity("EF_LSM.Entities.Enrollment", b =>
+                {
+                    b.HasOne("EF_LSM.Entities.CourseSection", "CourseSection")
                         .WithMany("Enrollments")
-                        .HasForeignKey("SectionId")
+                        .HasForeignKey("CourseSectionId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -522,59 +565,69 @@ namespace EF_LSM.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("Course");
-
-                    b.Navigation("Section");
+                    b.Navigation("CourseSection");
 
                     b.Navigation("Student");
                 });
 
+            modelBuilder.Entity("EF_LSM.Entities.Notification", b =>
+                {
+                    b.HasOne("EF_LSM.Entities.User", "User")
+                        .WithMany("Notifications")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("EF_LSM.Entities.Quiz", b =>
                 {
-                    b.HasOne("EF_LSM.Entities.Section", null)
+                    b.HasOne("EF_LSM.Entities.CourseSection", "CourseSection")
                         .WithMany("Quizzes")
-                        .HasForeignKey("SectionId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("CourseSectionId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.Navigation("CourseSection");
                 });
 
             modelBuilder.Entity("EF_LSM.Entities.QuizGrade", b =>
                 {
-                    b.HasOne("EF_LSM.Entities.Enrollment", null)
+                    b.HasOne("EF_LSM.Entities.Enrollment", "Enrollment")
                         .WithMany("QuizGrades")
                         .HasForeignKey("EnrollmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("EF_LSM.Entities.Section", b =>
-                {
-                    b.HasOne("EF_LSM.Entities.Course", "Course")
-                        .WithMany("Sections")
-                        .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("EF_LSM.Entities.Department", null)
-                        .WithMany("Sections")
-                        .HasForeignKey("DepartmentId");
-
-                    b.HasOne("EF_LSM.Entities.User", "TA")
-                        .WithMany("Sections")
-                        .HasForeignKey("TAId")
+                    b.HasOne("EF_LSM.Entities.Quiz", "Quiz")
+                        .WithMany("QuizGrades")
+                        .HasForeignKey("QuizId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("Course");
+                    b.Navigation("Enrollment");
 
-                    b.Navigation("TA");
+                    b.Navigation("Quiz");
                 });
 
             modelBuilder.Entity("EF_LSM.Entities.Student", b =>
                 {
-                    b.HasOne("EF_LSM.Entities.Department", null)
+                    b.HasOne("EF_LSM.Entities.Department", "Department")
                         .WithMany("Students")
-                        .HasForeignKey("DepartmentId");
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("EF_LSM.Entities.DepartmentSection", "DepartmentSection")
+                        .WithMany("Students")
+                        .HasForeignKey("DepartmentSectionId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Department");
+
+                    b.Navigation("DepartmentSection");
                 });
 
             modelBuilder.Entity("EF_LSM.Entities.AttendanceSession", b =>
@@ -584,16 +637,21 @@ namespace EF_LSM.Migrations
 
             modelBuilder.Entity("EF_LSM.Entities.Course", b =>
                 {
-                    b.Navigation("AttendanceSessions");
-
                     b.Navigation("CourseDepartments");
 
                     b.Navigation("CoursePolicy")
                         .IsRequired();
 
+                    b.Navigation("CourseSections");
+                });
+
+            modelBuilder.Entity("EF_LSM.Entities.CourseSection", b =>
+                {
+                    b.Navigation("AttendanceSessions");
+
                     b.Navigation("Enrollments");
 
-                    b.Navigation("Sections");
+                    b.Navigation("Quizzes");
                 });
 
             modelBuilder.Entity("EF_LSM.Entities.Department", b =>
@@ -605,6 +663,13 @@ namespace EF_LSM.Migrations
                     b.Navigation("Students");
                 });
 
+            modelBuilder.Entity("EF_LSM.Entities.DepartmentSection", b =>
+                {
+                    b.Navigation("CourseSections");
+
+                    b.Navigation("Students");
+                });
+
             modelBuilder.Entity("EF_LSM.Entities.Enrollment", b =>
                 {
                     b.Navigation("AttendanceRecords");
@@ -612,13 +677,9 @@ namespace EF_LSM.Migrations
                     b.Navigation("QuizGrades");
                 });
 
-            modelBuilder.Entity("EF_LSM.Entities.Section", b =>
+            modelBuilder.Entity("EF_LSM.Entities.Quiz", b =>
                 {
-                    b.Navigation("AttendanceSessions");
-
-                    b.Navigation("Enrollments");
-
-                    b.Navigation("Quizzes");
+                    b.Navigation("QuizGrades");
                 });
 
             modelBuilder.Entity("EF_LSM.Entities.Student", b =>
@@ -628,7 +689,9 @@ namespace EF_LSM.Migrations
 
             modelBuilder.Entity("EF_LSM.Entities.User", b =>
                 {
-                    b.Navigation("Sections");
+                    b.Navigation("CourseSections");
+
+                    b.Navigation("Notifications");
                 });
 #pragma warning restore 612, 618
         }
