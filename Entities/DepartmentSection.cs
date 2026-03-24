@@ -14,7 +14,7 @@ namespace EF_LSM.Entities
 
         [Required]
         [Range(1, 100)]
-        public int Number { get; set; }   // 1,2,3,4
+        public int Number { get; set; }
 
         [ForeignKey(nameof(DepartmentId))]
         public Department Department { get; set; }

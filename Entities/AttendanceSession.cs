@@ -17,9 +17,7 @@ namespace EF_LSM.Entities
         public AttendanceSessionType SessionType { get; set; }
 
         [Required]
-        public int CourseId { get; set; }
-
-        public int? SectionId { get; set; }
+        public int CourseSectionId { get; set; }
 
         [StringLength(50)]
         public string? AttendanceCode { get; set; }
@@ -27,11 +25,8 @@ namespace EF_LSM.Entities
         [Required]
         public bool IsClosed { get; set; }
 
-        [ForeignKey(nameof(CourseId))]
-        public Course Course { get; set; }
-
-        [ForeignKey(nameof(SectionId))]
-        public Section? Section { get; set; }
+        [ForeignKey(nameof(CourseSectionId))]
+        public CourseSection CourseSection { get; set; }
 
         public ICollection<AttendanceRecord> Records { get; set; } = new List<AttendanceRecord>();
     }

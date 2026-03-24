@@ -14,13 +14,13 @@ namespace EF_LSM.Entities
         [Required]
         public int EnrollmentId { get; set; }
 
+        [Required]
+        public bool IsPresent { get; set; }
+
         [ForeignKey(nameof(AttendanceSessionId))]
         public AttendanceSession AttendanceSession { get; set; }
 
         [ForeignKey(nameof(EnrollmentId))]
         public Enrollment Enrollment { get; set; }
-
-        [Required]
-        public bool IsPresent { get; set; }
     }
 }

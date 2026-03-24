@@ -13,19 +13,13 @@ namespace EF_LSM.Entities
         public int StudentId { get; set; }
 
         [Required]
-        public int CourseId { get; set; }
-
-        [Required]
-        public int SectionId { get; set; }
+        public int CourseSectionId { get; set; }
 
         [ForeignKey(nameof(StudentId))]
         public Student Student { get; set; }
 
-        [ForeignKey(nameof(CourseId))]
-        public Course Course { get; set; }
-
-        [ForeignKey(nameof(SectionId))]
-        public Section Section { get; set; }
+        [ForeignKey(nameof(CourseSectionId))]
+        public CourseSection CourseSection { get; set; }
 
         public ICollection<AttendanceRecord> AttendanceRecords { get; set; } = new List<AttendanceRecord>();
 

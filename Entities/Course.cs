@@ -29,12 +29,8 @@ namespace EF_LSM.Entities
 
         public CoursePolicy CoursePolicy { get; set; }
 
-        public ICollection<Section> Sections { get; set; } = new List<Section>();
-
-        public ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
-
-        public ICollection<AttendanceSession> AttendanceSessions { get; set; } = new List<AttendanceSession>();
-
         public ICollection<CourseDepartment> CourseDepartments { get; set; } = new List<CourseDepartment>();
+
+        public ICollection<CourseSection> CourseSections { get; set; } = new List<CourseSection>();
     }
 }

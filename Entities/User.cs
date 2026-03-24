@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace EF_LSM.Entities
 {
@@ -21,7 +22,10 @@ namespace EF_LSM.Entities
         public string Email { get; set; }
 
         [Required]
-        public Role role { get; set; }
-        public ICollection<Section> Sections { get; set; } = new List<Section>();
+        public Role Role { get; set; }
+
+        public ICollection<CourseSection> CourseSections { get; set; } = new List<CourseSection>();
+
+        public ICollection<Notification> Notifications { get; set; } = new List<Notification>();
     }
 }

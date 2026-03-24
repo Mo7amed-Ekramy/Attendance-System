@@ -25,5 +25,8 @@ namespace EF_LSM.Entities
 
         [Range(0, 50)]
         public int BestQuizzesCount { get; set; }
+
+        [ForeignKey(nameof(CourseId))]
+        public Course Course { get; set; }
     }
 }

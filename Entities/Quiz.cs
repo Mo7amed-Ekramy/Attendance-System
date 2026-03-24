@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -10,7 +11,7 @@ namespace EF_LSM.Entities
         public int Id { get; set; }
 
         [Required]
-        public int SectionId { get; set; }
+        public int CourseSectionId { get; set; }
 
         [Required]
         [StringLength(100)]
@@ -21,5 +22,10 @@ namespace EF_LSM.Entities
 
         [Range(0, 100)]
         public decimal MaxMark { get; set; }
+
+        [ForeignKey(nameof(CourseSectionId))]
+        public CourseSection CourseSection { get; set; }
+
+        public ICollection<QuizGrade> QuizGrades { get; set; } = new List<QuizGrade>();
     }
 }

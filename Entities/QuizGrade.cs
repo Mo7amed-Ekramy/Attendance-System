@@ -19,5 +19,11 @@ namespace EF_LSM.Entities
 
         [Range(0, 100)]
         public decimal PercentageScore { get; set; }
+
+        [ForeignKey(nameof(QuizId))]
+        public Quiz Quiz { get; set; }
+
+        [ForeignKey(nameof(EnrollmentId))]
+        public Enrollment Enrollment { get; set; }
     }
 }

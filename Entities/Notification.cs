@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EF_LSM.Entities
 {
@@ -19,5 +20,8 @@ namespace EF_LSM.Entities
 
         [Required]
         public bool IsRead { get; set; }
+
+        [ForeignKey(nameof(UserId))]
+        public User User { get; set; }
     }
 }

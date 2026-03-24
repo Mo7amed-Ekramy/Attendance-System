@@ -18,7 +18,7 @@ namespace EF_LSM.Entities
 
         public ICollection<Student> Students { get; set; } = new List<Student>();
 
-        public ICollection<Section> Sections { get; set; } = new List<Section>();
+        public ICollection<DepartmentSection> Sections { get; set; } = new List<DepartmentSection>();
 
         public ICollection<CourseDepartment> CourseDepartments { get; set; } = new List<CourseDepartment>();
     }
