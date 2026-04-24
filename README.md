@@ -392,5 +392,45 @@ Controller → Service → DbContext
 - 🤖 AI-based student performance tracking
 
 ---
+## 👥 Team | الفريق
+
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="assets/team/j.png" width="100" height="100" style="border-radius:50%"/><br/>
+      <b>Julia Osama</b><br/>
+      🎨 UI / UX Designer<br/>
+      <a href="https://www.linkedin.com/in/julia-osama-756205386/">
+        <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white"/>
+      </a>
+    </td>
+    <td align="center">
+      <img src="assets/team/e.png" width="100" height="100" style="border-radius:50%"/><br/>
+      <b>Mohamed Ekramy</b><br/>
+      💻 Frontend Developer<br/>
+      <a href="https://www.linkedin.com/in/mohamed-ekramy25/">
+        <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white"/>
+      </a>
+    </td>
+    <td align="center">
+      <img src="assets/team/i.png" width="100" height="100" style="border-radius:50%"/><br/>
+      <b>Mohamed Ibrahim</b><br/>
+      📊 Data Analyst<br/>
+      <a href="https://www.linkedin.com/in/mohamed-ibrahim-bb2b2b324/">
+        <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white"/>
+      </a>
+    </td>
+    <td align="center">
+      <img src="assets/team/m.png" width="100" height="100" style="border-radius:50%"/><br/>
+      <b>Mahmoud Sayed</b><br/>
+      ⚙️ Backend Developer ASP.NET<br/>
+      <a href="https://www.linkedin.com/in/mahmoud-sayed-mohamed/">
+        <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white"/>
+      </a>
+    </td>
+  </tr>
+</table>
+
+---
 
 ⭐ If you like the project, give it a star!
