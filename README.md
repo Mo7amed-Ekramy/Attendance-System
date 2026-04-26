@@ -69,7 +69,7 @@ We used **SignalR** to bridge the gap between the server and the client:
 <table align="center">
   <tr>
     <td align="center">
-      <img src="https://ui-avatars.com/api/?name=Mahmoud+Sayed&background=512bd4&color=fff" width="100" style="border-radius:50%"/><br/>
+      <img src="assets/team/m.png" width="100" height="100" style="border-radius:50%"/><br/>
       <b>Mahmoud Sayed</b><br/>
       ⚙️ Backend Developer<br/>
       <a href="https://www.linkedin.com/in/mahmoud-sayed-mohamed/">
@@ -77,7 +77,7 @@ We used **SignalR** to bridge the gap between the server and the client:
       </a>
     </td>
     <td align="center">
-      <img src="https://ui-avatars.com/api/?name=Julia+Osama&background=ff69b4&color=fff" width="100" style="border-radius:50%"/><br/>
+      <img src="assets/team/j.png" width="100" height="100" style="border-radius:50%"/><br/>
       <b>Julia Osama</b><br/>
       🎨 UI / UX Designer<br/>
       <a href="https://www.linkedin.com/in/julia-osama-756205386/">
@@ -85,7 +85,7 @@ We used **SignalR** to bridge the gap between the server and the client:
       </a>
     </td>
     <td align="center">
-      <img src="https://ui-avatars.com/api/?name=Mohamed+Ekramy&background=0077b5&color=fff" width="100" style="border-radius:50%"/><br/>
+      <img src="assets/team/e.png" width="100" height="100" style="border-radius:50%"/><br/>
       <b>Mohamed Ekramy</b><br/>
       💻 Frontend Developer<br/>
       <a href="https://www.linkedin.com/in/mohamed-ekramy25/">
@@ -93,7 +93,7 @@ We used **SignalR** to bridge the gap between the server and the client:
       </a>
     </td>
     <td align="center">
-      <img src="https://ui-avatars.com/api/?name=Mohamed+Ibrahim&background=28a745&color=fff" width="100" style="border-radius:50%"/><br/>
+      <img src="assets/team/i.png" width="100" height="100" style="border-radius:50%"/><br/>
       <b>Mohamed Ibrahim</b><br/>
       📊 Data Analyst<br/>
       <a href="https://www.linkedin.com/in/mohamed-ibrahim-bb2b2b324/">
