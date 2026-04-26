@@ -67,9 +67,9 @@ We used **SignalR** to bridge the gap between the server and the client:
 ## 👥 The Team | فريق العمل
 
 <table align="center">
-  <tr>
+  <tr>    
     <td align="center">
-      <img src="assets/team/m.png" width="100" height="100" style="border-radius:50%"/><br/>
+      <img src="assest/team/m.png" width="100" height="100" style="border-radius:50%"/><br/>
       <b>Mahmoud Sayed</b><br/>
       ⚙️ Backend Developer<br/>
       <a href="https://www.linkedin.com/in/mahmoud-sayed-mohamed/">
@@ -77,7 +77,7 @@ We used **SignalR** to bridge the gap between the server and the client:
       </a>
     </td>
     <td align="center">
-      <img src="assets/team/j.png" width="100" height="100" style="border-radius:50%"/><br/>
+      <img src="assest/team/j.png" width="100" height="100" style="border-radius:50%"/><br/>
       <b>Julia Osama</b><br/>
       🎨 UI / UX Designer<br/>
       <a href="https://www.linkedin.com/in/julia-osama-756205386/">
@@ -85,7 +85,7 @@ We used **SignalR** to bridge the gap between the server and the client:
       </a>
     </td>
     <td align="center">
-      <img src="assets/team/e.png" width="100" height="100" style="border-radius:50%"/><br/>
+      <img src="assest/team/e.png" width="100" height="100" style="border-radius:50%"/><br/>
       <b>Mohamed Ekramy</b><br/>
       💻 Frontend Developer<br/>
       <a href="https://www.linkedin.com/in/mohamed-ekramy25/">
@@ -93,7 +93,7 @@ We used **SignalR** to bridge the gap between the server and the client:
       </a>
     </td>
     <td align="center">
-      <img src="assets/team/i.png" width="100" height="100" style="border-radius:50%"/><br/>
+      <img src="assest/team/i.png" width="100" height="100" style="border-radius:50%"/><br/>
       <b>Mohamed Ibrahim</b><br/>
       📊 Data Analyst<br/>
       <a href="https://www.linkedin.com/in/mohamed-ibrahim-bb2b2b324/">
