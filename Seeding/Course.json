@@ -1,0 +1,114 @@
+[
+  {
+    "id": 1,
+    "code": "CS381",
+    "name": "software development",
+    "semester": "2",
+    "doctorId": 6,
+    "level": 3
+  },
+  {
+    "id": 2,
+    "code": "SE332",
+    "name": "Software Construction",
+    "semester": "2",
+    "doctorId": 1,
+    "level": 3
+  },
+  {
+    "id": 3,
+    "code": "SE331",
+    "name": "Software Architecture Design",
+    "semester": "2",
+    "doctorId": 3,
+    "level": 3
+  },
+  {
+    "id": 4,
+    "code": "CS342",
+    "name": "Automata",
+    "semester": "2",
+    "doctorId": 4,
+    "level": 3
+  },
+  {
+    "id": 5,
+    "code": "SE321",
+    "name": "Software Requirements Analysis",
+    "semester": "2",
+    "doctorId": 5,
+    "level": 3
+  },
+  {
+    "id": 6,
+    "code": "CS361",
+    "name": "Artificial Intelligence",
+    "semester": "2",
+    "doctorId": 5,
+    "level": 3
+  },
+  {
+    "id": 7,
+    "code": "AI125",
+    "name": "Decision Support Systems",
+    "semester": "2",
+    "doctorId": 3,
+    "level": 3
+  },
+  {
+    "id": 8,
+    "code": "SE112",
+    "name": "Intelligent Systems",
+    "semester": "2",
+    "doctorId": 5,
+    "level": 3
+  },
+  {
+    "id": 9,
+    "code": "IS911",
+    "name": "Web Programming",
+    "semester": "2",
+    "doctorId": 7,
+    "level": 3
+  },
+  {
+    "id": 10,
+    "code": "AI216",
+    "name": "Operating_Systems",
+    "semester": "2",
+    "doctorId": 2,
+    "level": 3
+  },
+  {
+    "id": 11,
+    "code": "CS211",
+    "name": "Image Processing",
+    "semester": "2",
+    "doctorId": 6,
+    "level": 3
+  },
+  {
+    "id": 12,
+    "code": "CS22",
+    "name": "Computer Vision",
+    "semester": "2",
+    "doctorId": 2,
+    "level": 3
+  },
+  {
+    "id": 13,
+    "code": "SE140",
+    "name": "Algorithms Design Analysis",
+    "semester": "2",
+    "doctorId": 9,
+    "level": 3
+  },
+  {
+    "id": 14,
+    "code": "AI126",
+    "name": "Artificial Intelligence (CS)",
+    "semester": "2",
+    "doctorId": 4,
+    "level": 3
+  }
+]

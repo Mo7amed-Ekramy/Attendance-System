@@ -1,0 +1,3737 @@
+[
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 1,
+    "Level": 3,
+    "FullName": "ابرام روماني جرجس عطا الله",
+    "UniversityId": 20720236001,
+    "Id": 1,
+    "UserName": "abram_7699"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 1,
+    "Level": 3,
+    "FullName": "احمد ابراهيم رشدى",
+    "UniversityId": 20720236002,
+    "Id": 2,
+    "UserName": "ahmd_7517"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 1,
+    "Level": 3,
+    "FullName": "احمد امير احمد جمعة",
+    "UniversityId": 20720236003,
+    "Id": 3,
+    "UserName": "ahmd_4657"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 1,
+    "Level": 3,
+    "FullName": "احمد حاتم محمد السيد",
+    "UniversityId": 20720236005,
+    "Id": 4,
+    "UserName": "ahmd_8171"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 1,
+    "Level": 3,
+    "FullName": "احمد خيري احمد سيد",
+    "UniversityId": 20720236006,
+    "Id": 5,
+    "UserName": "ahmd_8027"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 1,
+    "Level": 3,
+    "FullName": "احمد عبد العليم سيد احمد",
+    "UniversityId": 20720236007,
+    "Id": 6,
+    "UserName": "ahmd_1478"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 1,
+    "Level": 3,
+    "FullName": "احمد علاء الدين مصطفى خليفه",
+    "UniversityId": 20720236008,
+    "Id": 7,
+    "UserName": "ahmd_3276"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 1,
+    "Level": 3,
+    "FullName": "احمد علي محمد علي",
+    "UniversityId": 20720236009,
+    "Id": 8,
+    "UserName": "ahmd_3932"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 1,
+    "Level": 3,
+    "FullName": "احمد مبروك عبدالفتاح مبروك",
+    "UniversityId": 20720236010,
+    "Id": 9,
+    "UserName": "ahmd_6492"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 1,
+    "Level": 3,
+    "FullName": "احمد محمد عبد المعتمد محمد",
+    "UniversityId": 20720236011,
+    "Id": 10,
+    "UserName": "ahmd_4286"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 1,
+    "Level": 3,
+    "FullName": "احمد ناصر عبد العال احمد",
+    "UniversityId": 20720236013,
+    "Id": 11,
+    "UserName": "ahmd_1074"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 1,
+    "Level": 3,
+    "FullName": "ادهم محمد احمد جلال",
+    "UniversityId": 20720236014,
+    "Id": 12,
+    "UserName": "adhm_4082"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 1,
+    "Level": 3,
+    "FullName": "اروى ابراهيم احمد مصطفى",
+    "UniversityId": 20720236015,
+    "Id": 13,
+    "UserName": "arwy_1551"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 1,
+    "Level": 3,
+    "FullName": "اروى عبد السلام عثمان بكر",
+    "UniversityId": 20720236016,
+    "Id": 14,
+    "UserName": "arwy_6963"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 1,
+    "Level": 3,
+    "FullName": "اريج حمدان رشدى",
+    "UniversityId": 20720236017,
+    "Id": 15,
+    "UserName": "aryg_6495"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 1,
+    "Level": 3,
+    "FullName": "اسراء محمد شحاته على",
+    "UniversityId": 20720236018,
+    "Id": 16,
+    "UserName": "asra_4005"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 1,
+    "Level": 3,
+    "FullName": "اسراء محمد عبدالرحيم محمد",
+    "UniversityId": 20720236019,
+    "Id": 17,
+    "UserName": "asra_7438"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 1,
+    "Level": 3,
+    "FullName": "اسراء محمود محمد صالح",
+    "UniversityId": 20720236020,
+    "Id": 18,
+    "UserName": "asra_8563"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 1,
+    "Level": 3,
+    "FullName": "اسلام ايمن احمد توفيق",
+    "UniversityId": 20720236021,
+    "Id": 19,
+    "UserName": "aslam_3216"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 1,
+    "Level": 3,
+    "FullName": "اسلام هشام سيد شاكر",
+    "UniversityId": 20720236022,
+    "Id": 20,
+    "UserName": "aslam_9448"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 1,
+    "Level": 3,
+    "FullName": "الاء بدرى على",
+    "UniversityId": 20720236024,
+    "Id": 21,
+    "UserName": "ala_2692"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 1,
+    "Level": 3,
+    "FullName": "الاء ممدوح سالمان عبدالمنعم",
+    "UniversityId": 20720236025,
+    "Id": 22,
+    "UserName": "ala_9702"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 1,
+    "Level": 3,
+    "FullName": "البراء عبدالرحمن محمود احمد",
+    "UniversityId": 20720236026,
+    "Id": 23,
+    "UserName": "albra_7550"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 2,
+    "Level": 3,
+    "FullName": "الحسينى عبد الحميد مغربى",
+    "UniversityId": 20720236027,
+    "Id": 24,
+    "UserName": "alhsyny_8186"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 2,
+    "Level": 3,
+    "FullName": "امانى صالحين سيد",
+    "UniversityId": 20720236028,
+    "Id": 25,
+    "UserName": "amany_2508"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 2,
+    "Level": 3,
+    "FullName": "امير محمد حسن ابراهيم",
+    "UniversityId": 20720236029,
+    "Id": 26,
+    "UserName": "amyr_5979"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 2,
+    "Level": 3,
+    "FullName": "ان اكرم صليب",
+    "UniversityId": 20720236030,
+    "Id": 27,
+    "UserName": "an_1404"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 2,
+    "Level": 3,
+    "FullName": "اندراوس فرج صابر",
+    "UniversityId": 20720236031,
+    "Id": 28,
+    "UserName": "andraws_2102"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 2,
+    "Level": 3,
+    "FullName": "انس عزام فاروق احمد",
+    "UniversityId": 20720236032,
+    "Id": 29,
+    "UserName": "ans_6708"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 2,
+    "Level": 3,
+    "FullName": "ايمان تامر السيد محمد",
+    "UniversityId": 20720236202,
+    "Id": 30,
+    "UserName": "ayman_4634"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 2,
+    "Level": 3,
+    "FullName": "ايريني القمص هدرا وهيب",
+    "UniversityId": 20720236033,
+    "Id": 31,
+    "UserName": "ayryny_3812"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 2,
+    "Level": 3,
+    "FullName": "ايلاريه يعقوب لويس بولس",
+    "UniversityId": 20720236034,
+    "Id": 32,
+    "UserName": "aylaryh_7390"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 2,
+    "Level": 3,
+    "FullName": "ايه حماده احمد",
+    "UniversityId": 20720236035,
+    "Id": 33,
+    "UserName": "ayh_4813"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 2,
+    "Level": 3,
+    "FullName": "ايه محمد حسين",
+    "UniversityId": 20720236037,
+    "Id": 34,
+    "UserName": "ayh_4954"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 2,
+    "Level": 3,
+    "FullName": "بيمن باسم بطرس",
+    "UniversityId": 20720236038,
+    "Id": 35,
+    "UserName": "bymn_6311"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 2,
+    "Level": 3,
+    "FullName": "تامر  ياسر عبد العزيز على",
+    "UniversityId": 20720236039,
+    "Id": 36,
+    "UserName": "tamr_5169"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 2,
+    "Level": 3,
+    "FullName": "تسنيم محمد صبره",
+    "UniversityId": 20720236040,
+    "Id": 37,
+    "UserName": "tsnym_2285"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 2,
+    "Level": 3,
+    "FullName": "توماس نادى شوقى",
+    "UniversityId": 20720236041,
+    "Id": 38,
+    "UserName": "twmas_9494"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 2,
+    "Level": 3,
+    "FullName": "جاسمين محمود مصطفى",
+    "UniversityId": 20720236042,
+    "Id": 39,
+    "UserName": "gasmyn_1690"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 2,
+    "Level": 3,
+    "FullName": "جعفر على محمد",
+    "UniversityId": 20720236043,
+    "Id": 40,
+    "UserName": "gafr_1789"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 2,
+    "Level": 3,
+    "FullName": "جمانة حسين عبدالعزيز حسين",
+    "UniversityId": 20720236044,
+    "Id": 41,
+    "UserName": "gmana_2008"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 2,
+    "Level": 3,
+    "FullName": "جوليا اسامه عزيز",
+    "UniversityId": 20720236045,
+    "Id": 42,
+    "UserName": "gwlya_1323"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 2,
+    "Level": 3,
+    "FullName": "حازم قاسم محمود",
+    "UniversityId": 20720236046,
+    "Id": 43,
+    "UserName": "hazm_6615"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 2,
+    "Level": 3,
+    "FullName": "حبيبة محمود عبد الحميد",
+    "UniversityId": 20720236047,
+    "Id": 44,
+    "UserName": "hbyba_2996"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 2,
+    "Level": 3,
+    "FullName": "خالد ممدوح شعبان امين",
+    "UniversityId": 20720236049,
+    "Id": 45,
+    "UserName": "khald_4842"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 2,
+    "Level": 3,
+    "FullName": "دان محمد عبد اللطيف احمد",
+    "UniversityId": 20720236050,
+    "Id": 46,
+    "UserName": "dan_3148"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 2,
+    "Level": 3,
+    "FullName": "رحمه نصر الدين محمد",
+    "UniversityId": 20720236051,
+    "Id": 47,
+    "UserName": "rhmh_5080"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 2,
+    "Level": 3,
+    "FullName": "رناد عبدالباسط مهني ابراهيم",
+    "UniversityId": 20720236052,
+    "Id": 48,
+    "UserName": "rnad_4941"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 3,
+    "Level": 3,
+    "FullName": "ريهام احمد حسين",
+    "UniversityId": 20720236053,
+    "Id": 49,
+    "UserName": "ryham_2873"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 3,
+    "Level": 3,
+    "FullName": "زلفى محمد محمود",
+    "UniversityId": 20720236054,
+    "Id": 50,
+    "UserName": "zlfy_1415"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 3,
+    "Level": 3,
+    "FullName": "زياد احمد يوسف حسين",
+    "UniversityId": 20720236055,
+    "Id": 51,
+    "UserName": "zyad_4161"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 3,
+    "Level": 3,
+    "FullName": "زياد خالد عيد فرغلى",
+    "UniversityId": 20720236056,
+    "Id": 52,
+    "UserName": "zyad_7772"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 3,
+    "Level": 3,
+    "FullName": "زياد عادل عبدالفتاح",
+    "UniversityId": 20720236057,
+    "Id": 53,
+    "UserName": "zyad_2110"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 3,
+    "Level": 3,
+    "FullName": "زياد علاء نجاتي عبدالرشيد",
+    "UniversityId": 20720236058,
+    "Id": 54,
+    "UserName": "zyad_7185"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 3,
+    "Level": 3,
+    "FullName": "زياد محمد مراد رياض",
+    "UniversityId": 20720236059,
+    "Id": 55,
+    "UserName": "zyad_3867"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 3,
+    "Level": 3,
+    "FullName": "زياد وليد محمد عبدالحي",
+    "UniversityId": 20720236060,
+    "Id": 56,
+    "UserName": "zyad_5471"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 3,
+    "Level": 3,
+    "FullName": "زينب محمد عبد التواب عبد الرحيم",
+    "UniversityId": 20720236061,
+    "Id": 57,
+    "UserName": "zynb_8743"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 3,
+    "Level": 3,
+    "FullName": "ساندرا سامى صدقى",
+    "UniversityId": 20720236062,
+    "Id": 58,
+    "UserName": "sandra_9225"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 3,
+    "Level": 3,
+    "FullName": "سلمى محمد عبدالفتاح عبدالرحيم",
+    "UniversityId": 20720236063,
+    "Id": 59,
+    "UserName": "slmy_6920"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 3,
+    "Level": 3,
+    "FullName": "سليمان على السيد على",
+    "UniversityId": 20720236064,
+    "Id": 60,
+    "UserName": "slyman_7469"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 3,
+    "Level": 3,
+    "FullName": "سندس عمر حسين",
+    "UniversityId": 20720236065,
+    "Id": 61,
+    "UserName": "snds_3322"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 3,
+    "Level": 3,
+    "FullName": "سها ناجح محمد البارودى",
+    "UniversityId": 20720236066,
+    "Id": 62,
+    "UserName": "sha_9914"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 3,
+    "Level": 3,
+    "FullName": "سهيله قرشي عبدالمنعم زين",
+    "UniversityId": 20720236067,
+    "Id": 63,
+    "UserName": "shylh_9917"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 3,
+    "Level": 3,
+    "FullName": "سيف علاء محمود احمد",
+    "UniversityId": 20720236068,
+    "Id": 64,
+    "UserName": "syf_5779"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 3,
+    "Level": 3,
+    "FullName": "شنودة رزق رمزي زاخر",
+    "UniversityId": 20720236069,
+    "Id": 65,
+    "UserName": "shnwda_6730"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 3,
+    "Level": 3,
+    "FullName": "شهد محمد محمود محمد",
+    "UniversityId": 20720236070,
+    "Id": 66,
+    "UserName": "shhd_3783"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 3,
+    "Level": 3,
+    "FullName": "شهد وليد مصطفى حسن",
+    "UniversityId": 20720236071,
+    "Id": 67,
+    "UserName": "shhd_4203"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 3,
+    "Level": 3,
+    "FullName": "شهد يحى محمد ملاحظ",
+    "UniversityId": 20720236072,
+    "Id": 68,
+    "UserName": "shhd_5963"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 3,
+    "Level": 3,
+    "FullName": "صهيب محمود عبد الحميد",
+    "UniversityId": 20720236073,
+    "Id": 69,
+    "UserName": "shyb_3762"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 3,
+    "Level": 3,
+    "FullName": "ضياء محمد حسن محمد",
+    "UniversityId": 20720236074,
+    "Id": 70,
+    "UserName": "dya_8728"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 3,
+    "Level": 3,
+    "FullName": "طارق عمر سيد",
+    "UniversityId": 20720236075,
+    "Id": 71,
+    "UserName": "tarq_6172"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 3,
+    "Level": 3,
+    "FullName": "طه محمود محمد",
+    "UniversityId": 20720236076,
+    "Id": 72,
+    "UserName": "th_7055"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 3,
+    "Level": 3,
+    "FullName": "عبد الباسط رزق عبد الباسط",
+    "UniversityId": 20720236077,
+    "Id": 73,
+    "UserName": "abd_5676"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 4,
+    "Level": 3,
+    "FullName": "عبد الحليم ابراهيم فرغلى",
+    "UniversityId": 20720236078,
+    "Id": 74,
+    "UserName": "abd_7051"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 4,
+    "Level": 3,
+    "FullName": "عبد الرحمن احمد محمد عبد الرحمن",
+    "UniversityId": 20720236079,
+    "Id": 75,
+    "UserName": "abd_7590"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 4,
+    "Level": 3,
+    "FullName": "عبد الرحمن اشرف شعبان",
+    "UniversityId": 20720236080,
+    "Id": 76,
+    "UserName": "abd_7192"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 4,
+    "Level": 3,
+    "FullName": "عبد الرحمن امين حسن",
+    "UniversityId": 20720236081,
+    "Id": 77,
+    "UserName": "abd_1578"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 4,
+    "Level": 3,
+    "FullName": "عبد الرحمن جمال احمد رمضان",
+    "UniversityId": 20720236082,
+    "Id": 78,
+    "UserName": "abd_4156"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 4,
+    "Level": 3,
+    "FullName": "عبد الرحمن عوض عبد الجابر",
+    "UniversityId": 20720236083,
+    "Id": 79,
+    "UserName": "abd_9951"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 4,
+    "Level": 3,
+    "FullName": "عبد الرحمن محمد عوض",
+    "UniversityId": 20720236084,
+    "Id": 80,
+    "UserName": "abd_4441"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 4,
+    "Level": 3,
+    "FullName": "عبد الله محمد شحاته",
+    "UniversityId": 20720236085,
+    "Id": 81,
+    "UserName": "abd_4704"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 4,
+    "Level": 3,
+    "FullName": "عبد الله محمود يحيى عبد الصادق",
+    "UniversityId": 20720236086,
+    "Id": 82,
+    "UserName": "abd_8745"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 4,
+    "Level": 3,
+    "FullName": "عبد الله نبيل طه",
+    "UniversityId": 20720236087,
+    "Id": 83,
+    "UserName": "abd_4735"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 4,
+    "Level": 3,
+    "FullName": "عبدالرحمن جمال عطا",
+    "UniversityId": 20720236088,
+    "Id": 84,
+    "UserName": "abdalrhmn_6574"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 4,
+    "Level": 3,
+    "FullName": "عبدالله احمد رضا نورالدين",
+    "UniversityId": 20720236089,
+    "Id": 85,
+    "UserName": "abdallh_7270"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 4,
+    "Level": 3,
+    "FullName": "عبير عصمت عبد السلام",
+    "UniversityId": 20720236090,
+    "Id": 86,
+    "UserName": "abyr_8323"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 4,
+    "Level": 3,
+    "FullName": "علاء جمعة العسيوي محمد",
+    "UniversityId": 20720236091,
+    "Id": 87,
+    "UserName": "ala_2501"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 4,
+    "Level": 3,
+    "FullName": "على عاطف محمود",
+    "UniversityId": 20720236092,
+    "Id": 88,
+    "UserName": "aly_4372"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 4,
+    "Level": 3,
+    "FullName": "على عبد العال ابراهيم محمد",
+    "UniversityId": 20720236093,
+    "Id": 89,
+    "UserName": "aly_5635"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 4,
+    "Level": 3,
+    "FullName": "على مصطفى هود",
+    "UniversityId": 20720236094,
+    "Id": 90,
+    "UserName": "aly_1380"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 4,
+    "Level": 3,
+    "FullName": "عماد الدين احمد شعلان عبدالعزيز",
+    "UniversityId": 20720236095,
+    "Id": 91,
+    "UserName": "amad_6279"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 4,
+    "Level": 3,
+    "FullName": "عمر حربى رشاد",
+    "UniversityId": 20720236096,
+    "Id": 92,
+    "UserName": "amr_3274"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 4,
+    "Level": 3,
+    "FullName": "عمر صابر سيد",
+    "UniversityId": 20720236097,
+    "Id": 93,
+    "UserName": "amr_6402"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 4,
+    "Level": 3,
+    "FullName": "عمر عماد الدين عبد الله",
+    "UniversityId": 20720236098,
+    "Id": 94,
+    "UserName": "amr_7720"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 4,
+    "Level": 3,
+    "FullName": "عمرو على عبد الراضى",
+    "UniversityId": 20720236099,
+    "Id": 95,
+    "UserName": "amrw_1227"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 4,
+    "Level": 3,
+    "FullName": "عمرو مصطفى محمد عبدالعال",
+    "UniversityId": 20720236100,
+    "Id": 96,
+    "UserName": "amrw_6583"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 4,
+    "Level": 3,
+    "FullName": "فاطمة عبدالواحد عبدة احمد",
+    "UniversityId": 20720236101,
+    "Id": 97,
+    "UserName": "fatma_7243"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 4,
+    "Level": 3,
+    "FullName": "فاطمة محروص محمد امين",
+    "UniversityId": 20720236102,
+    "Id": 98,
+    "UserName": "fatma_9976"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 5,
+    "Level": 3,
+    "FullName": "فاطمه احمد مختار",
+    "UniversityId": 20720236103,
+    "Id": 99,
+    "UserName": "fatmh_5941"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 5,
+    "Level": 3,
+    "FullName": "فتحى ابو الحسن فتحى",
+    "UniversityId": 20720236104,
+    "Id": 100,
+    "UserName": "fthy_9451"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 5,
+    "Level": 3,
+    "FullName": "فهمي هاشم محمد فهمي",
+    "UniversityId": 20720236106,
+    "Id": 101,
+    "UserName": "fhmy_4766"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 5,
+    "Level": 3,
+    "FullName": "كارين سامح طلعت",
+    "UniversityId": 20720236107,
+    "Id": 102,
+    "UserName": "karyn_8674"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 5,
+    "Level": 3,
+    "FullName": "كريم احمد سليمان كوسى",
+    "UniversityId": 20720236108,
+    "Id": 103,
+    "UserName": "krym_8796"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 5,
+    "Level": 3,
+    "FullName": "كريم سيد عيد",
+    "UniversityId": 20720236109,
+    "Id": 104,
+    "UserName": "krym_9163"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 5,
+    "Level": 3,
+    "FullName": "كمال على سليمان",
+    "UniversityId": 20720236110,
+    "Id": 105,
+    "UserName": "kmal_5042"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 5,
+    "Level": 3,
+    "FullName": "كيرلس ابراهيم صبحى",
+    "UniversityId": 20720236111,
+    "Id": 106,
+    "UserName": "kyrls_4366"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 5,
+    "Level": 3,
+    "FullName": "كيرلس ايمن فرويز",
+    "UniversityId": 20720236112,
+    "Id": 107,
+    "UserName": "kyrls_5748"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 5,
+    "Level": 3,
+    "FullName": "كيرلس رجائى يوسف",
+    "UniversityId": 20720236113,
+    "Id": 108,
+    "UserName": "kyrls_4610"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 5,
+    "Level": 3,
+    "FullName": "كيرلس ناجح ثابت",
+    "UniversityId": 20720236114,
+    "Id": 109,
+    "UserName": "kyrls_9789"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 5,
+    "Level": 3,
+    "FullName": "مادونا جمال كرم نسيم",
+    "UniversityId": 20720236115,
+    "Id": 110,
+    "UserName": "madwna_6570"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 5,
+    "Level": 3,
+    "FullName": "مى حامد خلف حسان",
+    "UniversityId": 20720236176,
+    "Id": 111,
+    "UserName": "my_4915"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 5,
+    "Level": 3,
+    "FullName": "ماركو موريس موسى",
+    "UniversityId": 20720236116,
+    "Id": 112,
+    "UserName": "markw_7325"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 5,
+    "Level": 3,
+    "FullName": "ماريا اشرف حليم",
+    "UniversityId": 20720236117,
+    "Id": 113,
+    "UserName": "marya_1904"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 5,
+    "Level": 3,
+    "FullName": "مايا احمد سيد محمد",
+    "UniversityId": 20720236119,
+    "Id": 114,
+    "UserName": "maya_8430"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 5,
+    "Level": 3,
+    "FullName": "مايكل رومانى عاطف",
+    "UniversityId": 20720236120,
+    "Id": 115,
+    "UserName": "maykl_8140"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 5,
+    "Level": 3,
+    "FullName": "محروص داود محروص جاد السيد",
+    "UniversityId": 20720236121,
+    "Id": 116,
+    "UserName": "mhrws_5053"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 5,
+    "Level": 3,
+    "FullName": "محمد ابراهيم حلمي ابراهيم",
+    "UniversityId": 20720236122,
+    "Id": 117,
+    "UserName": "mhmd_7702"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 5,
+    "Level": 3,
+    "FullName": "محمد ابراهيم شفيق",
+    "UniversityId": 20720236123,
+    "Id": 118,
+    "UserName": "mhmd_3699"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 5,
+    "Level": 3,
+    "FullName": "محمد ابراهيم محفوظ محمد",
+    "UniversityId": 20720236124,
+    "Id": 119,
+    "UserName": "mhmd_4609"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 5,
+    "Level": 3,
+    "FullName": "محمد اسامه محمد عبد الهادى",
+    "UniversityId": 20720236125,
+    "Id": 120,
+    "UserName": "mhmd_5660"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 5,
+    "Level": 3,
+    "FullName": "محمد اسامه نبيه",
+    "UniversityId": 20720236126,
+    "Id": 121,
+    "UserName": "mhmd_2580"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 5,
+    "Level": 3,
+    "FullName": "محمد اشرف احمد فرغلى",
+    "UniversityId": 20720236127,
+    "Id": 122,
+    "UserName": "mhmd_7678"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 6,
+    "Level": 3,
+    "FullName": "محمد اشرف ماهر احمد",
+    "UniversityId": 20720236128,
+    "Id": 123,
+    "UserName": "mhmd_5331"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 6,
+    "Level": 3,
+    "FullName": "محمد اكرامى محمد",
+    "UniversityId": 20720236129,
+    "Id": 124,
+    "UserName": "mhmd_8521"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 6,
+    "Level": 3,
+    "FullName": "محمد المعتز بالله محمد الصادق",
+    "UniversityId": 20720236130,
+    "Id": 125,
+    "UserName": "mhmd_3763"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 6,
+    "Level": 3,
+    "FullName": "محمد ايمن محمد حسن",
+    "UniversityId": 20720236131,
+    "Id": 126,
+    "UserName": "mhmd_3993"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 6,
+    "Level": 3,
+    "FullName": "محمد حسان على",
+    "UniversityId": 20720236132,
+    "Id": 127,
+    "UserName": "mhmd_9080"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 6,
+    "Level": 3,
+    "FullName": "محمد شعبان عبد المجيد",
+    "UniversityId": 20720236133,
+    "Id": 128,
+    "UserName": "mhmd_5830"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 6,
+    "Level": 3,
+    "FullName": "محمد عبد السلام عبد النعيم",
+    "UniversityId": 20720236135,
+    "Id": 129,
+    "UserName": "mhmd_6233"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 6,
+    "Level": 3,
+    "FullName": "محمد عبد الله عبد الباقى",
+    "UniversityId": 20720236136,
+    "Id": 130,
+    "UserName": "mhmd_8025"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 6,
+    "Level": 3,
+    "FullName": "محمد علاء الدين اكرام",
+    "UniversityId": 20720236137,
+    "Id": 131,
+    "UserName": "mhmd_2541"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 6,
+    "Level": 3,
+    "FullName": "محمد على مرعى على",
+    "UniversityId": 20720236138,
+    "Id": 132,
+    "UserName": "mhmd_4494"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 6,
+    "Level": 3,
+    "FullName": "محمد عماد حمدى محمد",
+    "UniversityId": 20720236139,
+    "Id": 133,
+    "UserName": "mhmd_5285"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 6,
+    "Level": 3,
+    "FullName": "محمد فوزى سعد ثابت",
+    "UniversityId": 20720236140,
+    "Id": 134,
+    "UserName": "mhmd_1576"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 6,
+    "Level": 3,
+    "FullName": "محمد ماهر احمد ماهر",
+    "UniversityId": 20720236141,
+    "Id": 135,
+    "UserName": "mhmd_7845"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 6,
+    "Level": 3,
+    "FullName": "محمد محمد عبد الرحيم",
+    "UniversityId": 20720236142,
+    "Id": 136,
+    "UserName": "mhmd_3180"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 6,
+    "Level": 3,
+    "FullName": "محمد مصطفى ثابت احمد",
+    "UniversityId": 20720236143,
+    "Id": 137,
+    "UserName": "mhmd_8961"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 6,
+    "Level": 3,
+    "FullName": "محمد مصطفى سمير",
+    "UniversityId": 20720236144,
+    "Id": 138,
+    "UserName": "mhmd_5573"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 6,
+    "Level": 3,
+    "FullName": "محمد ممدوح رمضان سالم",
+    "UniversityId": 20720236145,
+    "Id": 139,
+    "UserName": "mhmd_2626"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 6,
+    "Level": 3,
+    "FullName": "محمد ممدوح سيد",
+    "UniversityId": 20720236146,
+    "Id": 140,
+    "UserName": "mhmd_2939"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 6,
+    "Level": 3,
+    "FullName": "محمد موفق مصطفى محمود",
+    "UniversityId": 20720236147,
+    "Id": 141,
+    "UserName": "mhmd_8563"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 6,
+    "Level": 3,
+    "FullName": "محمد هانى عوض",
+    "UniversityId": 20720236148,
+    "Id": 142,
+    "UserName": "mhmd_4457"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 6,
+    "Level": 3,
+    "FullName": "محمد هريدي عبدالحميد هريدي",
+    "UniversityId": 20720236149,
+    "Id": 143,
+    "UserName": "mhmd_7113"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 6,
+    "Level": 3,
+    "FullName": "محمد ياسر جابر",
+    "UniversityId": 20720236150,
+    "Id": 144,
+    "UserName": "mhmd_7943"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 6,
+    "Level": 3,
+    "FullName": "محمد ياسر مختار",
+    "UniversityId": 20720236151,
+    "Id": 145,
+    "UserName": "mhmd_2046"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 6,
+    "Level": 3,
+    "FullName": "محمد يحيى صلاح",
+    "UniversityId": 20720236152,
+    "Id": 146,
+    "UserName": "mhmd_4294"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 7,
+    "Level": 3,
+    "FullName": "احمد اشرف محمد كمال",
+    "UniversityId": 20720236201,
+    "Id": 147,
+    "UserName": "ahmd_2421"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 7,
+    "Level": 3,
+    "FullName": "محمود سيد محمد عبدالغفار",
+    "UniversityId": 20720236153,
+    "Id": 148,
+    "UserName": "mhmwd_9681"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 7,
+    "Level": 3,
+    "FullName": "محمود صلاح الفالح محمد",
+    "UniversityId": 20720236154,
+    "Id": 149,
+    "UserName": "mhmwd_2258"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 7,
+    "Level": 3,
+    "FullName": "محمود علي خزيم فرعل",
+    "UniversityId": 20720236155,
+    "Id": 150,
+    "UserName": "mhmwd_8405"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 7,
+    "Level": 3,
+    "FullName": "محمود محمد رشاد محمود",
+    "UniversityId": 20720236156,
+    "Id": 151,
+    "UserName": "mhmwd_3413"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 7,
+    "Level": 3,
+    "FullName": "مروان احمد عرابى محمد",
+    "UniversityId": 20720236157,
+    "Id": 152,
+    "UserName": "mrwan_4951"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 7,
+    "Level": 3,
+    "FullName": "مروان خالد عبد الفتاح",
+    "UniversityId": 20720236158,
+    "Id": 153,
+    "UserName": "mrwan_5098"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 7,
+    "Level": 3,
+    "FullName": "مروان مصطفى رفعت",
+    "UniversityId": 20720236159,
+    "Id": 154,
+    "UserName": "mrwan_9682"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 7,
+    "Level": 3,
+    "FullName": "مريم عادل عبد العال",
+    "UniversityId": 20720236160,
+    "Id": 155,
+    "UserName": "mrym_6771"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 7,
+    "Level": 3,
+    "FullName": "مريم محمد سيد محمد",
+    "UniversityId": 20720236161,
+    "Id": 156,
+    "UserName": "mrym_2170"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 7,
+    "Level": 3,
+    "FullName": "مصطفى ابواليسر عبدالشكور",
+    "UniversityId": 20720236162,
+    "Id": 157,
+    "UserName": "mstfy_6476"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 7,
+    "Level": 3,
+    "FullName": "مصطفى حمدي عبدالرحمن",
+    "UniversityId": 20720236163,
+    "Id": 158,
+    "UserName": "mstfy_9067"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 7,
+    "Level": 3,
+    "FullName": "مصطفى خالد فخرى",
+    "UniversityId": 20720236164,
+    "Id": 159,
+    "UserName": "mstfy_2741"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 7,
+    "Level": 3,
+    "FullName": "مصطفى راضى السيد",
+    "UniversityId": 20720236165,
+    "Id": 160,
+    "UserName": "mstfy_8125"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 7,
+    "Level": 3,
+    "FullName": "مصطفى محمد محمود",
+    "UniversityId": 20720236166,
+    "Id": 161,
+    "UserName": "mstfy_9384"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 7,
+    "Level": 3,
+    "FullName": "معاذ رضا سعد احمد",
+    "UniversityId": 20720236167,
+    "Id": 162,
+    "UserName": "maaz_1746"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 7,
+    "Level": 3,
+    "FullName": "معاذ مروان منصور محمود",
+    "UniversityId": 20720236168,
+    "Id": 163,
+    "UserName": "maaz_2768"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 7,
+    "Level": 3,
+    "FullName": "معتز انور سليمان على",
+    "UniversityId": 20720236169,
+    "Id": 164,
+    "UserName": "matz_9566"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 7,
+    "Level": 3,
+    "FullName": "ملك زكريا عبود",
+    "UniversityId": 20720236170,
+    "Id": 165,
+    "UserName": "mlk_2820"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 7,
+    "Level": 3,
+    "FullName": "مها احمد محمد",
+    "UniversityId": 20720236172,
+    "Id": 166,
+    "UserName": "mha_6829"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 7,
+    "Level": 3,
+    "FullName": "مونيكا ميخائيل غبريال",
+    "UniversityId": 20720236173,
+    "Id": 167,
+    "UserName": "mwnyka_7982"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 7,
+    "Level": 3,
+    "FullName": "مؤمن عثمان عبد الحفيظ",
+    "UniversityId": 20720236174,
+    "Id": 168,
+    "UserName": "mؤmn_9609"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 7,
+    "Level": 3,
+    "FullName": "مى ابراهيم عبد المحسن",
+    "UniversityId": 20720236175,
+    "Id": 169,
+    "UserName": "my_9084"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 8,
+    "Level": 3,
+    "FullName": "مى محمد سعد عبد المالك",
+    "UniversityId": 20720236177,
+    "Id": 170,
+    "UserName": "my_4338"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 8,
+    "Level": 3,
+    "FullName": "ميار ياسر عباس سليم",
+    "UniversityId": 20720236178,
+    "Id": 171,
+    "UserName": "myar_3177"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 8,
+    "Level": 3,
+    "FullName": "ميرولا افرايم مريس",
+    "UniversityId": 20720236179,
+    "Id": 172,
+    "UserName": "myrwla_5620"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 8,
+    "Level": 3,
+    "FullName": "ميلاد عاطف فهيم",
+    "UniversityId": 20720236180,
+    "Id": 173,
+    "UserName": "mylad_5095"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 8,
+    "Level": 3,
+    "FullName": "مينا عماد بركه",
+    "UniversityId": 20720236181,
+    "Id": 174,
+    "UserName": "myna_4035"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 8,
+    "Level": 3,
+    "FullName": "ندى محمد انور",
+    "UniversityId": 20720236182,
+    "Id": 175,
+    "UserName": "ndy_8735"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 8,
+    "Level": 3,
+    "FullName": "ندى هلال عبد الشافى",
+    "UniversityId": 20720236183,
+    "Id": 176,
+    "UserName": "ndy_1111"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 8,
+    "Level": 3,
+    "FullName": "نور الدين صلاح خلف قرشي",
+    "UniversityId": 20720236184,
+    "Id": 177,
+    "UserName": "nwr_6842"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 8,
+    "Level": 3,
+    "FullName": "نورا عاطف عطيه",
+    "UniversityId": 20720236185,
+    "Id": 178,
+    "UserName": "nwra_8642"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 8,
+    "Level": 3,
+    "FullName": "نوران محمود جمال محمود",
+    "UniversityId": 20720236186,
+    "Id": 179,
+    "UserName": "nwran_9476"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 8,
+    "Level": 3,
+    "FullName": "هاجر سعد حفظى خضر",
+    "UniversityId": 20720236187,
+    "Id": 180,
+    "UserName": "hagr_6472"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 8,
+    "Level": 3,
+    "FullName": "يارا احمد عماد الدين",
+    "UniversityId": 20720236188,
+    "Id": 181,
+    "UserName": "yara_3683"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 8,
+    "Level": 3,
+    "FullName": "ياسمين عادل علي عبدالرحيم",
+    "UniversityId": 20720236190,
+    "Id": 182,
+    "UserName": "yasmyn_1158"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 8,
+    "Level": 3,
+    "FullName": "ياسين خالد محمد",
+    "UniversityId": 20720236191,
+    "Id": 183,
+    "UserName": "yasyn_7043"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 8,
+    "Level": 3,
+    "FullName": "يحيى عبد الباسط احمد",
+    "UniversityId": 20720236192,
+    "Id": 184,
+    "UserName": "yhyy_8832"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 8,
+    "Level": 3,
+    "FullName": "يوستينا عصمت صلاح حليم",
+    "UniversityId": 20720236193,
+    "Id": 185,
+    "UserName": "ywstyna_6418"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 8,
+    "Level": 3,
+    "FullName": "يوسف احمد سعد",
+    "UniversityId": 20720236194,
+    "Id": 186,
+    "UserName": "ywsf_3158"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 8,
+    "Level": 3,
+    "FullName": "يوسف بغدادى مطاوع",
+    "UniversityId": 20720236195,
+    "Id": 187,
+    "UserName": "ywsf_3811"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 8,
+    "Level": 3,
+    "FullName": "يوسف جورج يوسف",
+    "UniversityId": 20720236196,
+    "Id": 188,
+    "UserName": "ywsf_8489"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 8,
+    "Level": 3,
+    "FullName": "يوسف زكريا الهم",
+    "UniversityId": 20720236197,
+    "Id": 189,
+    "UserName": "ywsf_8680"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 8,
+    "Level": 3,
+    "FullName": "يوسف على رمضان",
+    "UniversityId": 20720236198,
+    "Id": 190,
+    "UserName": "ywsf_3677"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 8,
+    "Level": 3,
+    "FullName": "يوسف محمد صلاح",
+    "UniversityId": 20720236199,
+    "Id": 191,
+    "UserName": "ywsf_3682"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 8,
+    "Level": 3,
+    "FullName": "عبد الرحمن محمود حسين محمود",
+    "UniversityId": 20720236203,
+    "Id": 192,
+    "UserName": "abd_9410"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 8,
+    "Level": 3,
+    "FullName": "يوسف مصطفى محمد ابراهيم",
+    "UniversityId": 20720236204,
+    "Id": 193,
+    "UserName": "ywsf_6012"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 8,
+    "Level": 3,
+    "FullName": "ابراهيم وائل ابراهيم محمود",
+    "UniversityId": 20720236205,
+    "Id": 194,
+    "UserName": "abrahym_6701"
+  },
+  {
+    "DepartmentId": 1,
+    "DepartmentSectionId": 8,
+    "Level": 3,
+    "FullName": "يوسف ممدوح عبد النبى",
+    "UniversityId": 20720239219,
+    "Id": 195,
+    "UserName": "ywsf_5359"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 9,
+    "Level": 3,
+    "FullName": "ابتسام احمد على عبد العزيز",
+    "UniversityId": 20720238001,
+    "Id": 196,
+    "UserName": "abtsam_5099"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 9,
+    "Level": 3,
+    "FullName": "ابراهيم على محمد محمد",
+    "UniversityId": 20720238002,
+    "Id": 197,
+    "UserName": "abrahym_1664"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 9,
+    "Level": 3,
+    "FullName": "ابراهيم وائل ابراهيم محمود",
+    "UniversityId": 20720238003,
+    "Id": 198,
+    "UserName": "abrahym_3730"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 9,
+    "Level": 3,
+    "FullName": "احمد ابراهيم ادم ابراهيم",
+    "UniversityId": 20720238004,
+    "Id": 199,
+    "UserName": "ahmd_2625"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 9,
+    "Level": 3,
+    "FullName": "احمد شرين نيازى نعمان",
+    "UniversityId": 20720238007,
+    "Id": 200,
+    "UserName": "ahmd_1407"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 9,
+    "Level": 3,
+    "FullName": "احمد ماهر على ياسين",
+    "UniversityId": 20720238008,
+    "Id": 201,
+    "UserName": "ahmd_3564"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 9,
+    "Level": 3,
+    "FullName": "احمد محمد احمد السيد",
+    "UniversityId": 20720238009,
+    "Id": 202,
+    "UserName": "ahmd_3785"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 9,
+    "Level": 3,
+    "FullName": "احمد محمد احمد محمد عيسى",
+    "UniversityId": 20720238010,
+    "Id": 203,
+    "UserName": "ahmd_5398"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 9,
+    "Level": 3,
+    "FullName": "احمد محمد السيد حرب",
+    "UniversityId": 20720238011,
+    "Id": 204,
+    "UserName": "ahmd_7249"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 9,
+    "Level": 3,
+    "FullName": "احمد محمود شداد عبد الغنى",
+    "UniversityId": 20720238012,
+    "Id": 205,
+    "UserName": "ahmd_2756"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 9,
+    "Level": 3,
+    "FullName": "احمد مؤنس كمال محمد",
+    "UniversityId": 20720238013,
+    "Id": 206,
+    "UserName": "ahmd_4890"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 9,
+    "Level": 3,
+    "FullName": "احمد وردانى يسين هلالى",
+    "UniversityId": 20720238014,
+    "Id": 207,
+    "UserName": "ahmd_9284"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 9,
+    "Level": 3,
+    "FullName": "اسراء احمد حسان عبد النعيم",
+    "UniversityId": 20720238015,
+    "Id": 208,
+    "UserName": "asra_6213"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 9,
+    "Level": 3,
+    "FullName": "اسماء سمير محمد عبد العزيز",
+    "UniversityId": 20720238016,
+    "Id": 209,
+    "UserName": "asma_9282"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 9,
+    "Level": 3,
+    "FullName": "الاء عطا صبره عبد الغني",
+    "UniversityId": 20720238017,
+    "Id": 210,
+    "UserName": "ala_9273"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 9,
+    "Level": 3,
+    "FullName": "الاء محمد على محمد",
+    "UniversityId": 20720238018,
+    "Id": 211,
+    "UserName": "ala_8308"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 9,
+    "Level": 3,
+    "FullName": "الاء محمد هانى احمد",
+    "UniversityId": 20720238019,
+    "Id": 212,
+    "UserName": "ala_6036"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 9,
+    "Level": 3,
+    "FullName": "امانى عطيه محمد عبد الراضى",
+    "UniversityId": 20720238020,
+    "Id": 213,
+    "UserName": "amany_1880"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 9,
+    "Level": 3,
+    "FullName": "انس مصطفى عبد الخالق راغب",
+    "UniversityId": 20720238021,
+    "Id": 214,
+    "UserName": "ans_8091"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 9,
+    "Level": 3,
+    "FullName": "انطونيوس ماجد فهمى مسعد",
+    "UniversityId": 20720238022,
+    "Id": 215,
+    "UserName": "antwnyws_8508"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 9,
+    "Level": 3,
+    "FullName": "انور ايمن انور محمد",
+    "UniversityId": 20720238023,
+    "Id": 216,
+    "UserName": "anwr_2071"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 9,
+    "Level": 3,
+    "FullName": "انور سارى لوندى مجلى",
+    "UniversityId": 20720238024,
+    "Id": 217,
+    "UserName": "anwr_4369"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 9,
+    "Level": 3,
+    "FullName": "ايلاريا باهى وليم ابسخرون",
+    "UniversityId": 20720238025,
+    "Id": 218,
+    "UserName": "aylarya_4206"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 9,
+    "Level": 3,
+    "FullName": "بافلى ناصر مليد زكى",
+    "UniversityId": 20720238026,
+    "Id": 219,
+    "UserName": "bafly_5184"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 10,
+    "Level": 3,
+    "FullName": "بسنت حسن السيد عبد الرحيم",
+    "UniversityId": 20720238027,
+    "Id": 220,
+    "UserName": "bsnt_2875"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 10,
+    "Level": 3,
+    "FullName": "بلال مدحت عبد العليم احمد",
+    "UniversityId": 20720238028,
+    "Id": 221,
+    "UserName": "blal_3887"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 10,
+    "Level": 3,
+    "FullName": "بيشوى الهامى نصحى حسيب",
+    "UniversityId": 20720238029,
+    "Id": 222,
+    "UserName": "byshwy_3864"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 10,
+    "Level": 3,
+    "FullName": "جرجس ماجد عازر عطاالله",
+    "UniversityId": 20720238030,
+    "Id": 223,
+    "UserName": "grgs_7964"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 10,
+    "Level": 3,
+    "FullName": "حازم عمر عبد الناصر يوسف",
+    "UniversityId": 20720238031,
+    "Id": 224,
+    "UserName": "hazm_9696"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 10,
+    "Level": 3,
+    "FullName": "حسن محمد حسن ابراهيم",
+    "UniversityId": 20720238032,
+    "Id": 225,
+    "UserName": "hsn_7233"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 10,
+    "Level": 3,
+    "FullName": "حماد بخيت عبد اللاه جاد",
+    "UniversityId": 20720238033,
+    "Id": 226,
+    "UserName": "hmad_5616"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 10,
+    "Level": 3,
+    "FullName": "خالد محمد عيد سيد",
+    "UniversityId": 20720238034,
+    "Id": 227,
+    "UserName": "khald_5979"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 10,
+    "Level": 3,
+    "FullName": "خلود خالد احمد عبد العال",
+    "UniversityId": 20720238035,
+    "Id": 228,
+    "UserName": "khlwd_9399"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 10,
+    "Level": 3,
+    "FullName": "رحمه مجدى عبد الطيف هارون",
+    "UniversityId": 20720238036,
+    "Id": 229,
+    "UserName": "rhmh_8540"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 10,
+    "Level": 3,
+    "FullName": "روان خالد يوسف احمد",
+    "UniversityId": 20720238037,
+    "Id": 230,
+    "UserName": "rwan_4900"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 10,
+    "Level": 3,
+    "FullName": "روان عمرو محمد عبد الحميد",
+    "UniversityId": 20720238038,
+    "Id": 231,
+    "UserName": "rwan_4562"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 10,
+    "Level": 3,
+    "FullName": "روضه عمرو خالد فهمي",
+    "UniversityId": 20720238039,
+    "Id": 232,
+    "UserName": "rwdh_5260"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 10,
+    "Level": 3,
+    "FullName": "روماريو جوزيف لويس رياض",
+    "UniversityId": 20720238040,
+    "Id": 233,
+    "UserName": "rwmaryw_9329"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 10,
+    "Level": 3,
+    "FullName": "زياد ابراهيم عبد الحميد درغام",
+    "UniversityId": 20720238041,
+    "Id": 234,
+    "UserName": "zyad_1564"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 10,
+    "Level": 3,
+    "FullName": "زياد السيد محمد السيد",
+    "UniversityId": 20720238042,
+    "Id": 235,
+    "UserName": "zyad_7670"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 10,
+    "Level": 3,
+    "FullName": "زياد صلاح عبد الرحمن شعراوى",
+    "UniversityId": 20720238043,
+    "Id": 236,
+    "UserName": "zyad_2979"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 10,
+    "Level": 3,
+    "FullName": "زياد عاطف يحيى حسين",
+    "UniversityId": 20720238044,
+    "Id": 237,
+    "UserName": "zyad_7716"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 10,
+    "Level": 3,
+    "FullName": "زياد عبد الحميد حسن رستم",
+    "UniversityId": 20720238045,
+    "Id": 238,
+    "UserName": "zyad_5693"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 10,
+    "Level": 3,
+    "FullName": "ساره مصطفى شوقى عبد الحكيم",
+    "UniversityId": 20720238046,
+    "Id": 239,
+    "UserName": "sarh_4310"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 10,
+    "Level": 3,
+    "FullName": "سعد محمد سعد هارون",
+    "UniversityId": 20720238047,
+    "Id": 240,
+    "UserName": "sad_5177"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 10,
+    "Level": 3,
+    "FullName": "سلمى رمضان على محمود",
+    "UniversityId": 20720238048,
+    "Id": 241,
+    "UserName": "slmy_3865"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 10,
+    "Level": 3,
+    "FullName": "سما احمد كامل شكرى",
+    "UniversityId": 20720238049,
+    "Id": 242,
+    "UserName": "sma_9039"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 11,
+    "Level": 3,
+    "FullName": "سندس السيد عبد الفتاح",
+    "UniversityId": 20720238050,
+    "Id": 243,
+    "UserName": "snds_1055"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 11,
+    "Level": 3,
+    "FullName": "سيف الدين احمد عبد العظيم مصطفى",
+    "UniversityId": 20720238051,
+    "Id": 244,
+    "UserName": "syf_3185"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 11,
+    "Level": 3,
+    "FullName": "سيف الدين احمد كامل احمد",
+    "UniversityId": 20720238052,
+    "Id": 245,
+    "UserName": "syf_7399"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 11,
+    "Level": 3,
+    "FullName": "شيرى عادل رياض توفيق",
+    "UniversityId": 20720238053,
+    "Id": 246,
+    "UserName": "shyry_8315"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 11,
+    "Level": 3,
+    "FullName": "عائشه اسامه محمد",
+    "UniversityId": 20720238054,
+    "Id": 247,
+    "UserName": "aaئshh_7762"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 11,
+    "Level": 3,
+    "FullName": "عبد الحكيم محمد عبد الحميد",
+    "UniversityId": 20720238055,
+    "Id": 248,
+    "UserName": "abd_8053"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 11,
+    "Level": 3,
+    "FullName": "عبد الرحمن على عبد الرحمن",
+    "UniversityId": 20720238056,
+    "Id": 249,
+    "UserName": "abd_5285"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 11,
+    "Level": 3,
+    "FullName": "عبد الرحمن قدرى الزراعى",
+    "UniversityId": 20720238057,
+    "Id": 250,
+    "UserName": "abd_2151"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 11,
+    "Level": 3,
+    "FullName": "عبد الرحمن محمد احمد",
+    "UniversityId": 20720238058,
+    "Id": 251,
+    "UserName": "abd_2338"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 11,
+    "Level": 3,
+    "FullName": "عبد الرحمن محمد سيد",
+    "UniversityId": 20720238059,
+    "Id": 252,
+    "UserName": "abd_6833"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 11,
+    "Level": 3,
+    "FullName": "عبد الرحمن مصطفى محمد",
+    "UniversityId": 20720238060,
+    "Id": 253,
+    "UserName": "abd_2174"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 11,
+    "Level": 3,
+    "FullName": "عبد الله محمود بدر",
+    "UniversityId": 20720238061,
+    "Id": 254,
+    "UserName": "abd_5904"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 11,
+    "Level": 3,
+    "FullName": "علا بهاء الدين احمد",
+    "UniversityId": 20720238062,
+    "Id": 255,
+    "UserName": "ala_3784"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 11,
+    "Level": 3,
+    "FullName": "على شحات عباس",
+    "UniversityId": 20720238063,
+    "Id": 256,
+    "UserName": "aly_4033"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 11,
+    "Level": 3,
+    "FullName": "على عبد الفتاح مغامس خالد",
+    "UniversityId": 20720238064,
+    "Id": 257,
+    "UserName": "aly_6604"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 11,
+    "Level": 3,
+    "FullName": "عمر عبد الناصر عبد القادر محمد",
+    "UniversityId": 20720238065,
+    "Id": 258,
+    "UserName": "amr_3891"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 11,
+    "Level": 3,
+    "FullName": "عمر محمود عبد الهادى",
+    "UniversityId": 20720238066,
+    "Id": 259,
+    "UserName": "amr_9696"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 11,
+    "Level": 3,
+    "FullName": "عهد احمد محمد",
+    "UniversityId": 20720238067,
+    "Id": 260,
+    "UserName": "ahd_2584"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 11,
+    "Level": 3,
+    "FullName": "فدوى محمد عبد العال",
+    "UniversityId": 20720238068,
+    "Id": 261,
+    "UserName": "fdwy_3797"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 11,
+    "Level": 3,
+    "FullName": "فليوباتير شرين رفعت",
+    "UniversityId": 20720238069,
+    "Id": 262,
+    "UserName": "flywbatyr_7556"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 11,
+    "Level": 3,
+    "FullName": "كارين ايمن شرقاوى",
+    "UniversityId": 20720238070,
+    "Id": 263,
+    "UserName": "karyn_7839"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 11,
+    "Level": 3,
+    "FullName": "كارين مدحت زاهر",
+    "UniversityId": 20720238071,
+    "Id": 264,
+    "UserName": "karyn_9480"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 11,
+    "Level": 3,
+    "FullName": "كريم عمر عبد البر",
+    "UniversityId": 20720238072,
+    "Id": 265,
+    "UserName": "krym_2408"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 12,
+    "Level": 3,
+    "FullName": "كيرلس اسامه ظريف",
+    "UniversityId": 20720238073,
+    "Id": 266,
+    "UserName": "kyrls_4856"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 12,
+    "Level": 3,
+    "FullName": "كيرلس جمال وهيب",
+    "UniversityId": 20720238074,
+    "Id": 267,
+    "UserName": "kyrls_6558"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 12,
+    "Level": 3,
+    "FullName": "كيرلس جمال جميل ميرهم",
+    "UniversityId": 20720238075,
+    "Id": 268,
+    "UserName": "kyrls_3048"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 12,
+    "Level": 3,
+    "FullName": "كيرلس ماجد ماهر",
+    "UniversityId": 20720238076,
+    "Id": 269,
+    "UserName": "kyrls_5845"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 12,
+    "Level": 3,
+    "FullName": "ماثيو هانى فايق مرجان",
+    "UniversityId": 20720238077,
+    "Id": 270,
+    "UserName": "mathyw_5770"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 12,
+    "Level": 3,
+    "FullName": "مارجريت عاطف شوقى فانوس",
+    "UniversityId": 20720238078,
+    "Id": 271,
+    "UserName": "margryt_6119"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 12,
+    "Level": 3,
+    "FullName": "ماريا نادر مكرم بنيامين",
+    "UniversityId": 20720238079,
+    "Id": 272,
+    "UserName": "marya_9288"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 12,
+    "Level": 3,
+    "FullName": "مارينا وحيد وديد عوض",
+    "UniversityId": 20720238080,
+    "Id": 273,
+    "UserName": "maryna_9108"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 12,
+    "Level": 3,
+    "FullName": "مازن جابر محمود  سعداوى",
+    "UniversityId": 20720238081,
+    "Id": 274,
+    "UserName": "mazn_6665"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 12,
+    "Level": 3,
+    "FullName": "مازن ضياء الدين احمد عبد اللطيف",
+    "UniversityId": 20720238082,
+    "Id": 275,
+    "UserName": "mazn_3336"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 12,
+    "Level": 3,
+    "FullName": "محمد احمد بكر صديق",
+    "UniversityId": 20720238083,
+    "Id": 276,
+    "UserName": "mhmd_4585"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 12,
+    "Level": 3,
+    "FullName": "محمد بدوى محمود محمد",
+    "UniversityId": 20720238084,
+    "Id": 277,
+    "UserName": "mhmd_7756"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 12,
+    "Level": 3,
+    "FullName": "محمد جمال فاروق راشد عبد الرحيم",
+    "UniversityId": 20720238086,
+    "Id": 278,
+    "UserName": "mhmd_7761"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 12,
+    "Level": 3,
+    "FullName": "محمد خالد جاد فواز",
+    "UniversityId": 20720238087,
+    "Id": 279,
+    "UserName": "mhmd_6151"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 12,
+    "Level": 3,
+    "FullName": "محمد رأفت حسين",
+    "UniversityId": 20720238088,
+    "Id": 280,
+    "UserName": "mhmd_6580"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 12,
+    "Level": 3,
+    "FullName": "محمد ضياء الدين محمد عبد المجيد",
+    "UniversityId": 20720238089,
+    "Id": 281,
+    "UserName": "mhmd_7562"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 12,
+    "Level": 3,
+    "FullName": "محمد طلعت محمد ابراهيم",
+    "UniversityId": 20720238090,
+    "Id": 282,
+    "UserName": "mhmd_7064"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 12,
+    "Level": 3,
+    "FullName": "محمد عادل لبيب عبد المبدى",
+    "UniversityId": 20720238091,
+    "Id": 283,
+    "UserName": "mhmd_5250"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 12,
+    "Level": 3,
+    "FullName": "محمد عصام الدين محمد  عبد الحفيظ",
+    "UniversityId": 20720238093,
+    "Id": 284,
+    "UserName": "mhmd_7151"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 12,
+    "Level": 3,
+    "FullName": "محمد علاء الدين محمد فتحى",
+    "UniversityId": 20720238094,
+    "Id": 285,
+    "UserName": "mhmd_1456"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 12,
+    "Level": 3,
+    "FullName": "محمد على ابو الفتوح  على",
+    "UniversityId": 20720238095,
+    "Id": 286,
+    "UserName": "mhmd_5054"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 12,
+    "Level": 3,
+    "FullName": "محمد فرغلى عبد الفتاح احمد",
+    "UniversityId": 20720238096,
+    "Id": 287,
+    "UserName": "mhmd_5368"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 12,
+    "Level": 3,
+    "FullName": "محمد ياسر حسنى محمد",
+    "UniversityId": 20720238097,
+    "Id": 288,
+    "UserName": "mhmd_6210"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 13,
+    "Level": 3,
+    "FullName": "محمد ياسر محمد محمد حمود",
+    "UniversityId": 20720238098,
+    "Id": 289,
+    "UserName": "mhmd_9001"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 13,
+    "Level": 3,
+    "FullName": "محمود احمد عبد الحميد مصطفى",
+    "UniversityId": 20720238099,
+    "Id": 290,
+    "UserName": "mhmwd_2194"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 13,
+    "Level": 3,
+    "FullName": "محمود رفعت بخيت احمد",
+    "UniversityId": 20720238100,
+    "Id": 291,
+    "UserName": "mhmwd_7473"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 13,
+    "Level": 3,
+    "FullName": "محمود عز الدين محمود",
+    "UniversityId": 20720238101,
+    "Id": 292,
+    "UserName": "mhmwd_9844"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 13,
+    "Level": 3,
+    "FullName": "محمود على يحى محمد",
+    "UniversityId": 20720238102,
+    "Id": 293,
+    "UserName": "mhmwd_6919"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 13,
+    "Level": 3,
+    "FullName": "محمود محمد حسنين مصطفى",
+    "UniversityId": 20720238103,
+    "Id": 294,
+    "UserName": "mhmwd_1896"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 13,
+    "Level": 3,
+    "FullName": "محمود محمد عبد الباقى حسن",
+    "UniversityId": 20720238104,
+    "Id": 295,
+    "UserName": "mhmwd_3883"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 13,
+    "Level": 3,
+    "FullName": "مروان حسن احمد حسن",
+    "UniversityId": 20720238105,
+    "Id": 296,
+    "UserName": "mrwan_5661"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 13,
+    "Level": 3,
+    "FullName": "مريم مجدى سعد سيدهم",
+    "UniversityId": 20720238106,
+    "Id": 297,
+    "UserName": "mrym_4601"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 13,
+    "Level": 3,
+    "FullName": "مريم مدحت محمود احمد",
+    "UniversityId": 20720238107,
+    "Id": 298,
+    "UserName": "mrym_5742"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 13,
+    "Level": 3,
+    "FullName": "مصطفى احمد طلعت احمد",
+    "UniversityId": 20720238108,
+    "Id": 299,
+    "UserName": "mstfy_5726"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 13,
+    "Level": 3,
+    "FullName": "مصطفى ممدوح سيد صالح",
+    "UniversityId": 20720238109,
+    "Id": 300,
+    "UserName": "mstfy_1375"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 13,
+    "Level": 3,
+    "FullName": "مها احمد محمود كامل",
+    "UniversityId": 20720238110,
+    "Id": 301,
+    "UserName": "mha_3304"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 13,
+    "Level": 3,
+    "FullName": "مؤمن حسن سيد  اسماعيل",
+    "UniversityId": 20720238111,
+    "Id": 302,
+    "UserName": "mؤmn_6769"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 13,
+    "Level": 3,
+    "FullName": "مينا ايمن سيف المسيح مجلع",
+    "UniversityId": 20720238112,
+    "Id": 303,
+    "UserName": "myna_5685"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 13,
+    "Level": 3,
+    "FullName": "نوران السيد عادل حجاج",
+    "UniversityId": 20720238113,
+    "Id": 304,
+    "UserName": "nwran_7616"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 13,
+    "Level": 3,
+    "FullName": "نورهان حسن على احمد عبد الله",
+    "UniversityId": 20720238114,
+    "Id": 305,
+    "UserName": "nwrhan_3110"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 13,
+    "Level": 3,
+    "FullName": "ياسمين ناصر محمد جمال عبد الحافظ",
+    "UniversityId": 20720238115,
+    "Id": 306,
+    "UserName": "yasmyn_4682"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 13,
+    "Level": 3,
+    "FullName": "ياسين احمد محمود احمد",
+    "UniversityId": 20720238116,
+    "Id": 307,
+    "UserName": "yasyn_5516"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 13,
+    "Level": 3,
+    "FullName": "يحيى محمود فاروق",
+    "UniversityId": 20720238117,
+    "Id": 308,
+    "UserName": "yhyy_5039"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 13,
+    "Level": 3,
+    "FullName": "يوسف اسامه انور عطا الله",
+    "UniversityId": 20720238118,
+    "Id": 309,
+    "UserName": "ywsf_7600"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 13,
+    "Level": 3,
+    "FullName": "يوسف صفى الدين حسن احمد",
+    "UniversityId": 20720238119,
+    "Id": 310,
+    "UserName": "ywsf_6171"
+  },
+  {
+    "DepartmentId": 2,
+    "DepartmentSectionId": 13,
+    "Level": 3,
+    "FullName": "فبرونيا  القس سمعان فهميم",
+    "UniversityId": 20720238200,
+    "Id": 311,
+    "UserName": "fbrwnya_6115"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 14,
+    "Level": 3,
+    "FullName": "امال عبد الحميد زين العابدين محمد",
+    "UniversityId": 2072023001,
+    "Id": 312,
+    "UserName": "amal_4010"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 14,
+    "Level": 3,
+    "FullName": "ابراهيم رأفت ابراهيم",
+    "UniversityId": 2072023002,
+    "Id": 313,
+    "UserName": "abrahym_1076"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 14,
+    "Level": 3,
+    "FullName": "احمد  محمد ابو راشد عبد الغفار",
+    "UniversityId": 2072023003,
+    "Id": 314,
+    "UserName": "ahmd_8907"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 14,
+    "Level": 3,
+    "FullName": "احمد ايمن احمد سيد",
+    "UniversityId": 2072023005,
+    "Id": 315,
+    "UserName": "ahmd_1447"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 14,
+    "Level": 3,
+    "FullName": "احمد جمال حسنى حامد",
+    "UniversityId": 2072023006,
+    "Id": 316,
+    "UserName": "ahmd_3344"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 14,
+    "Level": 3,
+    "FullName": "احمد جمال عرفه مصطفى",
+    "UniversityId": 2072023007,
+    "Id": 317,
+    "UserName": "ahmd_3343"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 14,
+    "Level": 3,
+    "FullName": "احمد زيدان تاج بكر",
+    "UniversityId": 2072023008,
+    "Id": 318,
+    "UserName": "ahmd_4767"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 14,
+    "Level": 3,
+    "FullName": "احمد سعد حموده حسن",
+    "UniversityId": 2072023009,
+    "Id": 319,
+    "UserName": "ahmd_6103"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 14,
+    "Level": 3,
+    "FullName": "احمد محمد سعيد عمر",
+    "UniversityId": 2072023010,
+    "Id": 320,
+    "UserName": "ahmd_8602"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 14,
+    "Level": 3,
+    "FullName": "احمد محمد مصطفى محمد",
+    "UniversityId": 2072023011,
+    "Id": 321,
+    "UserName": "ahmd_6204"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 14,
+    "Level": 3,
+    "FullName": "احمد وجيه على احمد",
+    "UniversityId": 2072023012,
+    "Id": 322,
+    "UserName": "ahmd_3325"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 14,
+    "Level": 3,
+    "FullName": "اسلام عادل جاد الرب",
+    "UniversityId": 2072023013,
+    "Id": 323,
+    "UserName": "aslam_2573"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 14,
+    "Level": 3,
+    "FullName": "اسلام علاء الدين احمد محمد",
+    "UniversityId": 2072023014,
+    "Id": 324,
+    "UserName": "aslam_4368"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 14,
+    "Level": 3,
+    "FullName": "الحسن محمد فراج",
+    "UniversityId": 2072023015,
+    "Id": 325,
+    "UserName": "alhsn_9423"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 14,
+    "Level": 3,
+    "FullName": "امنه خالد محمد عبدالمجيد",
+    "UniversityId": 2072023016,
+    "Id": 326,
+    "UserName": "amnh_6540"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 14,
+    "Level": 3,
+    "FullName": "امنيه عبد الرؤف احمد عبد الله",
+    "UniversityId": 2072023017,
+    "Id": 327,
+    "UserName": "amnyh_6973"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 14,
+    "Level": 3,
+    "FullName": "امينه سعد سيد حسن",
+    "UniversityId": 2072023018,
+    "Id": 328,
+    "UserName": "amynh_9607"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 14,
+    "Level": 3,
+    "FullName": "بسام عماد فوزى شحاته",
+    "UniversityId": 2072023020,
+    "Id": 329,
+    "UserName": "bsam_3110"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 14,
+    "Level": 3,
+    "FullName": "بسمله عبد الحكيم فرغلى رميح",
+    "UniversityId": 2072023021,
+    "Id": 330,
+    "UserName": "bsmlh_6836"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 15,
+    "Level": 3,
+    "FullName": "بهجت زكريا بهجت مرقس",
+    "UniversityId": 2072023022,
+    "Id": 331,
+    "UserName": "bhgt_4545"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 15,
+    "Level": 3,
+    "FullName": "بيشوى القس روفائيل كامل",
+    "UniversityId": 2072023023,
+    "Id": 332,
+    "UserName": "byshwy_7027"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 15,
+    "Level": 3,
+    "FullName": "تادرس عادل وليم",
+    "UniversityId": 2072023024,
+    "Id": 333,
+    "UserName": "tadrs_6330"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 15,
+    "Level": 3,
+    "FullName": "جورج مراد عدلى اسحق",
+    "UniversityId": 2072023026,
+    "Id": 334,
+    "UserName": "gwrg_7018"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 15,
+    "Level": 3,
+    "FullName": "حازم حسن عبد النعيم احمد",
+    "UniversityId": 2072023027,
+    "Id": 335,
+    "UserName": "hazm_2898"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 15,
+    "Level": 3,
+    "FullName": "حسين نزيه عبد النعيم",
+    "UniversityId": 2072023028,
+    "Id": 336,
+    "UserName": "hsyn_5919"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 15,
+    "Level": 3,
+    "FullName": "خليل ياسر خليل احمد",
+    "UniversityId": 2072023029,
+    "Id": 337,
+    "UserName": "khlyl_8411"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 15,
+    "Level": 3,
+    "FullName": "راشد عبد الرحمن ابراهيم طلبه",
+    "UniversityId": 2072023030,
+    "Id": 338,
+    "UserName": "rashd_6013"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 15,
+    "Level": 3,
+    "FullName": "ريموندا رؤف مونير ونيس",
+    "UniversityId": 2072023031,
+    "Id": 339,
+    "UserName": "rymwnda_1162"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 15,
+    "Level": 3,
+    "FullName": "زياد احمد حلمى سيد",
+    "UniversityId": 2072023032,
+    "Id": 340,
+    "UserName": "zyad_9347"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 15,
+    "Level": 3,
+    "FullName": "زياد مصطفى محمد عبد الصبور",
+    "UniversityId": 2072023033,
+    "Id": 341,
+    "UserName": "zyad_6800"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 15,
+    "Level": 3,
+    "FullName": "سلمى مصطفى ابو المعارف مدنى",
+    "UniversityId": 2072023034,
+    "Id": 342,
+    "UserName": "slmy_5709"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 15,
+    "Level": 3,
+    "FullName": "سماح محمد ابراهيم احمد",
+    "UniversityId": 2072023035,
+    "Id": 343,
+    "UserName": "smah_5746"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 15,
+    "Level": 3,
+    "FullName": "سيد جامع سيد حسين",
+    "UniversityId": 2072023036,
+    "Id": 344,
+    "UserName": "syd_8446"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 15,
+    "Level": 3,
+    "FullName": "شروق سيد شاكر احمد",
+    "UniversityId": 2072023037,
+    "Id": 345,
+    "UserName": "shrwq_1896"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 15,
+    "Level": 3,
+    "FullName": "شهد رمضان محمد حسن",
+    "UniversityId": 2072023038,
+    "Id": 346,
+    "UserName": "shhd_7562"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 15,
+    "Level": 3,
+    "FullName": "شهد وليد محمود عبداللطيف",
+    "UniversityId": 2072023039,
+    "Id": 347,
+    "UserName": "shhd_4733"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 15,
+    "Level": 3,
+    "FullName": "شيماء احمد محمود اسماعيل",
+    "UniversityId": 2072023040,
+    "Id": 348,
+    "UserName": "shyma_2544"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 15,
+    "Level": 3,
+    "FullName": "ضحى محمد عثمان حسن",
+    "UniversityId": 2072023041,
+    "Id": 349,
+    "UserName": "dhy_5367"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 15,
+    "Level": 3,
+    "FullName": "ضياء محمد فاروق عبد الحميد",
+    "UniversityId": 2072023042,
+    "Id": 350,
+    "UserName": "dya_5740"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 16,
+    "Level": 3,
+    "FullName": "عبد الرحمن ممدوح رياض حسن",
+    "UniversityId": 2072023044,
+    "Id": 351,
+    "UserName": "abd_3477"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 16,
+    "Level": 3,
+    "FullName": "عبد الظاهر سامى عبد الظاهرالجزار",
+    "UniversityId": 2072023045,
+    "Id": 352,
+    "UserName": "abd_8116"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 16,
+    "Level": 3,
+    "FullName": "عبد العزيز حسن فؤاد حسن",
+    "UniversityId": 2072023046,
+    "Id": 353,
+    "UserName": "abd_3541"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 16,
+    "Level": 3,
+    "FullName": "عبدالرحمن عاطف محمد محمد",
+    "UniversityId": 2072023047,
+    "Id": 354,
+    "UserName": "abdalrhmn_5734"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 16,
+    "Level": 3,
+    "FullName": "على سيد عبد الحليم سيد",
+    "UniversityId": 2072023048,
+    "Id": 355,
+    "UserName": "aly_1998"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 16,
+    "Level": 3,
+    "FullName": "عمر شلقامى عمر توفيق",
+    "UniversityId": 2072023049,
+    "Id": 356,
+    "UserName": "amr_2059"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 16,
+    "Level": 3,
+    "FullName": "عمر محمد فرغل جاب الله",
+    "UniversityId": 2072023050,
+    "Id": 357,
+    "UserName": "amr_9382"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 16,
+    "Level": 3,
+    "FullName": "عمر مصطفى كامل محمد",
+    "UniversityId": 2072023051,
+    "Id": 358,
+    "UserName": "amr_2136"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 16,
+    "Level": 3,
+    "FullName": "عمرو محمد  عبد الحميد على",
+    "UniversityId": 2072023053,
+    "Id": 359,
+    "UserName": "amrw_3940"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 16,
+    "Level": 3,
+    "FullName": "عمرو محمد محمد امبابى",
+    "UniversityId": 2072023054,
+    "Id": 360,
+    "UserName": "amrw_3395"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 16,
+    "Level": 3,
+    "FullName": "فادى محمد عبد الباسط  محمد",
+    "UniversityId": 2072023055,
+    "Id": 361,
+    "UserName": "fady_1337"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 16,
+    "Level": 3,
+    "FullName": "فاطمه الزهراء علاء صلاح دردير",
+    "UniversityId": 2072023056,
+    "Id": 362,
+    "UserName": "fatmh_1815"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 16,
+    "Level": 3,
+    "FullName": "فاطمه محمد رفعت",
+    "UniversityId": 2072023057,
+    "Id": 363,
+    "UserName": "fatmh_5374"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 16,
+    "Level": 3,
+    "FullName": "فتحى ايمن فتحى جندى",
+    "UniversityId": 2072023058,
+    "Id": 364,
+    "UserName": "fthy_6432"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 16,
+    "Level": 3,
+    "FullName": "كريم جمال محمد محمد",
+    "UniversityId": 2072023059,
+    "Id": 365,
+    "UserName": "krym_1106"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 16,
+    "Level": 3,
+    "FullName": "كيرلس اشرف امين فليته",
+    "UniversityId": 2072023060,
+    "Id": 366,
+    "UserName": "kyrls_9368"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 16,
+    "Level": 3,
+    "FullName": "كيرلس جميل عبد المسيح كيرلس",
+    "UniversityId": 2072023061,
+    "Id": 367,
+    "UserName": "kyrls_9133"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 16,
+    "Level": 3,
+    "FullName": "كيرلس صبحى غالى قيصر",
+    "UniversityId": 2072023062,
+    "Id": 368,
+    "UserName": "kyrls_1881"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 16,
+    "Level": 3,
+    "FullName": "كيرلس صلاح فخرى منسي",
+    "UniversityId": 2072023063,
+    "Id": 369,
+    "UserName": "kyrls_3970"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 16,
+    "Level": 3,
+    "FullName": "كيرلس عايد زكى صليب",
+    "UniversityId": 2072023064,
+    "Id": 370,
+    "UserName": "kyrls_5872"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 17,
+    "Level": 3,
+    "FullName": "مارتينا عطيه فوزى بطرس",
+    "UniversityId": 2072023065,
+    "Id": 371,
+    "UserName": "martyna_7894"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 17,
+    "Level": 3,
+    "FullName": "مازن عماد زكريا عبدالعزيز",
+    "UniversityId": 2072023066,
+    "Id": 372,
+    "UserName": "mazn_5434"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 17,
+    "Level": 3,
+    "FullName": "مازن محمد عبدالمنعم سيد",
+    "UniversityId": 2072023067,
+    "Id": 373,
+    "UserName": "mazn_2054"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 17,
+    "Level": 3,
+    "FullName": "محمد احمد ابو العلا حسين",
+    "UniversityId": 2072023068,
+    "Id": 374,
+    "UserName": "mhmd_9112"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 17,
+    "Level": 3,
+    "FullName": "محمد احمد حسين على",
+    "UniversityId": 2072023069,
+    "Id": 375,
+    "UserName": "mhmd_1082"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 17,
+    "Level": 3,
+    "FullName": "محمد احمد محمد فوزى",
+    "UniversityId": 2072023070,
+    "Id": 376,
+    "UserName": "mhmd_7772"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 17,
+    "Level": 3,
+    "FullName": "محمد احمد محمد مهران",
+    "UniversityId": 2072023071,
+    "Id": 377,
+    "UserName": "mhmd_7514"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 17,
+    "Level": 3,
+    "FullName": "محمد اسامه محمد مرسى",
+    "UniversityId": 2072023072,
+    "Id": 378,
+    "UserName": "mhmd_5726"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 17,
+    "Level": 3,
+    "FullName": "محمد حامد محمد عبد العظيم",
+    "UniversityId": 2072023073,
+    "Id": 379,
+    "UserName": "mhmd_8995"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 17,
+    "Level": 3,
+    "FullName": "محمد خالد عبد الجواد محمد",
+    "UniversityId": 2072023074,
+    "Id": 380,
+    "UserName": "mhmd_2894"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 17,
+    "Level": 3,
+    "FullName": "محمد صلاح فرغل محمد",
+    "UniversityId": 2072023075,
+    "Id": 381,
+    "UserName": "mhmd_3933"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 17,
+    "Level": 3,
+    "FullName": "محمد عبد الحميد محمد عبد القادر",
+    "UniversityId": 2072023076,
+    "Id": 382,
+    "UserName": "mhmd_5844"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 17,
+    "Level": 3,
+    "FullName": "محمد عبد السميع فتحى عبدالسميع",
+    "UniversityId": 2072023077,
+    "Id": 383,
+    "UserName": "mhmd_7574"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 17,
+    "Level": 3,
+    "FullName": "محمد عزت محمود محمد",
+    "UniversityId": 2072023078,
+    "Id": 384,
+    "UserName": "mhmd_4640"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 17,
+    "Level": 3,
+    "FullName": "محمد عصمت احمد عبدالهادي",
+    "UniversityId": 2072023079,
+    "Id": 385,
+    "UserName": "mhmd_1901"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 17,
+    "Level": 3,
+    "FullName": "محمد مصطفى محمود عبد القادر",
+    "UniversityId": 2072023080,
+    "Id": 386,
+    "UserName": "mhmd_6297"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 17,
+    "Level": 3,
+    "FullName": "محمد وائل رضوان عزت",
+    "UniversityId": 2072023081,
+    "Id": 387,
+    "UserName": "mhmd_7812"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 17,
+    "Level": 3,
+    "FullName": "محمود سيد الصغير عبدالرحيم",
+    "UniversityId": 2072023082,
+    "Id": 388,
+    "UserName": "mhmwd_7631"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 17,
+    "Level": 3,
+    "FullName": "محمود صلاح عاكف عبدالحميد",
+    "UniversityId": 2072023083,
+    "Id": 389,
+    "UserName": "mhmwd_5658"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 17,
+    "Level": 3,
+    "FullName": "محمود على عبد الموجود عبدالجيد",
+    "UniversityId": 2072023084,
+    "Id": 390,
+    "UserName": "mhmwd_6689"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 17,
+    "Level": 3,
+    "FullName": "محمود مصطفى احمد محمد",
+    "UniversityId": 2072023085,
+    "Id": 391,
+    "UserName": "mhmwd_4139"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 18,
+    "Level": 3,
+    "FullName": "مريم مبارك نعيم بخيت",
+    "UniversityId": 2072023086,
+    "Id": 392,
+    "UserName": "mrym_8426"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 18,
+    "Level": 3,
+    "FullName": "مصطفى حمدي عبد الصبور محمد",
+    "UniversityId": 2072023087,
+    "Id": 393,
+    "UserName": "mstfy_7395"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 18,
+    "Level": 3,
+    "FullName": "مصطفى علاء احمد مرسى",
+    "UniversityId": 2072023088,
+    "Id": 394,
+    "UserName": "mstfy_2097"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 18,
+    "Level": 3,
+    "FullName": "مصطفى محمد سليمان قطب",
+    "UniversityId": 2072023089,
+    "Id": 395,
+    "UserName": "mstfy_6678"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 18,
+    "Level": 3,
+    "FullName": "مصطفى محمد عبد العزيز عبدالرازق",
+    "UniversityId": 2072023090,
+    "Id": 396,
+    "UserName": "mstfy_3367"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 18,
+    "Level": 3,
+    "FullName": "ملك خالد كمال سيد",
+    "UniversityId": 2072023091,
+    "Id": 397,
+    "UserName": "mlk_1737"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 18,
+    "Level": 3,
+    "FullName": "منة الله محمد عامر عبد الرحمن",
+    "UniversityId": 2072023093,
+    "Id": 398,
+    "UserName": "mna_6707"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 18,
+    "Level": 3,
+    "FullName": "منه جمال محمد عبدالمالك",
+    "UniversityId": 2072023094,
+    "Id": 399,
+    "UserName": "mnh_3897"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 18,
+    "Level": 3,
+    "FullName": "ندا عبد الناصر محمد محمد",
+    "UniversityId": 2072023097,
+    "Id": 400,
+    "UserName": "nda_4136"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 18,
+    "Level": 3,
+    "FullName": "هدى ايمن عبد الفتاح عبداللطيف",
+    "UniversityId": 2072023098,
+    "Id": 401,
+    "UserName": "hdy_8871"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 18,
+    "Level": 3,
+    "FullName": "همت محى الدين عبد الكريم تسن",
+    "UniversityId": 2072023099,
+    "Id": 402,
+    "UserName": "hmt_4406"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 18,
+    "Level": 3,
+    "FullName": "وليد محفوظ الفى حنا",
+    "UniversityId": 2072023100,
+    "Id": 403,
+    "UserName": "wlyd_6388"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 18,
+    "Level": 3,
+    "FullName": "يسي سامح راتب جورجي",
+    "UniversityId": 2072023101,
+    "Id": 404,
+    "UserName": "ysy_7926"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 18,
+    "Level": 3,
+    "FullName": "يوسف ابراهيم حنا عبد السيد",
+    "UniversityId": 2072023102,
+    "Id": 405,
+    "UserName": "ywsf_7036"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 18,
+    "Level": 3,
+    "FullName": "يوسف ايهاب فايز موسي",
+    "UniversityId": 2072023103,
+    "Id": 406,
+    "UserName": "ywsf_3953"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 18,
+    "Level": 3,
+    "FullName": "يوسف بهاء عبد  الحميد فهمى",
+    "UniversityId": 2072023104,
+    "Id": 407,
+    "UserName": "ywsf_6563"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 18,
+    "Level": 3,
+    "FullName": "يوسف محمود محمد عبدالمجيد",
+    "UniversityId": 2072023107,
+    "Id": 408,
+    "UserName": "ywsf_7897"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 18,
+    "Level": 3,
+    "FullName": "يوسف ناصر محمد سيد",
+    "UniversityId": 2072023108,
+    "Id": 409,
+    "UserName": "ywsf_3623"
+  },
+  {
+    "DepartmentId": 3,
+    "DepartmentSectionId": 18,
+    "Level": 3,
+    "FullName": "منة الله هديه ابو حسيبة عبد الرؤوف",
+    "UniversityId": 2072023109,
+    "Id": 410,
+    "UserName": "mna_3510"
+  },
+  {
+    "DepartmentId": 4,
+    "DepartmentSectionId": 19,
+    "Level": 3,
+    "FullName": "عبد الرحمن عاطف محمد سيد",
+    "UniversityId": 2072023043,
+    "Id": 411,
+    "UserName": "abd_6117"
+  },
+  {
+    "DepartmentId": 4,
+    "DepartmentSectionId": 19,
+    "Level": 3,
+    "FullName": "منة الله احمد عبد الصبور احمد",
+    "UniversityId": 2072023092,
+    "Id": 412,
+    "UserName": "mna_4567"
+  },
+  {
+    "DepartmentId": 4,
+    "DepartmentSectionId": 19,
+    "Level": 3,
+    "FullName": "مهند احمد محمود عزت",
+    "UniversityId": 2072023095,
+    "Id": 413,
+    "UserName": "mhnd_8258"
+  },
+  {
+    "DepartmentId": 4,
+    "DepartmentSectionId": 19,
+    "Level": 3,
+    "FullName": "مينا موجود زكى",
+    "UniversityId": 2072023096,
+    "Id": 414,
+    "UserName": "myna_6645"
+  },
+  {
+    "DepartmentId": 4,
+    "DepartmentSectionId": 19,
+    "Level": 3,
+    "FullName": "يوسف علاء الدين عبد الواحد",
+    "UniversityId": 2072023105,
+    "Id": 415,
+    "UserName": "ywsf_8259"
+  }
+]

@@ -1,0 +1,650 @@
+[
+  {
+    "id": 1,
+    "courseId": 1,
+    "departmentSectionId": 1,
+    "taId": 25
+  },
+  {
+    "id": 2,
+    "courseId": 1,
+    "departmentSectionId": 2,
+    "taId": 18
+  },
+  {
+    "id": 3,
+    "courseId": 1,
+    "departmentSectionId": 3,
+    "taId": 18
+  },
+  {
+    "id": 4,
+    "courseId": 1,
+    "departmentSectionId": 4,
+    "taId": 18
+  },
+  {
+    "id": 5,
+    "courseId": 1,
+    "departmentSectionId": 5,
+    "taId": 18
+  },
+  {
+    "id": 6,
+    "courseId": 1,
+    "departmentSectionId": 6,
+    "taId": 18
+  },
+  {
+    "id": 7,
+    "courseId": 1,
+    "departmentSectionId": 7,
+    "taId": 18
+  },
+  {
+    "id": 8,
+    "courseId": 1,
+    "departmentSectionId": 8,
+    "taId": 26
+  },
+  {
+    "id": 9,
+    "courseId": 1,
+    "departmentSectionId": 9,
+    "taId": 26
+  },
+  {
+    "id": 10,
+    "courseId": 1,
+    "departmentSectionId": 10,
+    "taId": 26
+  },
+  {
+    "id": 11,
+    "courseId": 1,
+    "departmentSectionId": 11,
+    "taId": 26
+  },
+  {
+    "id": 12,
+    "courseId": 1,
+    "departmentSectionId": 12,
+    "taId": 26
+  },
+  {
+    "id": 13,
+    "courseId": 1,
+    "departmentSectionId": 13,
+    "taId": 25
+  },
+  {
+    "id": 14,
+    "courseId": 1,
+    "departmentSectionId": 14,
+    "taId": 18
+  },
+  {
+    "id": 15,
+    "courseId": 1,
+    "departmentSectionId": 15,
+    "taId": 25
+  },
+  {
+    "id": 16,
+    "courseId": 1,
+    "departmentSectionId": 16,
+    "taId": 25
+  },
+  {
+    "id": 17,
+    "courseId": 1,
+    "departmentSectionId": 17,
+    "taId": 26
+  },
+  {
+    "id": 18,
+    "courseId": 1,
+    "departmentSectionId": 18,
+    "taId": 25
+  },
+  {
+    "id": 19,
+    "courseId": 2,
+    "departmentSectionId": 1,
+    "taId": 19
+  },
+  {
+    "id": 20,
+    "courseId": 2,
+    "departmentSectionId": 2,
+    "taId": 19
+  },
+  {
+    "id": 21,
+    "courseId": 2,
+    "departmentSectionId": 3,
+    "taId": 19
+  },
+  {
+    "id": 22,
+    "courseId": 2,
+    "departmentSectionId": 4,
+    "taId": 19
+  },
+  {
+    "id": 23,
+    "courseId": 2,
+    "departmentSectionId": 5,
+    "taId": 19
+  },
+  {
+    "id": 24,
+    "courseId": 2,
+    "departmentSectionId": 6,
+    "taId": 19
+  },
+  {
+    "id": 25,
+    "courseId": 2,
+    "departmentSectionId": 7,
+    "taId": 19
+  },
+  {
+    "id": 26,
+    "courseId": 2,
+    "departmentSectionId": 8,
+    "taId": 19
+  },
+  {
+    "id": 27,
+    "courseId": 3,
+    "departmentSectionId": 1,
+    "taId": 17
+  },
+  {
+    "id": 28,
+    "courseId": 3,
+    "departmentSectionId": 2,
+    "taId": 17
+  },
+  {
+    "id": 29,
+    "courseId": 3,
+    "departmentSectionId": 3,
+    "taId": 23
+  },
+  {
+    "id": 30,
+    "courseId": 3,
+    "departmentSectionId": 4,
+    "taId": 23
+  },
+  {
+    "id": 31,
+    "courseId": 3,
+    "departmentSectionId": 5,
+    "taId": 17
+  },
+  {
+    "id": 32,
+    "courseId": 3,
+    "departmentSectionId": 6,
+    "taId": 17
+  },
+  {
+    "id": 33,
+    "courseId": 3,
+    "departmentSectionId": 7,
+    "taId": 17
+  },
+  {
+    "id": 34,
+    "courseId": 3,
+    "departmentSectionId": 8,
+    "taId": 17
+  },
+  {
+    "id": 35,
+    "courseId": 4,
+    "departmentSectionId": 1,
+    "taId": 20
+  },
+  {
+    "id": 36,
+    "courseId": 4,
+    "departmentSectionId": 2,
+    "taId": 20
+  },
+  {
+    "id": 37,
+    "courseId": 4,
+    "departmentSectionId": 3,
+    "taId": 20
+  },
+  {
+    "id": 38,
+    "courseId": 4,
+    "departmentSectionId": 4,
+    "taId": 20
+  },
+  {
+    "id": 39,
+    "courseId": 4,
+    "departmentSectionId": 5,
+    "taId": 20
+  },
+  {
+    "id": 40,
+    "courseId": 4,
+    "departmentSectionId": 6,
+    "taId": 20
+  },
+  {
+    "id": 41,
+    "courseId": 4,
+    "departmentSectionId": 7,
+    "taId": 20
+  },
+  {
+    "id": 42,
+    "courseId": 4,
+    "departmentSectionId": 8,
+    "taId": 16
+  },
+  {
+    "id": 43,
+    "courseId": 4,
+    "departmentSectionId": 14,
+    "taId": 16
+  },
+  {
+    "id": 44,
+    "courseId": 4,
+    "departmentSectionId": 15,
+    "taId": 16
+  },
+  {
+    "id": 45,
+    "courseId": 4,
+    "departmentSectionId": 16,
+    "taId": 16
+  },
+  {
+    "id": 46,
+    "courseId": 4,
+    "departmentSectionId": 17,
+    "taId": 16
+  },
+  {
+    "id": 47,
+    "courseId": 4,
+    "departmentSectionId": 18,
+    "taId": 20
+  },
+  {
+    "id": 48,
+    "courseId": 5,
+    "departmentSectionId": 1,
+    "taId": 22
+  },
+  {
+    "id": 49,
+    "courseId": 5,
+    "departmentSectionId": 2,
+    "taId": 22
+  },
+  {
+    "id": 50,
+    "courseId": 5,
+    "departmentSectionId": 3,
+    "taId": 22
+  },
+  {
+    "id": 51,
+    "courseId": 5,
+    "departmentSectionId": 4,
+    "taId": 22
+  },
+  {
+    "id": 52,
+    "courseId": 5,
+    "departmentSectionId": 5,
+    "taId": 24
+  },
+  {
+    "id": 53,
+    "courseId": 5,
+    "departmentSectionId": 6,
+    "taId": 22
+  },
+  {
+    "id": 54,
+    "courseId": 5,
+    "departmentSectionId": 7,
+    "taId": 22
+  },
+  {
+    "id": 55,
+    "courseId": 5,
+    "departmentSectionId": 8,
+    "taId": 22
+  },
+  {
+    "id": 56,
+    "courseId": 6,
+    "departmentSectionId": 1,
+    "taId": 21
+  },
+  {
+    "id": 57,
+    "courseId": 6,
+    "departmentSectionId": 2,
+    "taId": 21
+  },
+  {
+    "id": 58,
+    "courseId": 6,
+    "departmentSectionId": 3,
+    "taId": 21
+  },
+  {
+    "id": 59,
+    "courseId": 6,
+    "departmentSectionId": 4,
+    "taId": 21
+  },
+  {
+    "id": 60,
+    "courseId": 6,
+    "departmentSectionId": 5,
+    "taId": 21
+  },
+  {
+    "id": 61,
+    "courseId": 6,
+    "departmentSectionId": 6,
+    "taId": 21
+  },
+  {
+    "id": 62,
+    "courseId": 6,
+    "departmentSectionId": 7,
+    "taId": 21
+  },
+  {
+    "id": 63,
+    "courseId": 6,
+    "departmentSectionId": 8,
+    "taId": 21
+  },
+  {
+    "id": 64,
+    "courseId": 6,
+    "departmentSectionId": 14,
+    "taId": 11
+  },
+  {
+    "id": 65,
+    "courseId": 6,
+    "departmentSectionId": 15,
+    "taId": 11
+  },
+  {
+    "id": 66,
+    "courseId": 6,
+    "departmentSectionId": 16,
+    "taId": 11
+  },
+  {
+    "id": 67,
+    "courseId": 6,
+    "departmentSectionId": 17,
+    "taId": 11
+  },
+  {
+    "id": 68,
+    "courseId": 6,
+    "departmentSectionId": 18,
+    "taId": 11
+  },
+  {
+    "id": 69,
+    "courseId": 7,
+    "departmentSectionId": 9,
+    "taId": 24
+  },
+  {
+    "id": 70,
+    "courseId": 7,
+    "departmentSectionId": 10,
+    "taId": 24
+  },
+  {
+    "id": 71,
+    "courseId": 7,
+    "departmentSectionId": 11,
+    "taId": 24
+  },
+  {
+    "id": 72,
+    "courseId": 7,
+    "departmentSectionId": 12,
+    "taId": 24
+  },
+  {
+    "id": 73,
+    "courseId": 7,
+    "departmentSectionId": 13,
+    "taId": 24
+  },
+  {
+    "id": 74,
+    "courseId": 8,
+    "departmentSectionId": 9,
+    "taId": 27
+  },
+  {
+    "id": 75,
+    "courseId": 8,
+    "departmentSectionId": 10,
+    "taId": 27
+  },
+  {
+    "id": 76,
+    "courseId": 8,
+    "departmentSectionId": 11,
+    "taId": 27
+  },
+  {
+    "id": 77,
+    "courseId": 8,
+    "departmentSectionId": 12,
+    "taId": 27
+  },
+  {
+    "id": 78,
+    "courseId": 8,
+    "departmentSectionId": 13,
+    "taId": 27
+  },
+  {
+    "id": 79,
+    "courseId": 9,
+    "departmentSectionId": 9,
+    "taId": 28
+  },
+  {
+    "id": 80,
+    "courseId": 9,
+    "departmentSectionId": 10,
+    "taId": 28
+  },
+  {
+    "id": 81,
+    "courseId": 9,
+    "departmentSectionId": 11,
+    "taId": 28
+  },
+  {
+    "id": 82,
+    "courseId": 9,
+    "departmentSectionId": 12,
+    "taId": 28
+  },
+  {
+    "id": 83,
+    "courseId": 9,
+    "departmentSectionId": 13,
+    "taId": 28
+  },
+  {
+    "id": 84,
+    "courseId": 10,
+    "departmentSectionId": 9,
+    "taId": 16
+  },
+  {
+    "id": 85,
+    "courseId": 10,
+    "departmentSectionId": 10,
+    "taId": 16
+  },
+  {
+    "id": 86,
+    "courseId": 10,
+    "departmentSectionId": 11,
+    "taId": 16
+  },
+  {
+    "id": 87,
+    "courseId": 10,
+    "departmentSectionId": 12,
+    "taId": 15
+  },
+  {
+    "id": 88,
+    "courseId": 10,
+    "departmentSectionId": 13,
+    "taId": 15
+  },
+  {
+    "id": 89,
+    "courseId": 11,
+    "departmentSectionId": 9,
+    "taId": 30
+  },
+  {
+    "id": 90,
+    "courseId": 11,
+    "departmentSectionId": 10,
+    "taId": 29
+  },
+  {
+    "id": 91,
+    "courseId": 11,
+    "departmentSectionId": 11,
+    "taId": 30
+  },
+  {
+    "id": 92,
+    "courseId": 11,
+    "departmentSectionId": 12,
+    "taId": 30
+  },
+  {
+    "id": 93,
+    "courseId": 11,
+    "departmentSectionId": 13,
+    "taId": 29
+  },
+  {
+    "id": 94,
+    "courseId": 11,
+    "departmentSectionId": 14,
+    "taId": 30
+  },
+  {
+    "id": 95,
+    "courseId": 11,
+    "departmentSectionId": 15,
+    "taId": 30
+  },
+  {
+    "id": 96,
+    "courseId": 11,
+    "departmentSectionId": 16,
+    "taId": 30
+  },
+  {
+    "id": 97,
+    "courseId": 11,
+    "departmentSectionId": 17,
+    "taId": 30
+  },
+  {
+    "id": 98,
+    "courseId": 11,
+    "departmentSectionId": 18,
+    "taId": 30
+  },
+  {
+    "id": 99,
+    "courseId": 12,
+    "departmentSectionId": 14,
+    "taId": 10
+  },
+  {
+    "id": 100,
+    "courseId": 12,
+    "departmentSectionId": 15,
+    "taId": 10
+  },
+  {
+    "id": 101,
+    "courseId": 12,
+    "departmentSectionId": 16,
+    "taId": 10
+  },
+  {
+    "id": 102,
+    "courseId": 12,
+    "departmentSectionId": 17,
+    "taId": 10
+  },
+  {
+    "id": 103,
+    "courseId": 12,
+    "departmentSectionId": 18,
+    "taId": 10
+  },
+  {
+    "id": 104,
+    "courseId": 13,
+    "departmentSectionId": 14,
+    "taId": 12
+  },
+  {
+    "id": 105,
+    "courseId": 13,
+    "departmentSectionId": 15,
+    "taId": 12
+  },
+  {
+    "id": 106,
+    "courseId": 13,
+    "departmentSectionId": 16,
+    "taId": 12
+  },
+  {
+    "id": 107,
+    "courseId": 13,
+    "departmentSectionId": 17,
+    "taId": 12
+  },
+  {
+    "id": 108,
+    "courseId": 13,
+    "departmentSectionId": 18,
+    "taId": 12
+  }
+]

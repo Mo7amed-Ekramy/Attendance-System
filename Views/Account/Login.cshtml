@@ -1,0 +1,193 @@
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Attendance System</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <style>
+        .login-container {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .login-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            max-width: 400px;
+            width: 100%;
+        }
+        
+        .login-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .login-body {
+            padding: 40px 30px;
+        }
+        
+        .role-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .role-btn {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .role-btn:hover {
+            border-color: #667eea;
+            background: #f8f9fa;
+        }
+        
+        .role-btn.active {
+            border-color: #667eea;
+            background: #667eea;
+            color: white;
+        }
+        
+        .role-btn i {
+            font-size: 24px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .form-control {
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+        }
+        
+        .form-control:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        }
+        
+        .btn-login {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .login-footer {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <i class="fas fa-graduation-cap fa-3x mb-3"></i>
+                <h2 class="mb-2">University Attendance System</h2>
+                <p class="mb-0">Sign in to access your dashboard</p>
+            </div>
+            
+            <div class="login-body">
+                <form method="post" action="/Account/Login">
+                    <div class="mb-4">
+                        <label class="form-label fw-bold mb-3">Select Your Role</label>
+                        <div class="role-selector">
+                            <div class="role-btn active" data-role="Student">
+                                <i class="fas fa-user-graduate"></i>
+                                <div>Student</div>
+                            </div>
+                            <div class="role-btn" data-role="TA">
+                                <i class="fas fa-user-tie"></i>
+                                <div>Teaching Assistant</div>
+                            </div>
+                            <div class="role-btn" data-role="Doctor">
+                                <i class="fas fa-user-md"></i>
+                                <div>Doctor</div>
+                            </div>
+                        </div>
+                        <input type="hidden" id="role" name="role" value="Student" required>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="name" class="form-label fw-bold">Your Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="id" class="form-label fw-bold">University ID</label>
+                        <input type="text" class="form-control" id="id" name="id" placeholder="Enter your university ID" required>
+                    </div>
+                    
+                    <button type="submit" class="btn-login">
+                        <i class="fas fa-sign-in-alt me-2"></i> Sign In
+                    </button>
+                </form>
+                
+                <div class="text-center mt-4">
+                    <p class="text-muted small">
+                        <i class="fas fa-info-circle me-1"></i>
+                        This is a demo login. In production, this would connect to your university authentication system.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="login-footer">
+                <p class="mb-0">© @DateTime.Now.Year University Attendance System | v1.0.0</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.role-btn').click(function() {
+                $('.role-btn').removeClass('active');
+                $(this).addClass('active');
+                $('#role').val($(this).data('role'));
+                
+                // Update placeholder based on role
+                var role = $(this).data('role');
+                var placeholder = role === 'Student' ? 'Enter your student ID' : 
+                                 role === 'TA' ? 'Enter your TA ID' : 
+                                 'Enter your staff ID';
+                $('#id').attr('placeholder', placeholder);
+            });
+        });
+    </script>
+</body>
+</html>

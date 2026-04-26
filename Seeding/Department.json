@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "code": "SE",
+    "name": "Software Engineering"
+  },
+  {
+    "id": 2,
+    "code": "AI",
+    "name": "Artificial Intelligence"
+  },
+  {
+    "id": 3,
+    "code": "CS",
+    "name": "Computer Science"
+  },
+  {
+    "id": 4,
+    "code": "IS",
+    "name": "Information System"
+  }
+]

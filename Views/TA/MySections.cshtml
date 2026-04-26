@@ -1,0 +1,269 @@
+@{
+    ViewData["Title"] = "My Sections";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h1 class="h3 mb-0">My Sections</h1>
+        <p class="text-muted mb-0">Manage your assigned sections and students</p>
+    </div>
+    <div class="btn-group">
+        <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+            <i class="fas fa-filter me-2"></i> Filter
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">All Sections</a></li>
+            <li><a class="dropdown-item" href="#">Active Only</a></li>
+            <li><a class="dropdown-item" href="#">By Course</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card section-card shadow-sm h-100">
+            <div class="card-header bg-primary text-white">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5 class="mb-0 fw-bold">CS101 - Section 1</h5>
+                        <small>Introduction to Programming</small>
+                    </div>
+                    <span class="badge bg-light text-primary">25 Students</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between mb-1">
+                        <small class="text-muted">Attendance Rate</small>
+                        <small class="fw-bold">92%</small>
+                    </div>
+                    <div class="progress" style="height: 6px;">
+                        <div class="progress-bar bg-success" style="width: 92%"></div>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between mb-1">
+                        <small class="text-muted">Next Session</small>
+                        <small class="fw-bold">Tomorrow, 10:00 AM</small>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between mb-1">
+                        <small class="text-muted">Location</small>
+                        <small class="fw-bold">Lab 302</small>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <small class="text-muted">Status</small>
+                        <div>
+                            <span class="badge bg-success">Active</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-4">
+                    <div class="row">
+                        <div class="col-6">
+                            <small class="text-muted d-block">Course Doctor</small>
+                            <small class="fw-bold">Dr. Ahmed Mohamed</small>
+                        </div>
+                        <div class="col-6">
+                            <small class="text-muted d-block">Students</small>
+                            <small class="fw-bold">25 enrolled</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer bg-white border-0">
+                <div class="d-grid gap-2">
+                    <a href="/TA/TakeAttendance?sectionId=1" class="btn btn-primary">
+                        <i class="fas fa-calendar-check me-2"></i> Take Attendance
+                    </a>
+                    <a href="/TA/SectionReports?sectionId=1" class="btn btn-outline-primary">
+                        <i class="fas fa-chart-bar me-2"></i> View Reports
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card section-card shadow-sm h-100">
+            <div class="card-header bg-info text-white">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5 class="mb-0 fw-bold">CS201 - Section 3</h5>
+                        <small>Data Structures</small>
+                    </div>
+                    <span class="badge bg-light text-info">24 Students</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between mb-1">
+                        <small class="text-muted">Attendance Rate</small>
+                        <small class="fw-bold">78%</small>
+                    </div>
+                    <div class="progress" style="height: 6px;">
+                        <div class="progress-bar bg-warning" style="width: 78%"></div>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between mb-1">
+                        <small class="text-muted">Next Session</small>
+                        <small class="fw-bold">Wednesday, 02:00 PM</small>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between mb-1">
+                        <small class="text-muted">Location</small>
+                        <small class="fw-bold">Room 205</small>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <small class="text-muted">Status</small>
+                        <div>
+                            <span class="badge bg-warning">Needs Attention</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-4">
+                    <div class="row">
+                        <div class="col-6">
+                            <small class="text-muted d-block">Course Doctor</small>
+                            <small class="fw-bold">Dr. Omar Hassan</small>
+                        </div>
+                        <div class="col-6">
+                            <small class="text-muted d-block">Students</small>
+                            <small class="fw-bold">24 enrolled</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer bg-white border-0">
+                <div class="d-grid gap-2">
+                    <a href="/TA/TakeAttendance?sectionId=2" class="btn btn-info">
+                        <i class="fas fa-calendar-check me-2"></i> Take Attendance
+                    </a>
+                    <a href="/TA/CreateQuiz?sectionId=2" class="btn btn-outline-info">
+                        <i class="fas fa-plus-circle me-2"></i> Create Quiz
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card section-card shadow-sm h-100">
+            <div class="card-header bg-danger text-white">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h5 class="mb-0 fw-bold">MATH101 - Section 2</h5>
+                        <small>Calculus</small>
+                    </div>
+                    <span class="badge bg-light text-danger">26 Students</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between mb-1">
+                        <small class="text-muted">Attendance Rate</small>
+                        <small class="fw-bold">65%</small>
+                    </div>
+                    <div class="progress" style="height: 6px;">
+                        <div class="progress-bar bg-danger" style="width: 65%"></div>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between mb-1">
+                        <small class="text-muted">Next Session</small>
+                        <small class="fw-bold">Thursday, 09:00 AM</small>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between mb-1">
+                        <small class="text-muted">Location</small>
+                        <small class="fw-bold">Room 101</small>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <small class="text-muted">Status</small>
+                        <div>
+                            <span class="badge bg-danger">Critical</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-4">
+                    <div class="row">
+                        <div class="col-6">
+                            <small class="text-muted d-block">Course Doctor</small>
+                            <small class="fw-bold">Dr. Fatima Ahmed</small>
+                        </div>
+                        <div class="col-6">
+                            <small class="text-muted d-block">Students</small>
+                            <small class="fw-bold">26 enrolled</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer bg-white border-0">
+                <div class="d-grid gap-2">
+                    <a href="/TA/TakeAttendance?sectionId=3" class="btn btn-danger">
+                        <i class="fas fa-calendar-check me-2"></i> Take Attendance
+                    </a>
+                    <a href="/TA/RecordQuizMarks?quizId=5" class="btn btn-outline-danger">
+                        <i class="fas fa-tasks me-2"></i> Grade Quiz
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card shadow-sm mt-4">
+    <div class="card-header bg-white">
+        <h6 class="m-0 fw-bold"><i class="fas fa-chart-bar me-2 text-primary"></i> Section Statistics</h6>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="text-center mb-3">
+                    <div class="display-4 fw-bold text-primary">3</div>
+                    <div class="text-muted">Total Sections</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="text-center mb-3">
+                    <div class="display-4 fw-bold text-success">75</div>
+                    <div class="text-muted">Total Students</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="text-center mb-3">
+                    <div class="display-4 fw-bold text-info">78%</div>
+                    <div class="text-muted">Avg Attendance</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="text-center mb-3">
+                    <div class="display-4 fw-bold text-warning">2</div>
+                    <div class="text-muted">Pending Actions</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

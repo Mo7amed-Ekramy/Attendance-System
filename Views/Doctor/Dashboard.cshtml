@@ -1,0 +1,303 @@
+@{
+    ViewData["Title"] = "Doctor Dashboard";
+}
+
+<div class="row">
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-start border-primary border-3 shadow-sm h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs fw-bold text-primary text-uppercase mb-1">Teaching Courses</div>
+                        <div class="h5 mb-0 fw-bold">3</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-book fa-2x text-primary"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-start border-success border-3 shadow-sm h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs fw-bold text-success text-uppercase mb-1">Total Sections</div>
+                        <div class="h5 mb-0 fw-bold">12</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-users fa-2x text-success"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-start border-warning border-3 shadow-sm h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs fw-bold text-warning text-uppercase mb-1">TAs Assigned</div>
+                        <div class="h5 mb-0 fw-bold">8</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-user-tie fa-2x text-warning"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-start border-info border-3 shadow-sm h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs fw-bold text-info text-uppercase mb-1">Lectures This Week</div>
+                        <div class="h5 mb-0 fw-bold">6</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-chalkboard-teacher fa-2x text-info"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-8 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                <h6 class="m-0 fw-bold"><i class="fas fa-book me-2 text-primary"></i> My Courses</h6>
+                <a href="/Doctor/MyCourses" class="btn btn-sm btn-outline-primary">Manage Courses</a>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Course</th>
+                                <th>Sections</th>
+                                <th>Total Students</th>
+                                <th>Attendance Rate</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="fw-bold">CS101</div>
+                                    <div class="text-muted small">Introduction to Programming</div>
+                                </td>
+                                <td>4</td>
+                                <td>100</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="progress flex-grow-1 me-2" style="height: 6px;">
+                                            <div class="progress-bar bg-success" style="width: 92%"></div>
+                                        </div>
+                                        <span class="small">92%</span>
+                                    </div>
+                                </td>
+                                <td><span class="badge bg-success">Excellent</span></td>
+                                <td>
+                                    <div class="btn-group btn-group-sm">
+                                        <a href="/Doctor/CourseConfiguration?courseId=1" class="btn btn-outline-primary">Configure</a>
+                                        <a href="/Doctor/TakeLectureAttendance?courseId=1" class="btn btn-primary">Take Attendance</a>
+                                        <a href="/Doctor/FullCourseReport?courseId=1" class="btn btn-outline-info">Report</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="fw-bold">CS201</div>
+                                    <div class="text-muted small">Data Structures</div>
+                                </td>
+                                <td>4</td>
+                                <td>96</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="progress flex-grow-1 me-2" style="height: 6px;">
+                                            <div class="progress-bar bg-warning" style="width: 78%"></div>
+                                        </div>
+                                        <span class="small">78%</span>
+                                    </div>
+                                </td>
+                                <td><span class="badge bg-warning">Needs Attention</span></td>
+                                <td>
+                                    <div class="btn-group btn-group-sm">
+                                        <a href="/Doctor/CourseConfiguration?courseId=2" class="btn btn-outline-primary">Configure</a>
+                                        <a href="/Doctor/LectureReports?courseId=2" class="btn btn-outline-warning">Review</a>
+                                        <a href="/Doctor/FullCourseReport?courseId=2" class="btn btn-outline-info">Report</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="fw-bold">MATH101</div>
+                                    <div class="text-muted small">Calculus</div>
+                                </td>
+                                <td>4</td>
+                                <td>104</td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="progress flex-grow-1 me-2" style="height: 6px;">
+                                            <div class="progress-bar bg-danger" style="width: 65%"></div>
+                                        </div>
+                                        <span class="small">65%</span>
+                                    </div>
+                                </td>
+                                <td><span class="badge bg-danger">Critical</span></td>
+                                <td>
+                                    <div class="btn-group btn-group-sm">
+                                        <a href="/Doctor/CourseConfiguration?courseId=3" class="btn btn-outline-primary">Configure</a>
+                                        <a href="/Doctor/TakeLectureAttendance?courseId=3" class="btn btn-primary">Take Attendance</a>
+                                        <a href="/Doctor/LectureReports?courseId=3" class="btn btn-outline-danger">Investigate</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-white">
+                <h6 class="m-0 fw-bold"><i class="fas fa-chart-line me-2 text-primary"></i> Course Statistics</h6>
+            </div>
+            <div class="card-body">
+                <div class="mb-4">
+                    <h6 class="fw-bold mb-3">Overall Attendance Rate</h6>
+                    <div class="progress" style="height: 20px;">
+                        <div class="progress-bar bg-success" style="width: 78%">
+                            <span class="fw-bold">78%</span>
+                        </div>
+                    </div>
+                    <div class="mt-2 text-muted small">
+                        <i class="fas fa-info-circle me-1"></i> Average across all courses
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <h6 class="fw-bold mb-3">Student Distribution by Status</h6>
+                    <div class="d-flex align-items-center mb-2">
+                        <div class="badge bg-success me-2" style="width: 20px; height: 20px;"></div>
+                        <div class="flex-grow-1">Safe: 65%</div>
+                        <span class="fw-bold">195 students</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <div class="badge bg-warning me-2" style="width: 20px; height: 20px;"></div>
+                        <div class="flex-grow-1">Warning: 25%</div>
+                        <span class="fw-bold">75 students</span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="badge bg-danger me-2" style="width: 20px; height: 20px;"></div>
+                        <div class="flex-grow-1">At Risk: 10%</div>
+                        <span class="fw-bold">30 students</span>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <h6 class="fw-bold mb-3"><i class="fas fa-exclamation-triangle me-2 text-warning"></i> Alerts</h6>
+                    <div class="list-group">
+                        <div class="list-group-item border-0 bg-light">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <div class="fw-bold small">Low Attendance</div>
+                                    <div class="text-muted small">MATH101 has 65% attendance rate</div>
+                                </div>
+                                <span class="badge bg-danger">Critical</span>
+                            </div>
+                        </div>
+                        <div class="list-group-item border-0 bg-light">
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <div class="fw-bold small">Configuration Needed</div>
+                                    <div class="text-muted small">CS201 course policy needs update</div>
+                                </div>
+                                <span class="badge bg-warning">Pending</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card shadow-sm">
+            <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                <h6 class="m-0 fw-bold"><i class="fas fa-calendar-alt me-2 text-primary"></i> Upcoming Lectures & Deadlines</h6>
+                <a href="#" class="btn btn-sm btn-outline-primary">View Calendar</a>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Course</th>
+                                <th>Type</th>
+                                <th>Location</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Tomorrow</td>
+                                <td>10:00 AM</td>
+                                <td>CS101 - Introduction to Programming</td>
+                                <td><span class="badge bg-primary">Lecture</span></td>
+                                <td>Auditorium A</td>
+                                <td>
+                                    <a href="/Doctor/TakeLectureAttendance?courseId=1" class="btn btn-sm btn-primary">Prepare Attendance</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Tomorrow</td>
+                                <td>02:00 PM</td>
+                                <td>CS201 - Data Structures</td>
+                                <td><span class="badge bg-info">Office Hours</span></td>
+                                <td>Office 305</td>
+                                <td>
+                                    <a href="#" class="btn btn-sm btn-outline-info">View Schedule</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Day After Tomorrow</td>
+                                <td>09:00 AM</td>
+                                <td>MATH101 - Calculus</td>
+                                <td><span class="badge bg-primary">Lecture</span></td>
+                                <td>Room 101</td>
+                                <td>
+                                    <a href="/Doctor/TakeLectureAttendance?courseId=3" class="btn btn-sm btn-primary">Prepare Attendance</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>This Friday</td>
+                                <td>11:59 PM</td>
+                                <td>All Courses</td>
+                                <td><span class="badge bg-warning">Deadline</span></td>
+                                <td>-</td>
+                                <td>
+                                    <a href="/Doctor/MyCourses" class="btn btn-sm btn-outline-warning">Review Grades</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

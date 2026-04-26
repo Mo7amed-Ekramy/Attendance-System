@@ -1,0 +1,15 @@
+@model double
+
+@{
+    var percentage = Model;
+    var progressClass = percentage >= 80 ? "bg-success" : 
+                       percentage >= 60 ? "bg-warning" : "bg-danger";
+    var width = Math.Min(Math.Max(percentage, 0), 100);
+}
+
+<div class="d-flex align-items-center">
+    <div class="progress flex-grow-1 me-2" style="height: 6px;">
+        <div class="progress-bar @progressClass" style="width: @(width)%"></div>
+    </div>
+    <span class="small fw-bold">@(percentage.ToString("0"))%</span>
+</div>

@@ -1,0 +1,232 @@
+@{
+    ViewData["Title"] = "Course Details";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h1 class="h3 mb-0">CS101 - Introduction to Programming</h1>
+        <p class="text-muted mb-0">Spring 2024 | Dr. Ahmed Mohamed</p>
+    </div>
+    <div>
+        <a href="/Student/MyCourses" class="btn btn-outline-primary">
+            <i class="fas fa-arrow-left me-2"></i> Back to Courses
+        </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-8 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                <h6 class="m-0 fw-bold"><i class="fas fa-chart-line me-2 text-primary"></i> Course Progress</h6>
+                <span class="badge bg-success">Safe</span>
+            </div>
+            <div class="card-body">
+                <div class="row mb-4">
+                    <div class="col-md-3 mb-3">
+                        <div class="text-center">
+                            <div class="display-4 fw-bold text-primary">92%</div>
+                            <div class="text-muted">Attendance</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="text-center">
+                            <div class="display-4 fw-bold text-info">85</div>
+                            <div class="text-muted">Quiz Average</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="text-center">
+                            <div class="display-4 fw-bold text-success">A</div>
+                            <div class="text-muted">Current Grade</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <div class="text-center">
+                            <div class="display-4 fw-bold text-warning">2/5</div>
+                            <div class="text-muted">Absences Used</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <h6 class="fw-bold mb-3">Attendance Progress</h6>
+                    <div class="progress" style="height: 20px;">
+                        <div class="progress-bar bg-success" style="width: 92%">
+                            <span class="fw-bold">92%</span>
+                        </div>
+                    </div>
+                    <div class="mt-2 text-muted small">
+                        <i class="fas fa-info-circle me-1"></i> 23 out of 25 sessions attended
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <h6 class="fw-bold mb-3">Course Policy</h6>
+                    <div class="row">
+                        <div class="col-md-6 mb-2">
+                            <div class="d-flex justify-content-between">
+                                <span class="text-muted">Total Coursework Marks</span>
+                                <span class="fw-bold">100</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <div class="d-flex justify-content-between">
+                                <span class="text-muted">Section Attendance</span>
+                                <span class="fw-bold">20 marks</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <div class="d-flex justify-content-between">
+                                <span class="text-muted">Quiz Marks</span>
+                                <span class="fw-bold">30 marks</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <div class="d-flex justify-content-between">
+                                <span class="text-muted">Lecture Attendance</span>
+                                <span class="fw-bold">10 marks</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <div class="d-flex justify-content-between">
+                                <span class="text-muted">Allowed Absences</span>
+                                <span class="fw-bold">5 sessions</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <div class="d-flex justify-content-between">
+                                <span class="text-muted">Best Quizzes Count</span>
+                                <span class="fw-bold">3 out of 5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-white">
+                <h6 class="m-0 fw-bold"><i class="fas fa-calendar-alt me-2 text-primary"></i> Upcoming Sessions</h6>
+            </div>
+            <div class="card-body p-0">
+                <div class="list-group list-group-flush">
+                    <div class="list-group-item border-0">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <div class="fw-bold small">Tomorrow, 10:00 AM</div>
+                                <div class="text-muted small">Lecture - Room 205</div>
+                            </div>
+                            <span class="badge bg-primary">Lecture</span>
+                        </div>
+                    </div>
+                    <div class="list-group-item border-0">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <div class="fw-bold small">Wednesday, 02:00 PM</div>
+                                <div class="text-muted small">Section - Lab 302</div>
+                            </div>
+                            <span class="badge bg-success">Section</span>
+                        </div>
+                    </div>
+                    <div class="list-group-item border-0">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <div class="fw-bold small">Friday, 11:00 AM</div>
+                                <div class="text-muted small">Lecture - Auditorium A</div>
+                            </div>
+                            <span class="badge bg-primary">Lecture</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card shadow-sm mt-4">
+            <div class="card-header bg-white">
+                <h6 class="m-0 fw-bold"><i class="fas fa-users me-2 text-primary"></i> Teaching Team</h6>
+            </div>
+            <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div>
+                        <div class="fw-bold">Dr. Ahmed Mohamed</div>
+                        <div class="text-muted small">Course Doctor</div>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div>
+                        <div class="fw-bold">TA Sarah Ali</div>
+                        <div class="text-muted small">Section 1 TA</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-header bg-white">
+        <h6 class="m-0 fw-bold"><i class="fas fa-history me-2 text-primary"></i> Recent Quiz Marks</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead class="table-light">
+                    <tr>
+                        <th>Quiz</th>
+                        <th>Date</th>
+                        <th>Mark</th>
+                        <th>Max Mark</th>
+                        <th>Weight</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Quiz 1 - Variables & Data Types</td>
+                        <td>2024-02-15</td>
+                        <td class="fw-bold text-success">18/20</td>
+                        <td>20</td>
+                        <td>90%</td>
+                        <td><span class="badge bg-success">Counted</span></td>
+                    </tr>
+                    <tr>
+                        <td>Quiz 2 - Control Structures</td>
+                        <td>2024-03-01</td>
+                        <td class="fw-bold text-warning">16/20</td>
+                        <td>20</td>
+                        <td>80%</td>
+                        <td><span class="badge bg-success">Counted</span></td>
+                    </tr>
+                    <tr>
+                        <td>Quiz 3 - Functions</td>
+                        <td>2024-03-15</td>
+                        <td class="fw-bold text-info">19/20</td>
+                        <td>20</td>
+                        <td>95%</td>
+                        <td><span class="badge bg-success">Counted</span></td>
+                    </tr>
+                    <tr>
+                        <td>Quiz 4 - Arrays</td>
+                        <td>2024-03-29</td>
+                        <td class="fw-bold text-danger">14/20</td>
+                        <td>20</td>
+                        <td>70%</td>
+                        <td><span class="badge bg-secondary">Dropped</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="mt-3 text-muted small">
+            <i class="fas fa-info-circle me-1"></i> Best 3 quizzes are counted towards final grade (Quiz 1, 2, 3)
+        </div>
+    </div>
+</div>

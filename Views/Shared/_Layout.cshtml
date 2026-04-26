@@ -1,0 +1,338 @@
+﻿@{
+    // جلب بيانات المستخدم من الـ Claims
+    var userRole = Context.User?.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value ?? "Guest";
+    var userName = Context.User?.Identity?.Name ?? "Guest User";
+    // أول حرف من الاسم للـ Avatar
+    var userInitial = !string.IsNullOrEmpty(userName) ? userName.Substring(0, 1).ToUpper() : "G";
+    
+    string GetDashboardLink(string role)
+    {
+        return role switch
+        {
+            "Student" => "/Student/Dashboard",
+            "TA" => "/TA/Dashboard",
+            "Doctor" => "/Doctor/Dashboard",
+            "Admin" => "/Admin/Dashboard",
+            _ => "/"
+        };
+    }
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Attendance System</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/dashboard.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MVC_PROJECT.styles.css" asp-append-version="true" />
+
+    @await RenderSectionAsync("Head", required: false)
+</head>
+<body class="dashboard-body">
+
+    <nav class="navbar navbar-expand-lg top-navbar fixed-top shadow-sm">
+        <div class="container-fluid">
+            <button class="navbar-toggler d-lg-none border-0" type="button" id="sidebarToggle">
+                <i class="fas fa-bars text-white"></i>
+            </button>
+
+            <a class="navbar-brand d-none d-lg-flex align-items-center" href="@GetDashboardLink(userRole)">
+                <i class="fas fa-graduation-cap me-2"></i>
+                <span class="fw-bold">Attendance System</span>
+            </a>
+
+            <div class="search-form ms-auto me-3 d-none d-md-flex">
+                <div class="input-group">
+                    <input type="text" class="form-control search-input" placeholder="Search courses, students...">
+                    <button class="btn search-btn" type="button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="user-menu d-flex align-items-center">
+                <div class="dropdown me-3">
+                    <button class="btn btn-link text-white p-0 position-relative" type="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-bell fs-5"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-light">
+                            3
+                        </span>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end notification-dropdown shadow-lg border-0">
+                        <h6 class="dropdown-header">Recent Notifications</h6>
+                        <div class="notification-item">
+                            <div class="notification-icon bg-success"><i class="fas fa-check"></i></div>
+                            <div class="notification-content">
+                                <div class="notification-title">Attendance Submitted</div>
+                                <div class="notification-time">5 mins ago</div>
+                            </div>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-center small text-primary" href="/Notifications">View All</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="btn btn-link text-white p-0 d-flex align-items-center text-decoration-none" type="button" data-bs-toggle="dropdown">
+                        <div class="user-avatar-sm me-2">@userInitial</div>
+                        <span class="user-name d-none d-sm-inline">@userName</span>
+                        <i class="fas fa-chevron-down ms-2 small"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end shadow border-0">
+                        <li><a class="dropdown-item" href="/Account/Profile"><i class="fas fa-user me-2"></i>Profile</a></li>
+                        <li><a class="dropdown-item" href="/Account/Settings"><i class="fas fa-cog me-2"></i>Settings</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-danger" href="/Account/Logout"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2 col-md-3 sidebar-wrapper" id="sidebarWrapper">
+                <div class="sidebar">
+                    <div class="sidebar-header d-lg-none">
+                        <div class="d-flex justify-content-between align-items-center p-3">
+                            <span class="fw-bold text-white">Menu</span>
+                            <button class="btn text-white" id="sidebarClose"><i class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-user text-center p-4">
+                        <div class="user-avatar mx-auto mb-3">@userInitial</div>
+                        <div class="user-info">
+                            <div class="user-name fw-bold">@userName</div>
+                            <div class="user-role mt-1">
+                                <span class="role-badge @userRole.ToLower()">@userRole</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <nav class="sidebar-nav">
+                        <ul class="nav flex-column">
+                            @if (userRole == "Student")
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Student" && ViewContext.RouteData.Values["action"]?.ToString() == "Dashboard" ? "active" : "")" href="/Student/Dashboard">
+                                        <i class="fas fa-home me-2"></i> Dashboard
+                                    </a>
+                                </li>
+                                <li class="nav-item separator"></li>
+                                <li class="nav-item">
+                                    <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Student" && ViewContext.RouteData.Values["action"]?.ToString() == "MyCourses" ? "active" : "")" href="/Student/MyCourses">
+                                        <i class="fas fa-book me-2"></i> My Courses
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Student" && ViewContext.RouteData.Values["action"]?.ToString() == "AttendanceHistory" ? "active" : "")" href="/Student/AttendanceHistory">
+                                        <i class="fas fa-calendar-check me-2"></i> Attendance History
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Student" && ViewContext.RouteData.Values["action"]?.ToString() == "QuizMarks" ? "active" : "")" href="/Student/QuizMarks">
+                                        <i class="fas fa-tasks me-2"></i> Quiz Marks
+                                    </a>
+                                </li>
+                                <li class="nav-item separator"></li>
+                                <li class="nav-item">
+                                    <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Student" && ViewContext.RouteData.Values["action"]?.ToString() == "Notifications" ? "active" : "")" href="/Student/Notifications">
+                                        <i class="fas fa-bell me-2"></i> Notifications
+                                    </a>
+                                </li>
+                            }
+                            else if (userRole == "TA")
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "TA" && ViewContext.RouteData.Values["action"]?.ToString() == "Dashboard" ? "active" : "")" href="/TA/Dashboard">
+                                        <i class="fas fa-home me-2"></i> Dashboard
+                                    </a>
+                                </li>
+                                <li class="nav-item separator"></li>
+                                <li class="nav-item">
+                                    <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "TA" && ViewContext.RouteData.Values["action"]?.ToString() == "MySections" ? "active" : "")" href="/TA/MySections">
+                                        <i class="fas fa-users me-2"></i> My Sections
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/TA/TakeAttendance">
+                                        <i class="fas fa-calendar-check me-2"></i> Take Attendance
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/TA/CreateQuiz">
+                                        <i class="fas fa-plus-circle me-2"></i> Create Quiz
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/TA/RecordQuizMarks">
+                                        <i class="fas fa-tasks me-2"></i> Record Quiz Marks
+                                    </a>
+                                </li>
+                                <li class="nav-item separator"></li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/TA/SectionReports">
+                                        <i class="fas fa-chart-bar me-2"></i> Section Reports
+                                    </a>
+                                </li>
+                            }
+                            else if (userRole == "Doctor")
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Doctor" && ViewContext.RouteData.Values["action"]?.ToString() == "Dashboard" ? "active" : "")" href="/Doctor/Dashboard">
+                                        <i class="fas fa-home me-2"></i> Dashboard
+                                    </a>
+                                </li>
+                                <li class="nav-item separator"></li>
+                                <li class="nav-item">
+                                    <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Doctor" && ViewContext.RouteData.Values["action"]?.ToString() == "MyCourses" ? "active" : "")" href="/Doctor/MyCourses">
+                                        <i class="fas fa-book me-2"></i> My Courses
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/Doctor/CourseConfiguration">
+                                        <i class="fas fa-cog me-2"></i> Course Configuration
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/Doctor/TakeLectureAttendance">
+                                        <i class="fas fa-chalkboard-teacher me-2"></i> Lecture Attendance
+                                    </a>
+                                </li>
+                                <li class="nav-item separator"></li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/Doctor/LectureReports">
+                                        <i class="fas fa-chart-line me-2"></i> Lecture Reports
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/Doctor/FullCourseReport">
+                                        <i class="fas fa-file-alt me-2"></i> Full Course Report
+                                    </a>
+                                </li>
+                            }
+                            else if (userRole == "Admin")
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Admin" && ViewContext.RouteData.Values["action"]?.ToString() == "Dashboard" ? "active" : "")" href="/Admin/Dashboard">
+                                        <i class="fas fa-home me-2"></i> Dashboard
+                                    </a>
+                                </li>
+                                <li class="nav-item separator"></li>
+                                <li class="nav-item">
+                                    <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Admin" && ViewContext.RouteData.Values["action"]?.ToString() == "Users" ? "active" : "")" href="/Admin/Users">
+                                        <i class="fas fa-users-cog me-2"></i> Users
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Admin" && ViewContext.RouteData.Values["action"]?.ToString() == "Students" ? "active" : "")" href="/Admin/Students">
+                                        <i class="fas fa-user-graduate me-2"></i> Students
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Admin" && ViewContext.RouteData.Values["action"]?.ToString() == "Doctors" ? "active" : "")" href="/Admin/Doctors">
+                                        <i class="fas fa-chalkboard-teacher me-2"></i> Doctors
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Admin" && ViewContext.RouteData.Values["action"]?.ToString() == "TAs" ? "active" : "")" href="/Admin/TAs">
+                                        <i class="fas fa-user-tie me-2"></i> TAs
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Admin" && ViewContext.RouteData.Values["action"]?.ToString() == "Courses" ? "active" : "")" href="/Admin/Courses">
+                                        <i class="fas fa-book me-2"></i> Courses
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Admin" && ViewContext.RouteData.Values["action"]?.ToString() == "Sections" ? "active" : "")" href="/Admin/Sections">
+                                        <i class="fas fa-th-list me-2"></i> Sections
+                                    </a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" && ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")" href="/">
+                                        <i class="fas fa-home me-2"></i> Home
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/Account/Login">
+                                        <i class="fas fa-sign-in-alt me-2"></i> Login
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <main class="col-lg-10 col-md-9 ms-sm-auto px-md-4 main-content">
+                <div class="breadcrumb-container mt-4">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb bg-transparent p-0">
+                            <li class="breadcrumb-item"><a href="/Dashboard" class="text-decoration-none"><i class="fas fa-home"></i> Dashboard</a></li>
+                            @if (ViewData["Breadcrumb"] != null)
+                            {
+                                <li class="breadcrumb-item active" aria-current="page">@ViewData["Breadcrumb"]</li>
+                            }
+                        </ol>
+                    </nav>
+                </div>
+
+                <div class="page-header mb-4">
+                    <h1 class="page-title h2">@ViewData["Title"]</h1>
+                    @if (ViewData["Subtitle"] != null)
+                    {
+                        <p class="text-muted">@ViewData["Subtitle"]</p>
+                    }
+                </div>
+
+                <div class="content-wrapper shadow-sm border-0 rounded-4 p-4 bg-white">
+                    @RenderBody()
+                </div>
+
+                <footer class="footer mt-auto py-4 text-center">
+                    <div class="container">
+                        <span class="text-muted small">&copy; @DateTime.Now.Year - University Attendance System | v1.0.0</span>
+                    </div>
+                </footer>
+            </main>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggle = document.getElementById('sidebarToggle');
+            const close = document.getElementById('sidebarClose');
+            const wrapper = document.getElementById('sidebarWrapper');
+
+            if (toggle) toggle.addEventListener('click', () => wrapper.classList.add('show'));
+            if (close) close.addEventListener('click', () => wrapper.classList.remove('show'));
+
+            // Highlighting active nav link based on URL
+            const path = window.location.pathname.toLowerCase();
+            document.querySelectorAll('.sidebar-nav .nav-link').forEach(link => {
+                const href = link.getAttribute('href').toLowerCase();
+                if (path === href || (href !== '/dashboard' && path.startsWith(href))) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

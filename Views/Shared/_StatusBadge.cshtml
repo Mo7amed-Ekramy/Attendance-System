@@ -1,0 +1,18 @@
+@model string
+
+@{
+    var status = Model?.ToLower() ?? "info";
+    var badgeClass = status switch
+    {
+        "safe" or "success" or "excellent" => "bg-success",
+        "warning" or "pending" => "bg-warning",
+        "danger" or "critical" or "at risk" => "bg-danger",
+        "info" or "primary" => "bg-info",
+        "secondary" => "bg-secondary",
+        _ => "bg-info"
+    };
+    
+    var displayText = char.ToUpper(status[0]) + status.Substring(1);
+}
+
+<span class="badge @badgeClass">@displayText</span>

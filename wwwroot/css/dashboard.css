@@ -1,0 +1,509 @@
+﻿/* ============================================
+   DASHBOARD LAYOUT STYLES
+   ============================================ */
+
+/* CSS Variables */
+:root {
+    /* Colors */
+    --primary-color: #2c3e50;
+    --primary-light: #3a506b;
+    --primary-dark: #1a252f;
+    --secondary-color: #3498db;
+    --accent-color: #8e44ad;
+    --success-color: #27ae60;
+    --warning-color: #f39c12;
+    --danger-color: #e74c3c;
+    --info-color: #17a2b8;
+    /* Role Colors */
+    --doctor-color: #8e44ad;
+    --ta-color: #16a085;
+    --student-color: #2980b9;
+    --admin-color: #c0392b;
+    /* Grayscale */
+    --light-gray: #ecf0f1;
+    --medium-gray: #bdc3c7;
+    --dark-gray: #7f8c8d;
+    --darker-gray: #34495e;
+    /* Spacing */
+    --sidebar-width: 250px;
+    --top-navbar-height: 70px;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+}
+
+/* Body Styles */
+.dashboard-body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+}
+
+/* Top Navbar Styles */
+.top-navbar {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    height: var(--top-navbar-height);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1030;
+}
+
+    .top-navbar .navbar-brand {
+        font-weight: 600;
+        font-size: 1.2rem;
+    }
+
+.search-form .search-input {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    width: 300px;
+}
+
+    .search-form .search-input::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .search-form .search-input:focus {
+        background-color: rgba(255, 255, 255, 0.15);
+        border-color: rgba(255, 255, 255, 0.3);
+        color: white;
+        box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+    }
+
+.search-form .search-btn {
+    border-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+    .search-form .search-btn:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+
+.user-menu .user-avatar-sm {
+    width: 32px;
+    height: 32px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.user-menu .user-name {
+    color: white;
+    font-weight: 500;
+}
+
+.notification-dropdown {
+    min-width: 320px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.notification-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 8px 0;
+}
+
+    .notification-item .notification-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        margin-right: 12px;
+        flex-shrink: 0;
+    }
+
+    .notification-item .notification-content {
+        flex: 1;
+    }
+
+    .notification-item .notification-title {
+        font-weight: 500;
+        font-size: 0.9rem;
+        margin-bottom: 2px;
+    }
+
+    .notification-item .notification-time {
+        font-size: 0.8rem;
+        color: var(--dark-gray);
+    }
+
+/* Sidebar Styles */
+.sidebar-wrapper {
+    padding: 0;
+    background-color: white;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    min-height: calc(100vh - var(--top-navbar-height));
+    position: fixed;
+    top: var(--top-navbar-height);
+    left: 0;
+    width: var(--sidebar-width);
+    z-index: 1020;
+    overflow-y: auto;
+    transition: transform var(--transition-speed);
+}
+
+@media (max-width: 768px) {
+    .sidebar-wrapper {
+        transform: translateX(-100%);
+    }
+
+        .sidebar-wrapper.show {
+            transform: translateX(0);
+        }
+}
+
+.sidebar {
+    padding: 20px 0;
+    height: 100%;
+}
+
+.sidebar-header {
+    padding: 0 20px 20px;
+    border-bottom: 1px solid var(--light-gray);
+    margin-bottom: 20px;
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+    .sidebar-brand i {
+        font-size: 1.5rem;
+    }
+
+.sidebar-toggle {
+    background: none;
+    border: none;
+    color: var(--dark-gray);
+    font-size: 1.2rem;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+
+.sidebar-user {
+    padding: 0 20px 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--light-gray);
+    display: flex;
+    align-items: center;
+}
+
+.user-avatar {
+    width: 50px;
+    height: 50px;
+    background-color: var(--light-gray);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    color: var(--primary-color);
+    font-size: 1.8rem;
+}
+
+.user-info {
+    flex: 1;
+}
+
+.user-name {
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-size: 0.95rem;
+}
+
+.user-role .role-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.role-badge.doctor {
+    background-color: var(--doctor-color);
+    color: white;
+}
+
+.role-badge.ta {
+    background-color: var(--ta-color);
+    color: white;
+}
+
+.role-badge.student {
+    background-color: var(--student-color);
+    color: white;
+}
+
+.role-badge.admin {
+    background-color: var(--admin-color);
+    color: white;
+}
+
+.role-badge.guest {
+    background-color: var(--dark-gray);
+    color: white;
+}
+
+.sidebar-nav .nav {
+    padding: 0 10px;
+}
+
+.sidebar-nav .nav-item {
+    margin-bottom: 5px;
+}
+
+.sidebar-nav .nav-link {
+    color: var(--darker-gray);
+    padding: 12px 15px;
+    border-radius: var(--border-radius);
+    transition: all var(--transition-speed);
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+}
+
+    .sidebar-nav .nav-link:hover {
+        background-color: var(--light-gray);
+        color: var(--primary-color);
+        transform: translateX(5px);
+    }
+
+    .sidebar-nav .nav-link.active {
+        background-color: var(--primary-color);
+        color: white;
+        box-shadow: var(--box-shadow);
+    }
+
+    .sidebar-nav .nav-link i {
+        width: 20px;
+        text-align: center;
+        margin-right: 10px;
+        font-size: 1.1rem;
+    }
+
+.sidebar-nav .nav-item.separator {
+    height: 1px;
+    background-color: var(--light-gray);
+    margin: 15px 0;
+}
+
+.sidebar-nav .notification-count {
+    margin-left: auto;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+}
+
+.sidebar-footer {
+    padding: 20px 20px 0;
+    margin-top: auto;
+    border-top: 1px solid var(--light-gray);
+    padding-top: 15px;
+}
+
+.system-status {
+    display: flex;
+    align-items: center;
+    font-size: 0.85rem;
+}
+
+.status-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+    .status-indicator.online {
+        background-color: var(--success-color);
+        box-shadow: 0 0 0 2px rgba(39, 174, 96, 0.2);
+    }
+
+    .status-indicator.offline {
+        background-color: var(--danger-color);
+        box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2);
+    }
+
+/* Main Content Styles */
+.main-content {
+    margin-top: var(--top-navbar-height);
+    padding: 20px 0 0;
+    min-height: calc(100vh - var(--top-navbar-height));
+    margin-left: var(--sidebar-width);
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+.breadcrumb-container {
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+
+.breadcrumb {
+    background-color: transparent;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.breadcrumb-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+    .breadcrumb-item a:hover {
+        text-decoration: underline;
+    }
+
+.breadcrumb-item.active {
+    color: var(--dark-gray);
+}
+
+.page-header {
+    padding: 0 20px;
+}
+
+.page-title {
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+}
+
+.page-subtitle {
+    color: var(--dark-gray);
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+.content-wrapper {
+    padding: 0 20px 20px;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: white;
+    border-top: 1px solid var(--light-gray);
+    margin-top: 2rem;
+}
+
+/* Toast Notification */
+.toast-container {
+    z-index: 1055;
+}
+
+/* Utility Classes */
+.card {
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: transform var(--transition-speed);
+}
+
+    .card:hover {
+        transform: translateY(-2px);
+    }
+
+.card-header {
+    background-color: white;
+    border-bottom: 1px solid var(--light-gray);
+    font-weight: 600;
+    padding: 1rem 1.25rem;
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+    .btn-primary:hover {
+        background-color: var(--primary-light);
+        border-color: var(--primary-light);
+    }
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+    .btn-outline-primary:hover {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+    }
+
+.stat-card {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+    .stat-card .stat-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        opacity: 0.8;
+    }
+
+    .stat-card .stat-value {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    .stat-card .stat-label {
+        color: var(--dark-gray);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+.text-doctor {
+    color: var(--doctor-color);
+}
+
+.text-ta {
+    color: var(--ta-color);
+}
+
+.text-student {
+    color: var(--student-color);
+}
+
+.text-admin {
+    color: var(--admin-color);
+}
+
+.bg-doctor {
+    background-color: var(--doctor-color);
+}
+
+.bg-ta {
+    background-color: var(--ta-color);
+}
+
+.bg-student {
+    background-color: var(--student-color);
+}
+
+.bg-admin {
+    background-color: var(--admin-color);
+}

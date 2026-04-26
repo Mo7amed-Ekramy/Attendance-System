@@ -1,0 +1,239 @@
+@{
+    ViewData["Title"] = "Student Dashboard";
+}
+
+<div class="row">
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-start border-primary border-3 shadow-sm h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs fw-bold text-primary text-uppercase mb-1">Current Courses</div>
+                        <div class="h5 mb-0 fw-bold">7</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-book fa-2x text-primary"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-start border-success border-3 shadow-sm h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs fw-bold text-success text-uppercase mb-1">Overall Attendance</div>
+                        <div class="h5 mb-0 fw-bold">88%</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-percentage fa-2x text-success"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-start border-warning border-3 shadow-sm h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs fw-bold text-warning text-uppercase mb-1">Absences Remaining</div>
+                        <div class="h5 mb-0 fw-bold">3</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-exclamation-triangle fa-2x text-warning"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-start border-info border-3 shadow-sm h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs fw-bold text-info text-uppercase mb-1">Current GPA</div>
+                        <div class="h5 mb-0 fw-bold">3.4</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-chart-line fa-2x text-info"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-8 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-white">
+                <h6 class="m-0 fw-bold"><i class="fas fa-chart-bar me-2 text-primary"></i> Course Progress</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Course</th>
+                                <th>Attendance</th>
+                                <th>Quiz Avg</th>
+                                <th>Grade</th>
+                                <th>Absences</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>CS101 - Introduction to Programming</td>
+                                <td>
+                                    <div class="progress" style="height: 6px;">
+                                        <div class="progress-bar bg-success" style="width: 92%"></div>
+                                    </div>
+                                    <small class="text-muted">92%</small>
+                                </td>
+                                <td>85/100</td>
+                                <td>A</td>
+                                <td>2/5</td>
+                                <td><span class="badge bg-success">Safe</span></td>
+                            </tr>
+                            <tr>
+                                <td>CS201 - Data Structures</td>
+                                <td>
+                                    <div class="progress" style="height: 6px;">
+                                        <div class="progress-bar bg-warning" style="width: 75%"></div>
+                                    </div>
+                                    <small class="text-muted">75%</small>
+                                </td>
+                                <td>78/100</td>
+                                <td>B+</td>
+                                <td>4/5</td>
+                                <td><span class="badge bg-warning">Warning</span></td>
+                            </tr>
+                            <tr>
+                                <td>MATH101 - Calculus</td>
+                                <td>
+                                    <div class="progress" style="height: 6px;">
+                                        <div class="progress-bar bg-danger" style="width: 65%"></div>
+                                    </div>
+                                    <small class="text-muted">65%</small>
+                                </td>
+                                <td>70/100</td>
+                                <td>C</td>
+                                <td>5/5</td>
+                                <td><span class="badge bg-danger">At Risk</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                <h6 class="m-0 fw-bold"><i class="fas fa-bell me-2 text-primary"></i> Recent Notifications</h6>
+                <a href="/Student/Notifications" class="small text-decoration-none">View All</a>
+            </div>
+            <div class="card-body p-0">
+                <div class="list-group list-group-flush">
+                    <div class="list-group-item border-0">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0">
+                                <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center" style="width: 36px; height: 36px;">
+                                    <i class="fas fa-check fa-sm"></i>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <div class="fw-bold small">Attendance Submitted</div>
+                                <div class="text-muted small">CS101 section attendance recorded</div>
+                                <div class="text-muted small">2 hours ago</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-item border-0">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0">
+                                <div class="rounded-circle bg-warning text-white d-flex align-items-center justify-content-center" style="width: 36px; height: 36px;">
+                                    <i class="fas fa-exclamation fa-sm"></i>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <div class="fw-bold small">Absence Warning</div>
+                                <div class="text-muted small">You have used 4 out of 5 allowed absences in MATH101</div>
+                                <div class="text-muted small">1 day ago</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="list-group-item border-0">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0">
+                                <div class="rounded-circle bg-info text-white d-flex align-items-center justify-content-center" style="width: 36px; height: 36px;">
+                                    <i class="fas fa-tasks fa-sm"></i>
+                                </div>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <div class="fw-bold small">New Quiz</div>
+                                <div class="text-muted small">Quiz 3 posted for CS201</div>
+                                <div class="text-muted small">2 days ago</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card shadow-sm">
+            <div class="card-header bg-white">
+                <h6 class="m-0 fw-bold"><i class="fas fa-calendar-alt me-2 text-primary"></i> Upcoming Sessions</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Course</th>
+                                <th>Type</th>
+                                <th>Location</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Tomorrow</td>
+                                <td>10:00 AM</td>
+                                <td>CS101 - Introduction to Programming</td>
+                                <td><span class="badge bg-info">Lecture</span></td>
+                                <td>Room 205</td>
+                            </tr>
+                            <tr>
+                                <td>Tomorrow</td>
+                                <td>02:00 PM</td>
+                                <td>CS201 - Data Structures</td>
+                                <td><span class="badge bg-success">Section</span></td>
+                                <td>Lab 302</td>
+                            </tr>
+                            <tr>
+                                <td>Day After Tomorrow</td>
+                                <td>09:00 AM</td>
+                                <td>MATH101 - Calculus</td>
+                                <td><span class="badge bg-info">Lecture</span></td>
+                                <td>Room 101</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

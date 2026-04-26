@@ -1,0 +1,318 @@
+@{
+    var userRole = Context.User?.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value ?? "Guest";
+    var userName = Context.User?.Identity?.Name ?? "Guest User";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - University Attendance System</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/dashboard.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MVC_PROJECT.styles.css" asp-append-version="true" />
+
+    @await RenderSectionAsync("Head", required: false)
+</head>
+<body class="dashboard-body">
+    <!-- Top Navbar -->
+    <nav class="navbar navbar-expand-lg top-navbar">
+        <div class="container-fluid">
+            <button class="navbar-toggler d-lg-none" type="button" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <a class="navbar-brand d-none d-lg-flex" href="/Dashboard">
+                <i class="fas fa-graduation-cap me-2"></i>
+                <span>Attendance System</span>
+            </a>
+
+            <div class="search-form ms-auto me-3 d-none d-md-flex">
+                <div class="input-group">
+                    <input type="text" class="form-control search-input" placeholder="Search courses, students...">
+                    <button class="btn search-btn" type="button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="user-menu">
+                <div class="dropdown me-3">
+                    <button class="btn btn-link text-white p-0 position-relative" type="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-bell fs-5"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            3
+                            <span class="visually-hidden">unread notifications</span>
+                        </span>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end notification-dropdown">
+                        <h6 class="dropdown-header">Notifications</h6>
+                        <div class="notification-item">
+                            <div class="notification-icon bg-success">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="notification-content">
+                                <div class="notification-title">Attendance Submitted</div>
+                                <div class="notification-time">5 minutes ago</div>
+                            </div>
+                        </div>
+                        <div class="notification-item">
+                            <div class="notification-icon bg-warning">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="notification-content">
+                                <div class="notification-title">New Quiz Posted</div>
+                                <div class="notification-time">1 hour ago</div>
+                            </div>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-center" href="/Notifications">View All</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="btn btn-link text-white p-0 d-flex align-items-center" type="button" data-bs-toggle="dropdown">
+                        <div class="user-avatar-sm me-2">
+                            @userName.Substring(0, 1).ToUpper()
+                        </div>
+                        <span class="user-name">@userName</span>
+                        <i class="fas fa-chevron-down ms-1"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="/Account/Profile">
+                            <i class="fas fa-user me-2"></i>Profile
+                        </a>
+                        <a class="dropdown-item" href="/Account/Settings">
+                            <i class="fas fa-cog me-2"></i>Settings
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-danger" href="/Account/Logout">
+                            <i class="fas fa-sign-out-alt me-2"></i>Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-2 col-md-3 sidebar-wrapper" id="sidebarWrapper">
+                <div class="sidebar">
+                    <div class="sidebar-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a class="sidebar-brand" href="/Dashboard">
+                                <i class="fas fa-graduation-cap me-2"></i>
+                                <span>Attendance</span>
+                            </a>
+                            <button class="sidebar-toggle d-lg-none" id="sidebarClose">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-user">
+                        <div class="user-avatar">
+                            @userName.Substring(0, 1).ToUpper()
+                        </div>
+                        <div class="user-info">
+                            <div class="user-name">@userName</div>
+                            <div class="user-role">
+                                <span class="role-badge @userRole.ToLower()">@userRole</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <nav class="sidebar-nav">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Dashboard" ? "active" : "")" href="/Dashboard">
+                                    <i class="fas fa-home"></i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item separator"></li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Courses" ? "active" : "")" href="/Courses">
+                                    <i class="fas fa-book"></i>
+                                    <span>Courses</span>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Sections" ? "active" : "")" href="/Sections">
+                                    <i class="fas fa-users"></i>
+                                    <span>Sections</span>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item separator"></li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Attendance" && ViewContext.RouteData.Values["action"]?.ToString() != "Take" && ViewContext.RouteData.Values["action"]?.ToString() != "Records" ? "active" : "")" href="/Attendance/Sessions">
+                                    <i class="fas fa-calendar-check"></i>
+                                    <span>Attendance Sessions</span>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Attendance" && ViewContext.RouteData.Values["action"]?.ToString() == "Take" ? "active" : "")" href="/Attendance/Take">
+                                    <i class="fas fa-qrcode"></i>
+                                    <span>Take Attendance</span>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Attendance" && ViewContext.RouteData.Values["action"]?.ToString() == "Records" ? "active" : "")" href="/Attendance/Records">
+                                    <i class="fas fa-clipboard-list"></i>
+                                    <span>Attendance Records</span>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item separator"></li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Quizzes" && ViewContext.RouteData.Values["action"]?.ToString() != "Grades" ? "active" : "")" href="/Quizzes">
+                                    <i class="fas fa-tasks"></i>
+                                    <span>Quizzes</span>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Quizzes" && ViewContext.RouteData.Values["action"]?.ToString() == "Grades" ? "active" : "")" href="/Quizzes/Grades">
+                                    <i class="fas fa-chart-bar"></i>
+                                    <span>Quiz Grades</span>
+                                </a>
+                            </li>
+                            
+                            <li class="nav-item separator"></li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Notifications" ? "active" : "")" href="/Notifications">
+                                    <i class="fas fa-bell"></i>
+                                    <span>Notifications</span>
+                                    <span class="notification-count badge bg-danger rounded-pill">3</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <div class="sidebar-footer">
+                        <div class="system-status">
+                            <span class="status-indicator online"></span>
+                            <span>System Online</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <main class="col-lg-10 col-md-9 ms-sm-auto px-md-4 main-content">
+                <div class="breadcrumb-container">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/Dashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+                            @if (ViewData["Breadcrumb"] != null)
+                            {
+                                <li class="breadcrumb-item active" aria-current="page">@ViewData["Breadcrumb"]</li>
+                            }
+                        </ol>
+                    </nav>
+                </div>
+
+                <div class="page-header mb-4">
+                    <h1 class="page-title">@ViewData["Title"]</h1>
+                    @if (ViewData["Subtitle"] != null)
+                    {
+                        <p class="page-subtitle">@ViewData["Subtitle"]</p>
+                    }
+                </div>
+
+                <div class="content-wrapper">
+                    @RenderBody()
+                </div>
+
+                <footer class="footer mt-5 py-3 border-top">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <span class="text-muted">&copy; @DateTime.Now.Year - University Attendance System</span>
+                            </div>
+                            <div class="col-md-6 text-md-end">
+                                <span class="text-muted">Version 1.0.0</span>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </main>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="notificationToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Notification</strong>
+                <small>Just now</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body"></div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile sidebar toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const sidebarClose = document.getElementById('sidebarClose');
+            const sidebarWrapper = document.getElementById('sidebarWrapper');
+            
+            if (sidebarToggle) {
+                sidebarToggle.addEventListener('click', function() {
+                    sidebarWrapper.classList.add('show');
+                });
+            }
+            
+            if (sidebarClose) {
+                sidebarClose.addEventListener('click', function() {
+                    sidebarWrapper.classList.remove('show');
+                });
+            }
+            
+            // Close sidebar when clicking outside on mobile
+            document.addEventListener('click', function(event) {
+                if (window.innerWidth < 768 && 
+                    !sidebarWrapper.contains(event.target) && 
+                    !sidebarToggle.contains(event.target) && 
+                    sidebarWrapper.classList.contains('show')) {
+                    sidebarWrapper.classList.remove('show');
+                }
+            });
+            
+            // Active link highlighting
+            const currentPath = window.location.pathname.toLowerCase();
+            const navLinks = document.querySelectorAll('.sidebar-nav .nav-link');
+            
+            navLinks.forEach(link => {
+                const linkPath = link.getAttribute('href').toLowerCase();
+                if (currentPath === linkPath || 
+                    (linkPath !== '/' && currentPath.startsWith(linkPath))) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

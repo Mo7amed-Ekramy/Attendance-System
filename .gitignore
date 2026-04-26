@@ -1,0 +1,20 @@
+# Visual Studio
+.vs/
+
+# Build folders
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+
+# VS index files
+*.vsidx
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db

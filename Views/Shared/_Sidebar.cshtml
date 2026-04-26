@@ -1,0 +1,132 @@
+﻿@{
+    var userRole = Context.User?.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value ?? "Guest";
+    var userName = Context.User?.Identity?.Name ?? "Guest User";
+
+    var isDoctor = userRole == "Doctor";
+    var isTA = userRole == "TA";
+    var isStudent = userRole == "Student";
+    var isAdmin = userRole == "Admin";
+
+    var userInitial = !string.IsNullOrEmpty(userName) ? userName.Substring(0, 1).ToUpper() : "G";
+}
+
+<div class="sidebar">
+    <div class="sidebar-header">
+        <div class="sidebar-brand">
+            <i class="fas fa-university me-2"></i>
+            <span class="brand-text">Attendance System</span>
+        </div>
+        <button class="sidebar-toggle d-lg-none" id="sidebarClose">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <div class="sidebar-user">
+        <div class="user-avatar">
+            @userInitial
+        </div>
+        <div class="user-info">
+            <div class="user-name">@userName</div>
+            <div class="user-role">
+                <span class="role-badge @userRole.ToLower()">@userRole</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar-nav">
+        <ul class="nav flex-column">
+
+            <li class="nav-item">
+                <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Dashboard" ? "active" : "")" href="/Dashboard">
+                    <i class="fas fa-tachometer-alt me-2"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Courses" ? "active" : "")" href="/Courses">
+                    <i class="fas fa-book me-2"></i>
+                    <span>Courses</span>
+                </a>
+            </li>
+
+            @if (isDoctor || isTA)
+            {
+                <li class="nav-item">
+                    <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Sections" ? "active" : "")" href="/Sections">
+                        <i class="fas fa-users me-2"></i>
+                        <span>Sections</span>
+                    </a>
+                </li>
+            }
+
+            <li class="nav-item">
+                <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Attendance" ? "active" : "")" href="/Attendance">
+                    <i class="fas fa-clipboard-check me-2"></i>
+                    <span>Attendance</span>
+                </a>
+            </li>
+
+            @if (isDoctor || isTA)
+            {
+                <li class="nav-item">
+                    <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Quizzes" && ViewContext.RouteData.Values["action"]?.ToString() != "Grades" ? "active" : "")" href="/Quizzes">
+                        <i class="fas fa-question-circle me-2"></i>
+                        <span>Quizzes</span>
+                    </a>
+                </li>
+            }
+
+            @if (isStudent)
+            {
+                <li class="nav-item">
+                    <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Grades" ? "active" : "")" href="/Quizzes/Grades">
+                        <i class="fas fa-chart-bar me-2"></i>
+                        <span>My Grades</span>
+                    </a>
+                </li>
+            }
+
+            <li class="nav-item">
+                <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Notifications" ? "active" : "")" href="/Notifications">
+                    <i class="fas fa-bell me-2"></i>
+                    <span>Notifications</span>
+                    <span class="badge bg-danger notification-count">3</span>
+                </a>
+            </li>
+
+            <li class="nav-item separator"></li>
+
+            <li class="nav-item">
+                <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Profile" ? "active" : "")" href="/Account/Profile">
+                    <i class="fas fa-user me-2"></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+
+            @if (isAdmin)
+            {
+                <li class="nav-item">
+                    <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Admin" ? "active" : "")" href="/Admin/Settings">
+                        <i class="fas fa-cog me-2"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            }
+
+            <li class="nav-item">
+                <a class="nav-link text-danger" href="/Account/Logout">
+                    <i class="fas fa-sign-out-alt me-2"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="sidebar-footer">
+        <div class="system-status">
+            <span class="status-indicator online"></span>
+            <small class="text-muted">System Online</small>
+        </div>
+    </div>
+</div>

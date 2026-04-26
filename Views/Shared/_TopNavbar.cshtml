@@ -1,0 +1,129 @@
+﻿@{
+    var userRole = Context.User?.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value ?? "Guest";
+    var userName = Context.User?.Identity?.Name ?? "Guest";
+}
+
+<nav class="navbar navbar-expand-lg navbar-dark top-navbar shadow-sm fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand d-lg-none" href="/Dashboard">
+            <i class="fas fa-university me-2"></i>
+            Attendance System
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavbarContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="topNavbarContent">
+            <form class="d-flex me-auto search-form mt-2 mt-lg-0" role="search">
+                <div class="input-group">
+                    <input type="text" class="form-control search-input" placeholder="Search courses, students..." aria-label="Search">
+                    <button class="btn btn-outline-light search-btn" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </form>
+
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item dropdown me-2">
+                    <a class="nav-link dropdown-toggle action-link" href="#" id="quickActionsDropdown" role="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-bolt me-1 text-warning"></i>
+                        <span class="d-none d-sm-inline">Quick Actions</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow border-0">
+                        @if (userRole == "Doctor")
+                        {
+                            <li><a class="dropdown-item" href="/Attendance/Sessions/Create"><i class="fas fa-plus me-2 text-primary"></i>Create Attendance</a></li>
+                            <li><a class="dropdown-item" href="/Quizzes/Create"><i class="fas fa-plus-circle me-2 text-success"></i>Create Quiz</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/Courses/Create"><i class="fas fa-book-medical me-2 text-info"></i>Add New Course</a></li>
+                        }
+                        else if (userRole == "TA")
+                        {
+                            <li><a class="dropdown-item" href="/Attendance/Take"><i class="fas fa-clipboard-check me-2 text-primary"></i>Take Attendance</a></li>
+                            <li><a class="dropdown-item" href="/Quizzes/Grades"><i class="fas fa-edit me-2 text-success"></i>Enter Quiz Grades</a></li>
+                        }
+                        else if (userRole == "Student")
+                        {
+                            <li><a class="dropdown-item" href="/Attendance/Enter"><i class="fas fa-qrcode me-2 text-primary"></i>Enter Attendance</a></li>
+                            <li><a class="dropdown-item" href="/Courses/Enroll"><i class="fas fa-user-plus me-2 text-success"></i>Enroll in Course</a></li>
+                        }
+                        else
+                        {
+                            <li><span class="dropdown-item text-muted">No actions available</span></li>
+                        }
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown me-2">
+                    <a class="nav-link position-relative notification-bell" href="#" id="notificationsDropdown" role="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-bell"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            3
+                            <span class="visually-hidden">unread notifications</span>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end notification-dropdown shadow border-0">
+                        <li class="dropdown-header fw-bold">Recent Notifications</li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <div class="notification-item d-flex align-items-center">
+                                    <div class="notification-icon bg-primary text-white rounded-circle me-3 p-2">
+                                        <i class="fas fa-calendar"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <div class="notification-title fw-bold">Attendance Session</div>
+                                        <div class="notification-time small text-muted">2 minutes ago</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <div class="notification-item d-flex align-items-center">
+                                    <div class="notification-icon bg-success text-white rounded-circle me-3 p-2">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <div class="notification-title fw-bold">Quiz Graded</div>
+                                        <div class="notification-time small text-muted">1 hour ago</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-center small text-primary" href="/Notifications">View All Notifications</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown ms-lg-3">
+                    <a class="nav-link dropdown-toggle user-menu d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+                        <div class="user-avatar-sm me-2 shadow-sm">
+                            <i class="fas fa-user-circle fa-lg"></i>
+                        </div>
+                        <span class="user-name d-none d-md-inline">@userName</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow border-0 p-2" style="min-width: 200px;">
+                        <li class="p-2">
+                            <div class="d-flex align-items-center">
+                                <div class="user-avatar-md me-3 text-primary">
+                                    <i class="fas fa-user-circle fa-3x"></i>
+                                </div>
+                                <div>
+                                    <div class="fw-bold">@userName</div>
+                                    <small class="text-muted">@userRole</small>
+                                </div>
+                            </div>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item rounded" href="/Account/Profile"><i class="fas fa-user me-2 text-muted"></i>Profile</a></li>
+                        <li><a class="dropdown-item rounded" href="/Account/Settings"><i class="fas fa-cog me-2 text-muted"></i>Settings</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item rounded text-danger" href="/Account/Logout"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
