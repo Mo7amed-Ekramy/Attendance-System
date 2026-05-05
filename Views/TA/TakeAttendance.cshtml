@@ -1,0 +1,37 @@
+﻿@model MVC_PROJECT.ViewModels.Attendance.SectionAttendanceViewModel
+
+<h3>@Model.CourseName - Section @Model.SectionNumber</h3>
+<p>@Model.DepartmentName</p>
+
+<form method="post">
+
+    <input type="hidden" name="CourseSectionId" value="@Model.CourseSectionId" />
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>University ID</th>
+                <th>Present</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @for (int i = 0; i < Model.Students.Count; i++)
+            {
+                <tr>
+                    <td>@Model.Students[i].FullName</td>
+                    <td>@Model.Students[i].UniversityId</td>
+
+                    <td>
+                        <input type="hidden" name="Students[@i].EnrollmentId" value="@Model.Students[i].EnrollmentId" />
+                        <input type="checkbox" name="Students[@i].IsPresent" value="true" />
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <button class="btn btn-success">Save Attendance</button>
+
+</form>

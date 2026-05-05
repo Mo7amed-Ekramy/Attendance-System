@@ -1,15 +1,22 @@
 @{
     ViewData["Title"] = "TA Dashboard";
 }
+@model MVC_PROJECT.ViewModels.TA.TADashboardViewModel
 
+@{
+    var firstSection = Model.Sections.FirstOrDefault();
+}
+
+<!-- ===================== CARDS ===================== -->
 <div class="row">
+
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-start border-primary border-3 shadow-sm h-100 py-2">
             <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
+                <div class="row align-items-center">
+                    <div class="col">
                         <div class="text-xs fw-bold text-primary text-uppercase mb-1">Assigned Sections</div>
-                        <div class="h5 mb-0 fw-bold">4</div>
+                        <div class="h5 fw-bold">@Model.TotalSections</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-users fa-2x text-primary"></i>
@@ -22,10 +29,10 @@
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-start border-success border-3 shadow-sm h-100 py-2">
             <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
+                <div class="row align-items-center">
+                    <div class="col">
                         <div class="text-xs fw-bold text-success text-uppercase mb-1">Students in Sections</div>
-                        <div class="h5 mb-0 fw-bold">98</div>
+                        <div class="h5 fw-bold">@Model.TotalStudents</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-user-graduate fa-2x text-success"></i>
@@ -38,10 +45,10 @@
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-start border-warning border-3 shadow-sm h-100 py-2">
             <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
+                <div class="row align-items-center">
+                    <div class="col">
                         <div class="text-xs fw-bold text-warning text-uppercase mb-1">Attendance to Take</div>
-                        <div class="h5 mb-0 fw-bold">3</div>
+                        <div class="h5 fw-bold">@Model.PendingAttendanceSessions</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-calendar-check fa-2x text-warning"></i>
@@ -54,10 +61,10 @@
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-start border-danger border-3 shadow-sm h-100 py-2">
             <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
+                <div class="row align-items-center">
+                    <div class="col">
                         <div class="text-xs fw-bold text-danger text-uppercase mb-1">Quizzes to Grade</div>
-                        <div class="h5 mb-0 fw-bold">2</div>
+                        <div class="h5 fw-bold">@Model.PendingQuizzes</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-tasks fa-2x text-danger"></i>
@@ -66,163 +73,217 @@
             </div>
         </div>
     </div>
+
 </div>
 
+<!-- ===================== MAIN ===================== -->
 <div class="row">
+
+    <!-- ===== LEFT: SECTIONS ===== -->
     <div class="col-lg-8 mb-4">
         <div class="card shadow-sm">
+
             <div class="card-header bg-white d-flex justify-content-between align-items-center">
-                <h6 class="m-0 fw-bold"><i class="fas fa-users me-2 text-primary"></i> My Sections</h6>
-                <a href="/TA/MySections" class="btn btn-sm btn-outline-primary">Manage Sections</a>
+                <h6 class="fw-bold m-0">
+                    <i class="fas fa-users me-2 text-primary"></i> My Sections
+                </h6>
+                <a href="/TA/MySections" class="btn btn-sm btn-outline-primary">
+                    Manage Sections
+                </a>
             </div>
+
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-hover">
+
                         <thead class="table-light">
                             <tr>
                                 <th>Section</th>
                                 <th>Course</th>
                                 <th>Students</th>
-                                <th>Attendance Rate</th>
+                                <th>Attendance</th>
                                 <th>Next Session</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
+
                         <tbody>
+                        @foreach (var sec in Model.Sections)
+                        {
                             <tr>
                                 <td>
-                                    <div class="fw-bold">CS101 - Section 1</div>
-                                    <small class="text-muted">Mon 10:00 AM - Lab 302</small>
+                                    <div class="fw-bold">
+                                        @(sec.CourseName + " - Section " + sec.SectionNumber)
+                                    </div>
                                 </td>
-                                <td>Introduction to Programming</td>
-                                <td>25</td>
+
+                                <td>@(sec.CourseCode)</td>
+
+                                <td>@(sec.StudentCount)</td>
+
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <div class="progress flex-grow-1 me-2" style="height: 6px;">
-                                            <div class="progress-bar bg-success" style="width: 92%"></div>
+                                        <div class="progress flex-grow-1 me-2" style="height:6px;">
+                                            <div class="progress-bar 
+    @(sec.AttendanceRate >= 75 ? "bg-success" :
+      sec.AttendanceRate >= 50 ? "bg-warning" : "bg-danger")"
+     style="width:@(sec.AttendanceRate)%">
+</div>
                                         </div>
-                                        <span class="small">92%</span>
+
+                                        @if (sec.AttendanceRate == 0)
+                                        {
+                                            <span class="small text-muted">No records</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="small">@(sec.AttendanceRate)%</span>
+                                        }
                                     </div>
                                 </td>
-                                <td>Tomorrow, 10:00 AM</td>
+
+                                <td class="text-muted">@(sec.NextSession)</td>
+
                                 <td>
-                                    <div class="btn-group btn-group-sm">
-                                        <a href="/TA/TakeAttendance?sectionId=1" class="btn btn-primary">Take Attendance</a>
-                                        <a href="/TA/CreateQuiz?sectionId=1" class="btn btn-outline-primary">Create Quiz</a>
-                                    </div>
+                                        <div class="btn-group btn-group-sm">
+
+    <a href="/TA/TakeAttendance?sectionId=@(sec.CourseSectionId)"
+       class="btn btn-primary">
+        Take
+    </a>
+
+    <a href="/TA/CreateQuiz?sectionId=@(sec.CourseSectionId)"
+       class="btn btn-outline-primary">
+        Create
+    </a>
+
+    @if (sec.LatestQuizId != null)
+    {
+                                                <a asp-action="RecordQuizMarks"
+                                                   asp-controller="TA"
+                                                   asp-route-quizId="@sec.LatestQuizId"
+                                                   class="btn btn-warning">
+                                                    Mark
+                                                </a>
+    }
+
+</div>
+
+
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <div class="fw-bold">CS201 - Section 3</div>
-                                    <small class="text-muted">Wed 02:00 PM - Room 205</small>
-                                </td>
-                                <td>Data Structures</td>
-                                <td>24</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="progress flex-grow-1 me-2" style="height: 6px;">
-                                            <div class="progress-bar bg-warning" style="width: 75%"></div>
-                                        </div>
-                                        <span class="small">75%</span>
-                                    </div>
-                                </td>
-                                <td>Wednesday, 02:00 PM</td>
-                                <td>
-                                    <div class="btn-group btn-group-sm">
-                                        <a href="/TA/TakeAttendance?sectionId=2" class="btn btn-primary">Take Attendance</a>
-                                        <a href="/TA/CreateQuiz?sectionId=2" class="btn btn-outline-primary">Create Quiz</a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="fw-bold">MATH101 - Section 2</div>
-                                    <small class="text-muted">Thu 09:00 AM - Room 101</small>
-                                </td>
-                                <td>Calculus</td>
-                                <td>26</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="progress flex-grow-1 me-2" style="height: 6px;">
-                                            <div class="progress-bar bg-danger" style="width: 65%"></div>
-                                        </div>
-                                        <span class="small">65%</span>
-                                    </div>
-                                </td>
-                                <td>Thursday, 09:00 AM</td>
-                                <td>
-                                    <div class="btn-group btn-group-sm">
-                                        <a href="/TA/TakeAttendance?sectionId=3" class="btn btn-primary">Take Attendance</a>
-                                        <a href="/TA/RecordQuizMarks?quizId=5" class="btn btn-outline-warning">Grade Quiz</a>
-                                    </div>
-                                </td>
-                            </tr>
+                        }
                         </tbody>
+
                     </table>
                 </div>
             </div>
+
         </div>
     </div>
 
+    <!-- ===== RIGHT: QUICK ACTIONS ===== -->
     <div class="col-lg-4 mb-4">
+
         <div class="card shadow-sm">
             <div class="card-header bg-white">
-                <h6 class="m-0 fw-bold"><i class="fas fa-tasks me-2 text-primary"></i> Quick Actions</h6>
+                <h6 class="fw-bold m-0">
+                    <i class="fas fa-tasks me-2 text-primary"></i> Quick Actions
+                </h6>
             </div>
+
             <div class="card-body">
+
                 <div class="d-grid gap-2">
-                    <a href="/TA/TakeAttendance?sectionId=1" class="btn btn-primary btn-lg">
-                        <i class="fas fa-calendar-check me-2"></i> Take Attendance
+
+                    <a href="/TA/TakeAttendance?sectionId=@firstSection?.CourseSectionId"
+                       class="btn btn-primary btn-lg">
+                        Take Attendance
                     </a>
-                    <a href="/TA/CreateQuiz?sectionId=1" class="btn btn-outline-primary btn-lg">
-                        <i class="fas fa-plus-circle me-2"></i> Create New Quiz
+
+                    <a href="/TA/CreateQuiz?sectionId=@firstSection?.CourseSectionId"
+                       class="btn btn-outline-primary btn-lg">
+                        Create Quiz
                     </a>
-                    <a href="/TA/RecordQuizMarks?quizId=5" class="btn btn-outline-warning btn-lg">
-                        <i class="fas fa-tasks me-2"></i> Record Quiz Marks
+
+                    @if (firstSection?.LatestQuizId != null)
+                    {
+                        <a href="/TA/RecordQuizMarks?quizId=@firstSection.LatestQuizId"
+                           class="btn btn-outline-warning btn-lg">
+                            Record Quiz Marks
+                        </a>
+                    }
+
+                    <a asp-action="ExportAllSectionsReport"
+                       asp-controller="TA"
+                       class="btn btn-info">
+                        View Reports
                     </a>
-                    <a href="/TA/SectionReports?sectionId=1" class="btn btn-outline-info btn-lg">
-                        <i class="fas fa-chart-bar me-2"></i> View Reports
-                    </a>
+
                 </div>
-                
+
+                <!-- ===== ALERTS ===== -->
                 <div class="mt-4">
-                    <h6 class="fw-bold mb-3"><i class="fas fa-exclamation-circle me-2 text-warning"></i> Attention Needed</h6>
+
+                    <h6 class="fw-bold mb-3">
+                        <i class="fas fa-exclamation-circle me-2 text-warning"></i>
+                        Attention Needed
+                    </h6>
+
                     <div class="list-group">
-                        <div class="list-group-item border-0 bg-light">
-                            <div class="d-flex justify-content-between">
-                                <div>
-                                    <div class="fw-bold small">Low Attendance</div>
-                                    <div class="text-muted small">MATH101 - Section 2 has 65% attendance</div>
+
+                        @if (Model.Alerts != null && Model.Alerts.Any())
+                        {
+                            @foreach (var alert in Model.Alerts)
+                            {
+                                <div class="list-group-item border-0 bg-light">
+                                    <div class="d-flex justify-content-between">
+
+                                        <div>
+                                            <div class="fw-bold small">@alert.Title</div>
+                                            <div class="text-muted small">@alert.Message</div>
+                                        </div>
+
+                                        <span class="badge bg-@alert.Type">
+                                            @(alert.Type == "danger" ? "Urgent" : "Warning")
+                                        </span>
+
+                                    </div>
                                 </div>
-                                <span class="badge bg-warning">Warning</span>
-                            </div>
-                        </div>
-                        <div class="list-group-item border-0 bg-light">
-                            <div class="d-flex justify-content-between">
-                                <div>
-                                    <div class="fw-bold small">Pending Quiz</div>
-                                    <div class="text-muted small">Quiz 3 needs to be graded for CS201</div>
-                                </div>
-                                <span class="badge bg-danger">Urgent</span>
-                            </div>
-                        </div>
+                            }
+                        }
+                        else
+                        {
+                            <div class="text-muted small">No alerts</div>
+                        }
+
                     </div>
                 </div>
+
             </div>
         </div>
+
     </div>
 </div>
 
+<!-- ===================== ACTIVITIES ===================== -->
 <div class="row">
     <div class="col-12">
+
         <div class="card shadow-sm">
+
             <div class="card-header bg-white">
-                <h6 class="m-0 fw-bold"><i class="fas fa-history me-2 text-primary"></i> Recent Activities</h6>
+                <h6 class="fw-bold m-0">
+                    <i class="fas fa-history me-2 text-primary"></i>
+                    Recent Activities
+                </h6>
             </div>
+
             <div class="card-body">
+
                 <div class="table-responsive">
                     <table class="table table-hover">
+
                         <thead class="table-light">
                             <tr>
                                 <th>Time</th>
@@ -231,35 +292,47 @@
                                 <th>Details</th>
                             </tr>
                         </thead>
+
                         <tbody>
+
+                        @if (Model.Activities != null && Model.Activities.Any())
+                        {
+                            @foreach (var act in Model.Activities)
+                            {
+                                <tr>
+                                    <td>@act.Time</td>
+
+                                    <td>
+                                        <span class="badge 
+                                            @(act.Action.Contains("Attendance") ? "bg-success" :
+                                              act.Action.Contains("Quiz") ? "bg-info" :
+                                              "bg-secondary")">
+                                            @act.Action
+                                        </span>
+                                    </td>
+
+                                    <td>@act.Section</td>
+                                    <td>@act.Details</td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
                             <tr>
-                                <td>2 hours ago</td>
-                                <td><span class="badge bg-success">Attendance Taken</span></td>
-                                <td>CS101 - Section 1</td>
-                                <td>25 students, 23 present, 2 absent</td>
+                                <td colspan="4" class="text-center text-muted">
+                                    No recent activities
+                                </td>
                             </tr>
-                            <tr>
-                                <td>1 day ago</td>
-                                <td><span class="badge bg-info">Quiz Created</span></td>
-                                <td>CS201 - Section 3</td>
-                                <td>Quiz 3 created, max marks: 20</td>
-                            </tr>
-                            <tr>
-                                <td>2 days ago</td>
-                                <td><span class="badge bg-warning">Quiz Marks Recorded</span></td>
-                                <td>MATH101 - Section 2</td>
-                                <td>Quiz 2 marks recorded for 26 students</td>
-                            </tr>
-                            <tr>
-                                <td>3 days ago</td>
-                                <td><span class="badge bg-primary">Report Generated</span></td>
-                                <td>CS101 - Section 1</td>
-                                <td>Weekly attendance report generated</td>
-                            </tr>
+                        }
+
                         </tbody>
+
                     </table>
                 </div>
+
             </div>
+
         </div>
+
     </div>
 </div>

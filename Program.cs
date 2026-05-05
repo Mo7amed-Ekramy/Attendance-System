@@ -5,7 +5,7 @@ using MVC_PROJECT.Hubs;
 using MVC_PROJECT.Models.Data;
 using MVC_PROJECT.Services.Implementation;
 using MVC_PROJECT.Services.Interfaces;
-
+using OfficeOpenXml;
 namespace MVC_PROJECT
 {
     public class Program
@@ -13,6 +13,8 @@ namespace MVC_PROJECT
         public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
 
             builder.Services.AddControllersWithViews();
             builder.Services.AddSignalR();
@@ -71,7 +73,7 @@ namespace MVC_PROJECT
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Account}/{action=Login}/{id?}");
 
             app.Run();
         }

@@ -11,5 +11,8 @@ namespace MVC_PROJECT.ViewModels.TA
         public int StudentCount { get; set; }
         public int PendingAttendanceSessions { get; set; }
         public int PendingQuizzes { get; set; }
+        public double AttendanceRate { get; set; }
+        public string NextSession { get; set; }
+        public int? LatestQuizId { get; set; }
     }
 }

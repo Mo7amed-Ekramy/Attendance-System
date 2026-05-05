@@ -1,0 +1,30 @@
+﻿@model MVC_PROJECT.ViewModels.Quiz.CreateQuizViewModel
+
+<h2>Create Quiz</h2>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="CreateQuiz" method="post">
+
+    <input type="hidden" asp-for="CourseSectionId" />
+
+    <div class="mb-3">
+        <label class="form-label">Quiz Title</label>
+        <input asp-for="QuizTitle" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Max Mark</label>
+        <input asp-for="MaxMark" class="form-control" type="number" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Date</label>
+        <input asp-for="Date" class="form-control" type="datetime-local" />
+    </div>
+
+    <button type="submit" class="btn btn-success">
+        Create Quiz
+    </button>
+
+</form>

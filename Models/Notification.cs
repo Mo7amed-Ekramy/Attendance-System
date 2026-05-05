@@ -21,6 +21,12 @@ namespace MVC_PROJECT.Models
         [Required]
         public bool IsRead { get; set; }
 
+        // ✅ جديد
+        public string? Message { get; set; }
+
+        // ✅ جديد
+        public DateTime CreatedAt { get; set; }
+
         [ForeignKey(nameof(UserId))]
         public User User { get; set; }
     }

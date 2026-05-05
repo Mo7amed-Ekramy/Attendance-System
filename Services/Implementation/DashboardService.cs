@@ -145,6 +145,38 @@ namespace MVC_PROJECT.Services.Implementation
 
                 totalStudents += section.Enrollments.Count;
 
+                var totalSessions = await _context.AttendanceSessions
+                    .Where(s => s.CourseSectionId == section.Id)
+                    .ToListAsync();
+
+                var totalRecords = await _context.AttendanceRecords
+                    .Where(r => totalSessions.Select(s => s.Id).Contains(r.AttendanceSessionId))
+                    .ToListAsync();
+
+                int totalStudentsCount = section.Enrollments.Count;
+                int presentCount = totalRecords.Count(r => r.IsPresent);
+
+                double attendanceRate = 0;
+
+                if (totalSessions.Count > 0 && totalStudentsCount > 0)
+                {
+                    attendanceRate = (double)presentCount / (totalSessions.Count * totalStudentsCount) * 100;
+                }
+
+                var nextSession = await _context.AttendanceSessions
+                    .Where(s => s.CourseSectionId == section.Id && s.Date > DateTime.Now)
+                    .OrderBy(s => s.Date)
+                    .FirstOrDefaultAsync();
+
+                string nextSessionText = nextSession != null
+                    ? nextSession.Date.ToString("dddd, hh:mm tt")
+                    : "No upcoming";
+
+                var latestQuiz = await _context.Quizzes
+    .Where(q => q.CourseSectionId == section.Id)
+    .OrderByDescending(q => q.Date)
+    .FirstOrDefaultAsync();
+
                 sectionItems.Add(new TASectionItemViewModel
                 {
                     CourseSectionId = section.Id,
@@ -155,7 +187,60 @@ namespace MVC_PROJECT.Services.Implementation
                     SectionNumber = section.DepartmentSection.Number,
                     StudentCount = section.Enrollments.Count,
                     PendingAttendanceSessions = pendingAttendanceSessions,
-                    PendingQuizzes = pendingQuizzes
+                    PendingQuizzes = pendingQuizzes,
+                    AttendanceRate = Math.Round(attendanceRate, 0),
+                    NextSession = nextSessionText,
+
+                    // ?? ??????
+                    LatestQuizId = latestQuiz?.Id
+                });
+            }
+
+            // ?? Alerts
+            var alerts = new List<AlertViewModel>();
+
+            foreach (var s in sectionItems)
+            {
+                if (s.AttendanceRate < 75)
+                {
+                    alerts.Add(new AlertViewModel
+                    {
+                        Title = "Low Attendance",
+                        Message = $"{s.CourseCode} - Section {s.SectionNumber} has {s.AttendanceRate}%",
+                        Type = s.AttendanceRate < 50 ? "danger" : "warning"
+                    });
+                }
+
+                if (s.PendingQuizzes > 0)
+                {
+                    alerts.Add(new AlertViewModel
+                    {
+                        Title = "Pending Quiz",
+                        Message = $"{s.PendingQuizzes} quizzes need grading in {s.CourseCode}",
+                        Type = "danger"
+                    });
+                }
+            }
+
+            // ???? STEP 5: Activities
+            var activities = new List<ActivityViewModel>();
+
+            var recentSessions = await _context.AttendanceSessions
+                .Include(s => s.CourseSection)
+                    .ThenInclude(cs => cs.Course)
+                .Where(s => s.CourseSection.TAId == taId)
+                .OrderByDescending(s => s.Date)
+                .Take(5)
+                .ToListAsync();
+
+            foreach (var session in recentSessions)
+            {
+                activities.Add(new ActivityViewModel
+                {
+                    Time = session.Date.ToString("hh:mm tt"),
+                    Action = "Attendance Taken",
+                    Section = $"{session.CourseSection.Course.Code} - Sec {session.CourseSectionId}",
+                    Details = "Session completed"
                 });
             }
 
@@ -167,7 +252,13 @@ namespace MVC_PROJECT.Services.Implementation
                 TotalSections = sections.Count,
                 TotalStudents = totalStudents,
                 PendingAttendanceSessions = sectionItems.Sum(s => s.PendingAttendanceSessions),
-                Sections = sectionItems
+                Sections = sectionItems,
+                PendingQuizzes = sectionItems.Sum(s => s.PendingQuizzes),
+
+                Alerts = alerts,
+
+                // ?? ??????
+                Activities = activities
             };
         }
 

@@ -73,9 +73,6 @@ namespace MVC_PROJECT.Services.Implementation
                     Date = g.Quiz.Date,
                     MaxMark = g.Quiz.MaxMark,
                     Mark = g.Mark,
-                    PercentageScore = g.Quiz.MaxMark == 0
-                        ? 0
-                        : (g.Mark / g.Quiz.MaxMark) * 100
                 }).ToList()
             };
         }
@@ -109,10 +106,18 @@ namespace MVC_PROJECT.Services.Implementation
                     (e, cs) => e.Id)
                 .ToListAsync();
 
+            var sectionIds = await _context.Enrollments
+    .Where(e => e.StudentId == studentId)
+    .Join(_context.CourseSections.Where(cs => cs.CourseId == courseId),
+        e => e.CourseSectionId,
+        cs => cs.Id,
+        (e, cs) => cs.Id)
+    .ToListAsync();
+
             var quizIds = await _context.Quizzes
-                .Where(q => enrollmentIds.Contains(q.CourseSectionId))
-                .Select(q => q.Id)
-                .ToListAsync();
+    .Where(q => sectionIds.Contains(q.CourseSectionId))
+    .Select(q => q.Id)
+    .ToListAsync();
 
             return await _context.QuizGrades
                 .Include(qg => qg.Quiz)
@@ -133,7 +138,7 @@ namespace MVC_PROJECT.Services.Implementation
             {
                 CourseSectionId = courseSectionId,
                 Title = title,
-                Date = DateTime.UtcNow,
+                Date = DateTime.Now,
                 MaxMark = maxMark
             };
 
@@ -146,8 +151,11 @@ namespace MVC_PROJECT.Services.Implementation
         public async Task SaveQuizGradesAsync(int quizId, List<QuizGrade> grades)
         {
             var quiz = await _context.Quizzes
-                .Include(q => q.QuizGrades)
-                .FirstOrDefaultAsync(q => q.Id == quizId);
+    .Include(q => q.CourseSection)
+    .ThenInclude(cs => cs.Enrollments)
+    .ThenInclude(e => e.Student)
+    .Include(q => q.QuizGrades)
+    .FirstOrDefaultAsync(q => q.Id == quizId);
 
             if (quiz == null)
             {
@@ -170,8 +178,6 @@ namespace MVC_PROJECT.Services.Implementation
                 {
                     throw new ArgumentException($"Mark {grade.Mark} is out of range for Quiz {quizId}. Max mark is {quiz.MaxMark}.");
                 }
-
-                grade.PercentageScore = quiz.MaxMark > 0 ? (grade.Mark / quiz.MaxMark) * 100 : 0;
             }
 
             _context.QuizGrades.RemoveRange(quiz.QuizGrades);

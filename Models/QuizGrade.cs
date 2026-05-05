@@ -14,11 +14,7 @@ namespace MVC_PROJECT.Models
         [Required]
         public int EnrollmentId { get; set; }
 
-        [Range(0, 100)]
         public decimal Mark { get; set; }
-
-        [Range(0, 100)]
-        public decimal PercentageScore { get; set; }
 
         [ForeignKey(nameof(QuizId))]
         public Quiz Quiz { get; set; }

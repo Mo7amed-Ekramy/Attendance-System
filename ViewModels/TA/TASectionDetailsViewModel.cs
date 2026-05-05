@@ -13,6 +13,7 @@ namespace MVC_PROJECT.ViewModels.TA
         public string DepartmentName { get; set; }
         public int SectionNumber { get; set; }
         public int StudentCount { get; set; }
+        public string NextSession { get; set; }
         public List<AttendanceSessionSummaryViewModel> SectionAttendanceSessions { get; set; } = new List<AttendanceSessionSummaryViewModel>();
         public List<QuizSummaryViewModel> Quizzes { get; set; } = new List<QuizSummaryViewModel>();
     }
@@ -26,6 +27,7 @@ namespace MVC_PROJECT.ViewModels.TA
         public bool IsClosed { get; set; }
         public int PresentCount { get; set; }
         public int AbsentCount { get; set; }
+        public double AttendanceRate { get; set; }
     }
 
     public class QuizSummaryViewModel
@@ -37,5 +39,6 @@ namespace MVC_PROJECT.ViewModels.TA
         public int SubmittedCount { get; set; }
         public int TotalStudents { get; set; }
         public bool IsClosed { get; set; }
+
     }
 }

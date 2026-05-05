@@ -507,3 +507,94 @@
 .bg-admin {
     background-color: var(--admin-color);
 }
+/* ===== NEW BROWN THEME ===== */
+
+:root {
+    --primary-color: #5a3825;
+    --primary-light: #7a4b2f;
+    --primary-dark: #3e2618;
+}
+
+/* Background */
+.main-content {
+    margin-top: var(--top-navbar-height);
+    margin-left: var(--sidebar-width);
+    padding: 20px;
+}
+
+/* ✨ الجديد */
+.content-wrapper {
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+
+/* Sidebar */
+.sidebar-wrapper {
+    background: #5a3825;
+}
+
+.sidebar-nav .nav-link {
+    color: #e0d6cf;
+}
+
+    .sidebar-nav .nav-link.active {
+        background: #7a4b2f;
+        color: white;
+    }
+
+/* Navbar */
+.top-navbar {
+    background: linear-gradient(90deg, #5a3825, #7a4b2f);
+}
+
+/* Dashboard Cards */
+.dashboard-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    border-bottom: 3px solid #7a4b2f;
+}
+
+    .dashboard-card h2 {
+        font-size: 24px;
+        font-weight: bold;
+        color: #5a3825;
+    }
+
+    .dashboard-card p {
+        color: #999;
+    }
+
+.content-wrapper {
+    padding: 30px;
+}
+
+.page-title {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.table {
+    border: none;
+}
+
+    .table th {
+        color: #999;
+        font-weight: 500;
+    }
+
+    .table td {
+        vertical-align: middle;
+    }
+
+.status-present {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.status-absent {
+    color: #e74c3c;
+}

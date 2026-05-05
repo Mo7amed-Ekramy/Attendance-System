@@ -19,52 +19,45 @@ namespace MVC_PROJECT.Controllers
             _accountService = accountService;
         }
 
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
         [HttpPost]
-        public async Task<IActionResult> Login([FromBody] LoginViewModel model)
+        public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(new { success = false, message = "Invalid request data." });
+                return View(model);
             }
 
             var user = await _accountService.ValidateLoginAsync(model.UserName, model.Password);
 
             if (user == null)
             {
-                return Unauthorized(new { success = false, message = "Invalid username or password." });
+                ModelState.AddModelError("", "Invalid username or password");
+                return View(model);
             }
 
-            // Create claims
+            // Claims
             var claims = new List<Claim>
-            {
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Name, user.FullName),
-                new Claim(ClaimTypes.Role, user.Role.ToString())
-            };
+    {
+        new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+        new Claim(ClaimTypes.Name, user.FullName),
+        new Claim(ClaimTypes.Role, user.Role.ToString())
+    };
 
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-            var authProperties = new AuthenticationProperties
-            {
-                IsPersistent = false,
-                ExpiresUtc = DateTimeOffset.UtcNow.AddHours(24)
-            };
 
-            // Sign in with cookie authentication
             await HttpContext.SignInAsync(
                 CookieAuthenticationDefaults.AuthenticationScheme,
-                new ClaimsPrincipal(claimsIdentity),
-                authProperties);
+                new ClaimsPrincipal(claimsIdentity));
 
             var redirectUrl = _accountService.GetRedirectUrlByRole(user);
 
-            return Ok(new
-            {
-                success = true,
-                role = user.Role.ToString(),
-                userName = user.UserName,
-                fullName = user.FullName,
-                redirectUrl = redirectUrl
-            });
+            return Redirect(redirectUrl);
         }
 
         [HttpPost]

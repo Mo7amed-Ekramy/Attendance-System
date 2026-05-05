@@ -29,3 +29,91 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+
+.dashboard-container {
+    padding: 20px;
+}
+
+.page-title {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.subtitle {
+    color: gray;
+    margin-bottom: 20px;
+}
+
+/* Cards */
+.cards {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.card-box {
+    flex: 1;
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    border-bottom: 4px solid #c8a97e;
+}
+
+    .card-box h3 {
+        margin: 10px 0;
+    }
+
+/* Grid */
+.grid {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.box {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    flex: 1;
+}
+
+.box-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Table */
+table {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Status */
+.present {
+    color: green;
+    font-weight: bold;
+}
+
+/* Button */
+.export-btn {
+    background: #7a4b2f;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 10px;
+}
+
+/* Empty */
+.empty {
+    color: gray;
+    text-align: center;
+    margin-top: 20px;
+}

@@ -32,5 +32,6 @@ namespace MVC_PROJECT.Models
         public ICollection<AttendanceSession> AttendanceSessions { get; set; } = new List<AttendanceSession>();
 
         public ICollection<Quiz> Quizzes { get; set; } = new List<Quiz>();
+        public string SectionNumber { get; set; }
     }
 }

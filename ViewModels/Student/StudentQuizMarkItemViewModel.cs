@@ -9,6 +9,6 @@ namespace MVC_PROJECT.ViewModels.Student
         public DateTime Date { get; set; }
         public decimal MaxMark { get; set; }
         public decimal Mark { get; set; }
-        public decimal PercentageScore { get; set; }
+        public decimal PercentageScore => MaxMark > 0 ? (Mark / MaxMark) * 100 : 0;
     }
 }

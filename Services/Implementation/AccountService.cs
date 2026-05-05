@@ -25,10 +25,10 @@ namespace MVC_PROJECT.Services.Implementation
 
             // Find user by username (case-insensitive)
             var user = await _context.Users
-                .FirstOrDefaultAsync(u => u.UserName.ToLower() == userName.ToLower());
+                .FirstOrDefaultAsync(u => u.UserName.ToLower() == userName.ToLower().Trim());
 
             // Validate password (plain text comparison for development)
-            if (user == null || user.Password != password)
+            if (user == null || user.Password.Trim() != password.Trim())
             {
                 return null;
             }

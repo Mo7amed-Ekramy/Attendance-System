@@ -167,37 +167,39 @@ namespace MVC_PROJECT.Services.Implementation
 
             // Calculate percentage scores for all quizzes
             var percentages = quizGrades
-                .Select(q => new
-                {
-                    q.QuizId,
-                    PercentageScore = q.Grade != null && q.MaxMark > 0
-                        ? (q.Grade.Mark / q.MaxMark) * 100
-                        : 0
-                })
-                .ToList();
+    .Select(q =>
+    {
+        var percentage = (q.Grade != null && q.MaxMark > 0)
+            ? (q.Grade.Mark / q.MaxMark) * 100
+            : 0;
 
-            // If student missed any quiz, they get 0 for that quiz
+        return new
+        {
+            q.QuizId,
+            Percentage = percentage
+        };
+    })
+    .ToList();
+
+            // ?? ?????? ?? ???? ?????? ? ???
             foreach (var quiz in quizzes)
             {
                 if (!quizGrades.Any(qg => qg.QuizId == quiz.Id))
                 {
-                    percentages.Add(new { QuizId = quiz.Id, PercentageScore = 0m });
+                    percentages.Add(new { QuizId = quiz.Id, Percentage = 0m });
                 }
             }
 
-            // Select best N quizzes
+            // ???? ??????
             var bestQuizzes = percentages
-                .OrderByDescending(p => p.PercentageScore)
+                .OrderByDescending(p => p.Percentage)
                 .Take(policy.BestQuizzesCount > 0 ? policy.BestQuizzesCount : percentages.Count)
                 .ToList();
 
-            if (!bestQuizzes.Any())
-            {
-                return 0;
-            }
-
-            // Calculate average of best quizzes
-            var averagePercentage = bestQuizzes.Average(q => q.PercentageScore);
+            // ???????
+            var averagePercentage = bestQuizzes.Any()
+    ? bestQuizzes.Average(q => q.Percentage)
+    : 0;
 
             // Normalize to quiz marks (should not exceed policy.QuizMarks)
             var normalizedGrade = (averagePercentage / 100) * policy.QuizMarks;

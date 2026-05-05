@@ -40,7 +40,7 @@ namespace MVC_PROJECT.Models.Data
                 .HasPrecision(18, 2);
 
             modelBuilder.Entity<QuizGrade>()
-                .Property(qg => qg.PercentageScore)
+                .Property(qg => qg.Mark)
                 .HasPrecision(18, 2);
             // =========================
             // Unique Indexes

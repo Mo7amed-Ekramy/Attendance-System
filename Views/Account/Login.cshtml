@@ -2,192 +2,180 @@
     ViewData["Title"] = "Login";
     Layout = null;
 }
+@{
+    Layout = null;
+}
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Attendance System</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <title>Login</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
     <style>
-        .login-container {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #3b1f0f, #8b5e3c);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center; /* يخليهم في نفس المستوى */
+            gap: 10px; /* مسافة بينهم */
+        }
+
+            .logo-container img {
+                width: 90px; /* عدل حسب الحجم اللي عايزه */
+            }
+
+            .logo-container span {
+                font-weight: 600;
+                font-size: 16px;
+            }
+
+        .remember-wrapper {
+            margin-top: 15px;
+            display: flex;
+            justify-content: flex-start; /* أو flex-end لو عايزها يمين */
+        }
+
+        .remember {
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 20px;
+            gap: 8px;
         }
-        
-        .login-card {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
-            max-width: 400px;
-            width: 100%;
-        }
-        
-        .login-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px 30px;
-            text-align: center;
-        }
-        
-        .login-body {
-            padding: 40px 30px;
-        }
-        
-        .role-selector {
+
+            .remember input {
+                width: 16px;
+                height: 16px;
+                cursor: pointer;
+            }
+
+            .remember label {
+                cursor: pointer;
+                font-size: 14px;
+            }
+
+        .container {
+            width: 900px;
+            height: 520px;
             display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         }
-        
-        .role-btn {
+
+        .left {
             flex: 1;
-            padding: 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            background: white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-        
-        .role-btn:hover {
-            border-color: #667eea;
-            background: #f8f9fa;
-        }
-        
-        .role-btn.active {
-            border-color: #667eea;
-            background: #667eea;
+            background: linear-gradient(135deg, #4a2c1d, #8b5e3c);
             color: white;
+            padding: 40px;
         }
-        
-        .role-btn i {
-            font-size: 24px;
-            margin-bottom: 10px;
-            display: block;
+
+            .left h1 {
+                margin-top: 60px;
+                font-size: 32px;
+            }
+
+            .left p {
+                margin-top: 10px;
+                opacity: 0.8;
+            }
+
+        .right {
+            flex: 1;
+            background: #f4efe9;
+            padding: 40px;
         }
-        
-        .form-control {
-            padding: 15px;
+
+            .right h2 {
+                margin-bottom: 5px;
+            }
+
+        .form-group {
+            margin-top: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
             border-radius: 10px;
-            border: 2px solid #e0e0e0;
+            border: 1px solid #ccc;
+            outline: none;
         }
-        
-        .form-control:focus {
-            border-color: #667eea;
-            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
-        }
-        
-        .btn-login {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+        .btn {
+            margin-top: 25px;
+            width: 100%;
+            padding: 12px;
+            background: #8b5e3c;
             border: none;
             color: white;
-            padding: 15px;
             border-radius: 10px;
-            font-weight: 600;
-            width: 100%;
-            transition: all 0.3s ease;
+            cursor: pointer;
+            font-weight: bold;
         }
-        
-        .btn-login:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
-        }
-        
-        .login-footer {
-            text-align: center;
-            padding: 20px;
-            background: #f8f9fa;
-            color: #666;
-            font-size: 14px;
-        }
+
+            .btn:hover {
+                background: #6f472b;
+            }
     </style>
 </head>
+
 <body>
-    <div class="login-container">
-        <div class="login-card">
-            <div class="login-header">
-                <i class="fas fa-graduation-cap fa-3x mb-3"></i>
-                <h2 class="mb-2">University Attendance System</h2>
-                <p class="mb-0">Sign in to access your dashboard</p>
+
+    <div class="container">
+
+        <!-- LEFT -->
+        <div class="left">
+            <div class="logo-container">
+                <img src="~/images/national_university_logo_2.png" />
+                <span>Assiut National University</span>
             </div>
-            
-            <div class="login-body">
-                <form method="post" action="/Account/Login">
-                    <div class="mb-4">
-                        <label class="form-label fw-bold mb-3">Select Your Role</label>
-                        <div class="role-selector">
-                            <div class="role-btn active" data-role="Student">
-                                <i class="fas fa-user-graduate"></i>
-                                <div>Student</div>
-                            </div>
-                            <div class="role-btn" data-role="TA">
-                                <i class="fas fa-user-tie"></i>
-                                <div>Teaching Assistant</div>
-                            </div>
-                            <div class="role-btn" data-role="Doctor">
-                                <i class="fas fa-user-md"></i>
-                                <div>Doctor</div>
-                            </div>
-                        </div>
-                        <input type="hidden" id="role" name="role" value="Student" required>
-                    </div>
-                    
-                    <div class="mb-4">
-                        <label for="name" class="form-label fw-bold">Your Name</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
-                    </div>
-                    
-                    <div class="mb-4">
-                        <label for="id" class="form-label fw-bold">University ID</label>
-                        <input type="text" class="form-control" id="id" name="id" placeholder="Enter your university ID" required>
-                    </div>
-                    
-                    <button type="submit" class="btn-login">
-                        <i class="fas fa-sign-in-alt me-2"></i> Sign In
-                    </button>
-                </form>
-                
-                <div class="text-center mt-4">
-                    <p class="text-muted small">
-                        <i class="fas fa-info-circle me-1"></i>
-                        This is a demo login. In production, this would connect to your university authentication system.
-                    </p>
-                </div>
-            </div>
-            
-            <div class="login-footer">
-                <p class="mb-0">© @DateTime.Now.Year University Attendance System | v1.0.0</p>
-            </div>
+            <h1>Welcome Back </h1>
+            <p>Sign in to access your university Account</p>
         </div>
+
+        <!-- RIGHT -->
+        <div class="right">
+            <h2>Sign In</h2>
+
+            <form method="post" action="/Account/Login">
+
+                <div class="form-group">
+                    <label>Username</label>
+                    <input name="UserName" placeholder="Enter username" />
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input name="Password" type="password" placeholder="Enter password" />
+                </div>
+
+                <button class="btn" type="submit">
+                    Sign In
+                </button>
+
+                <div class="remember-wrapper">
+                    <div class="remember">
+                        <input type="checkbox" id="remember" name="Remember_me" />
+                        <label for="remember">Remember me</label>
+                    </div>
+                </div>
+                
+
+            </form>
+
+        </div>
+
     </div>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('.role-btn').click(function() {
-                $('.role-btn').removeClass('active');
-                $(this).addClass('active');
-                $('#role').val($(this).data('role'));
-                
-                // Update placeholder based on role
-                var role = $(this).data('role');
-                var placeholder = role === 'Student' ? 'Enter your student ID' : 
-                                 role === 'TA' ? 'Enter your TA ID' : 
-                                 'Enter your staff ID';
-                $('#id').attr('placeholder', placeholder);
-            });
-        });
-    </script>
 </body>
 </html>

@@ -27,6 +27,7 @@ namespace MVC_PROJECT.Models
         public CourseSection CourseSection { get; set; }
 
         public bool IsClosed { get; set; } = false;
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
         public ICollection<QuizGrade> QuizGrades { get; set; } = new List<QuizGrade>();
     }
 }

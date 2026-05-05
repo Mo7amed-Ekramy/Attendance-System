@@ -10,6 +10,9 @@ namespace MVC_PROJECT.ViewModels.TA
         public int TotalSections { get; set; }
         public int TotalStudents { get; set; }
         public int PendingAttendanceSessions { get; set; }
+        public int PendingQuizzes { get; set; }
+        public List<ActivityViewModel> Activities { get; set; }
+        public List<AlertViewModel> Alerts { get; set; } = new List<AlertViewModel>();
         public List<TASectionItemViewModel> Sections { get; set; } = new List<TASectionItemViewModel>();
     }
 }
