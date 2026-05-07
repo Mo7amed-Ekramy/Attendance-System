@@ -33,5 +33,34 @@
     </table>
 
     <button class="btn btn-success">Save Attendance</button>
+    <button type="button"
+            class="btn btn-dark ms-2"
+            id="generateQrBtn">
+        Generate QR
+    </button>
+    <div id="qrContainer" class="mt-4"></div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    @* <p>@Model.AttendanceSessionId</p> Test the session id *@
+    <script>
+        $("#generateQrBtn").click(function () {
+
+            $.post('/Attendance/GenerateQr', {
+                attendanceSessionId: @Model.AttendanceSessionId
+            }, function (data) {
+
+                if (data.success) {
+
+                    $("#qrContainer").html(`
+                        <div class="card p-3 text-center mt-3">
+                            <img src="${data.qrImage}" width="250"/>
+                            <h5 class="mt-3">Code: ${data.code}</h5>
+                        </div>
+                    `);
+                }
+            });
+
+        });
+    </script>
 
 </form>

@@ -1,0 +1,21 @@
+﻿@model MVC_PROJECT.ViewModels.Attendance.SubmitAttendanceCodeViewModel
+
+<h2>QR Attendance</h2>
+
+<form asp-action="SubmitCode"
+      asp-controller="Attendance"
+      method="post">
+
+    @Html.AntiForgeryToken()
+
+    <input type="hidden"
+           asp-for="AttendanceSessionId" />
+
+    <input type="hidden"
+           asp-for="Code" />
+
+    <button type="submit"
+            class="btn btn-success">
+        Confirm Attendance
+    </button>
+</form>

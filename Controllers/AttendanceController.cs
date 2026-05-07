@@ -201,7 +201,7 @@ namespace MVC_PROJECT.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         [Authorize(Roles = "Doctor,TA")]
         public async Task<IActionResult> GenerateQr(int attendanceSessionId)
         {
@@ -216,7 +216,7 @@ namespace MVC_PROJECT.Controllers
             if (session.IsClosed)
                 return BadRequest("Cannot generate QR for a closed session.");
 
-            if (session.Method != AttendanceMethod.QR)
+            if (session.Method != AttendanceMethod.Code)
                 return BadRequest("This session does not use QR attendance.");
 
             var authResult = await CheckSessionOwnerAsync(session);
@@ -227,7 +227,7 @@ namespace MVC_PROJECT.Controllers
             string qrCode = await _attendanceService.GenerateAttendanceCodeAsync(attendanceSessionId);
 
             string qrPayload = Url.Action(
-                "SubmitQr",
+                "ScanQr",
                 "Attendance",
                 new { attendanceSessionId = attendanceSessionId, code = qrCode },
                 Request.Scheme
@@ -309,6 +309,18 @@ namespace MVC_PROJECT.Controllers
             await _attendanceService.CloseSessionAsync(attendanceSessionId);
 
             return Json(new { success = true, message = "Attendance session closed successfully." });
+        }
+        [HttpGet]
+        [Authorize(Roles = "Student")]
+        public IActionResult ScanQr(int attendanceSessionId, string code)
+        {
+            var model = new SubmitAttendanceCodeViewModel
+            {
+                AttendanceSessionId = attendanceSessionId,
+                Code = code
+            };
+
+            return View(model);
         }
 
         private async Task<IActionResult?> CheckSessionOwnerAsync(AttendanceSession session)

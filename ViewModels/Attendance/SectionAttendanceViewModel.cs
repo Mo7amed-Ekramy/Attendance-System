@@ -12,6 +12,7 @@ namespace MVC_PROJECT.ViewModels.Attendance
         public int SectionNumber { get; set; }
         public DateTime Date { get; set; }
         public bool IsLocked { get; set; }
+        public int AttendanceSessionId { get; set; }
         public List<SectionAttendanceStudentViewModel> Students { get; set; } = new List<SectionAttendanceStudentViewModel>();
     }
 

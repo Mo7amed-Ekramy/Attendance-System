@@ -65,11 +65,27 @@ namespace MVC_PROJECT.Controllers
             var endOfWeek = startOfWeek.AddDays(7);
 
             var session = await _context.AttendanceSessions
-                .Include(s => s.Records)
-                .FirstOrDefaultAsync(s =>
-                    s.CourseSectionId == sectionId &&
-                    s.Date >= startOfWeek &&
-                    s.Date < endOfWeek);
+    .Include(s => s.Records)
+    .FirstOrDefaultAsync(s =>
+        s.CourseSectionId == sectionId &&
+        s.Date >= startOfWeek &&
+        s.Date < endOfWeek);
+
+            if (session == null)
+            {
+                session = new AttendanceSession
+                {
+                    CourseSectionId = sectionId,
+                    Date = DateTime.Now,
+                    SessionType = AttendanceSessionType.Section,
+                    Method = AttendanceMethod.Code,
+                    IsClosed = false,
+                    AttendanceCode = Guid.NewGuid().ToString().Substring(0, 6)
+                };
+
+                _context.AttendanceSessions.Add(session);
+                await _context.SaveChangesAsync();
+            }
 
             var model = new SectionAttendanceViewModel
             {
@@ -80,6 +96,7 @@ namespace MVC_PROJECT.Controllers
                 SectionNumber = section.DepartmentSection.Number,
                 Date = startOfWeek,
                 IsLocked = session?.IsClosed ?? false,
+                AttendanceSessionId = session.Id,
 
                 Students = enrollments.Select(e => new SectionAttendanceStudentViewModel
                 {
