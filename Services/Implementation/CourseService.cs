@@ -61,6 +61,8 @@ namespace MVC_PROJECT.Services.Implementation
                         .ThenInclude(c => c.CoursePolicy)
                 .Include(e => e.CourseSection)
                     .ThenInclude(cs => cs.DepartmentSection)
+                .Include(e => e.CourseSection)
+                    .ThenInclude(cs => cs.TA)
                 .FirstOrDefaultAsync(e =>
                     e.StudentId == studentId &&
                     e.CourseSection.CourseId == courseId);
@@ -69,25 +71,85 @@ namespace MVC_PROJECT.Services.Implementation
                 return new StudentCourseDetailsViewModel();
 
             var policy = enrollment.CourseSection.Course.CoursePolicy;
+            var quizGrades = await _context.QuizGrades
+    .Include(q => q.Quiz)
+    .Include(q => q.Enrollment)
+        .ThenInclude(e => e.CourseSection)
+    .Where(q =>
+        q.Enrollment.StudentId == studentId &&
+        q.Enrollment.CourseSection.CourseId == courseId)
+    .ToListAsync();
 
             return new StudentCourseDetailsViewModel
             {
+                QuizItems = quizGrades.Select(q => new StudentQuizItemViewModel
+                {
+                    QuizTitle = q.Quiz.Title,
+                    QuizDate = q.Quiz.Date,
+                    StudentMark = (int)q.Mark,
+                    MaxMark = (int)q.Quiz.MaxMark,
+                    IsCounted = true
+                }).ToList(),
                 CourseId = enrollment.CourseSection.Course.Id,
                 CourseCode = enrollment.CourseSection.Course.Code,
                 CourseName = enrollment.CourseSection.Course.Name,
+
                 DoctorName = enrollment.CourseSection.Course.Doctor.FullName,
+
                 SectionNumber = enrollment.CourseSection.DepartmentSection.Number,
+
                 AllowedAbsences = policy?.AllowedAbsences ?? 0,
+
                 AbsenceCount = 0,
+
                 AbsenceStatus = "Safe",
+
                 TotalCourseworkMarks =
                     (policy?.SectionAttendanceMarks ?? 0) +
                     (policy?.QuizMarks ?? 0) +
                     (policy?.LectureAttendanceMarks ?? 0),
+
                 SectionAttendanceMarks = policy?.SectionAttendanceMarks ?? 0,
+
                 QuizMarks = policy?.QuizMarks ?? 0,
+
                 LectureAttendanceMarks = policy?.LectureAttendanceMarks ?? 0,
-                BestQuizzesCount = policy?.BestQuizzesCount ?? 0
+
+                BestQuizzesCount = policy?.BestQuizzesCount ?? 0,
+
+                UpcomingSessions = new List<StudentUpcomingSessionViewModel>
+        {
+            new StudentUpcomingSessionViewModel
+            {
+                Day = "Tomorrow",
+                Time = "10:00 AM",
+                Type = "Lecture",
+                Location = "Hall A"
+            },
+
+            new StudentUpcomingSessionViewModel
+            {
+                Day = "Wednesday",
+                Time = "12:00 PM",
+                Type = "Section",
+                Location = "Lab 3"
+            }
+        },
+
+                TeachingTeam = new List<StudentTeachingTeamViewModel>
+        {
+            new StudentTeachingTeamViewModel
+            {
+                Name = enrollment.CourseSection.Course.Doctor.FullName,
+                Role = "Course Doctor"
+            },
+
+            new StudentTeachingTeamViewModel
+            {
+                Name = enrollment.CourseSection.TA?.FullName ?? "No TA Assigned",
+                Role = $"Section {enrollment.CourseSection.DepartmentSection.Number} TA"
+            }
+        }
             };
         }
         public async Task<DoctorCourseDetailsViewModel> GetCourseDetailsForDoctorAsync(int courseId)
@@ -103,6 +165,7 @@ namespace MVC_PROJECT.Services.Implementation
                     .ThenInclude(cs => cs.Enrollments)
                 .Include(c => c.CourseSections)
                     .ThenInclude(cs => cs.AttendanceSessions)
+    .ThenInclude(s => s.Records)
                 .Include(c => c.CourseSections)
                     .ThenInclude(cs => cs.Quizzes)
                 .FirstOrDefaultAsync(c => c.Id == courseId);
@@ -110,21 +173,47 @@ namespace MVC_PROJECT.Services.Implementation
             if (course == null)
                 return new DoctorCourseDetailsViewModel();
 
-            var sections = course.CourseSections.Select(cs => new DoctorSectionItemViewModel
+            var sections = course.CourseSections.Select(cs =>
             {
-                CourseSectionId = cs.Id,
+                int totalRecords = cs.AttendanceSessions
+                    .SelectMany(s => s.Records)
+                    .Count();
 
-                DepartmentName = cs.DepartmentSection.Department.Name,
+                int presentRecords = cs.AttendanceSessions
+                    .SelectMany(s => s.Records)
+                    .Count(r => r.IsPresent);
 
-                SectionNumber = cs.DepartmentSection.Number,
+                double attendanceRate =
+                    totalRecords == 0
+                    ? 0
+                    : (double)presentRecords / totalRecords * 100;
 
-                TAName = cs.TA.FullName,
+                string status =
+    totalRecords == 0 ? "No Data" :
+    attendanceRate >= 75 ? "Excellent" :
+    attendanceRate >= 50 ? "Needs Attention" :
+    "Critical";
 
-                StudentCount = cs.Enrollments.Count,
+                return new DoctorSectionItemViewModel
+                {
+                    CourseSectionId = cs.Id,
 
-                TotalAttendanceSessions = cs.AttendanceSessions.Count,
+                    DepartmentName = cs.DepartmentSection.Department.Name,
 
-                TotalQuizzes = cs.Quizzes.Count
+                    SectionNumber = cs.DepartmentSection.Number,
+
+                    TAName = cs.TA.FullName,
+
+                    StudentCount = cs.Enrollments.Count,
+
+                    TotalAttendanceSessions = cs.AttendanceSessions.Count,
+
+                    TotalQuizzes = cs.Quizzes.Count,
+
+                    AttendanceRate = Math.Round(attendanceRate, 1),
+
+                    Status = status
+                };
 
             }).ToList();
 
@@ -300,6 +389,80 @@ namespace MVC_PROJECT.Services.Implementation
             {
                 throw new ArgumentException("Best quizzes count cannot be negative.");
             }
+        }
+
+        public async Task<DoctorCourseReportViewModel> GetCourseReportAsync(int courseId)
+        {
+            var course = await _context.Courses
+                .Include(c => c.CourseSections)
+                    .ThenInclude(cs => cs.DepartmentSection)
+                .Include(c => c.CourseSections)
+                    .ThenInclude(cs => cs.Enrollments)
+                        .ThenInclude(e => e.Student)
+                .Include(c => c.CourseSections)
+                    .ThenInclude(cs => cs.AttendanceSessions)
+                        .ThenInclude(s => s.Records)
+                .FirstOrDefaultAsync(c => c.Id == courseId);
+
+            if (course == null)
+                return new DoctorCourseReportViewModel();
+
+            var students = new List<DoctorStudentReportItemViewModel>();
+
+            foreach (var section in course.CourseSections)
+            {
+                foreach (var enrollment in section.Enrollments)
+                {
+                    int totalSessions = section.AttendanceSessions.Count;
+
+                    int presentCount = section.AttendanceSessions
+                        .SelectMany(s => s.Records)
+                        .Count(r =>
+                            r.EnrollmentId == enrollment.Id &&
+                            r.IsPresent);
+
+                    int absentCount = totalSessions - presentCount;
+
+                    double attendanceRate =
+                        totalSessions == 0
+                        ? 0
+                        : (double)presentCount / totalSessions * 100;
+
+                    string status =
+                        attendanceRate >= 75 ? "Good" :
+                        attendanceRate >= 50 ? "Warning" :
+                        "Critical";
+
+                    students.Add(new DoctorStudentReportItemViewModel
+                    {
+                        StudentName = enrollment.Student.FullName,
+
+                        UniversityId = enrollment.Student.UniversityId,
+
+                        SectionNumber = section.DepartmentSection.Number,
+
+                        TotalSessions = totalSessions,
+
+                        PresentCount = presentCount,
+
+                        AbsentCount = absentCount,
+
+                        AttendanceRate = Math.Round(attendanceRate, 1),
+
+                        Status = status
+                    });
+                }
+            }
+            return new DoctorCourseReportViewModel
+            {
+                CourseId = course.Id,
+
+                CourseCode = course.Code,
+
+                CourseName = course.Name,
+
+                Students = students
+            };
         }
     }
 }

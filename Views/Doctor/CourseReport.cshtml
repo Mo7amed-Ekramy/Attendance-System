@@ -1,0 +1,167 @@
+﻿@model MVC_PROJECT.ViewModels.Doctor.DoctorCourseReportViewModel
+
+@{
+    ViewData["Title"] = "Course Report";
+}
+
+<div class="container-fluid">
+
+    <div class="card shadow-sm mb-4">
+
+        <div class="card-body">
+
+            <div class="d-flex justify-content-between align-items-center">
+
+                <div>
+                    <h2 class="fw-bold">
+                        @Model.CourseCode - @Model.CourseName
+                    </h2>
+
+                    <p class="text-muted mb-0">
+                        Full Attendance Report
+                    </p>
+                </div>
+
+                <div class="d-flex gap-2">
+
+                    <a asp-action="ExportCourseReport"
+                       asp-controller="Doctor"
+                       asp-route-courseId="@Model.CourseId"
+                       class="btn btn-success">
+
+                        Export Excel
+
+                    </a>
+
+                    <a asp-action="Dashboard"
+                       asp-controller="Doctor"
+                       class="btn btn-outline-secondary">
+
+                        Back
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card shadow-sm">
+
+        <div class="card-header bg-white">
+
+            <h5 class="fw-bold mb-0">
+                Students Report
+            </h5>
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="table-responsive">
+
+                <table class="table table-hover align-middle">
+
+                    <thead class="table-light">
+
+                        <tr>
+                            <th>Student</th>
+                            <th>University ID</th>
+                            <th>Section</th>
+                            <th>Total Sessions</th>
+                            <th>Present</th>
+                            <th>Absent</th>
+                            <th>Attendance Rate</th>
+                            <th>Status</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        @foreach (var student in Model.Students)
+                        {
+                            <tr>
+
+                                <td>
+                                    @student.StudentName
+                                </td>
+
+                                <td>
+                                    @student.UniversityId
+                                </td>
+
+                                <td>
+                                    Section @student.SectionNumber
+                                </td>
+
+                                <td>
+                                    @student.TotalSessions
+                                </td>
+
+                                <td class="text-success fw-bold">
+                                    @student.PresentCount
+                                </td>
+
+                                <td class="text-danger fw-bold">
+                                    @student.AbsentCount
+                                </td>
+
+                                <td style="width:220px;">
+
+                                    <div class="d-flex align-items-center">
+
+                                        <div class="progress flex-grow-1 me-2"
+                                             style="height:8px;">
+
+                                            <div class="progress-bar
+                                                    @(student.AttendanceRate >= 75
+                                                                                                     ? "bg-success"
+                                                                                                     : student.AttendanceRate >= 50
+                                                                                                         ? "bg-warning"
+                                                                                                         : "bg-danger")"
+                                                                                                                       style="width:@student.AttendanceRate%">
+                                                                                                                  </div>
+
+                                        </div>
+
+                                        <span class="small fw-bold">
+                                            @student.AttendanceRate%
+                                        </span>
+
+                                    </div>
+
+                                </td>
+
+                                <td>
+
+                                    <span class="badge
+                                            @(student.Status == "Good"
+                                                                                      ? "bg-success"
+                                                                                      : student.Status == "Warning"
+                                                                                          ? "bg-warning text-dark"
+                                                                                          : "bg-danger")">
+
+                                    @student.Status
+
+                                    </span>
+
+                                </td>
+
+                            </tr>
+                                                }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

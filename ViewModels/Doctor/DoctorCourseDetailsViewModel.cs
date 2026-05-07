@@ -20,5 +20,7 @@ namespace MVC_PROJECT.ViewModels.Doctor
         public int StudentCount { get; set; }
         public int TotalAttendanceSessions { get; set; }
         public int TotalQuizzes { get; set; }
+        public double AttendanceRate { get; internal set; }
+        public string Status { get; internal set; }
     }
 }

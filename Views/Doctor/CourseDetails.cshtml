@@ -1,0 +1,189 @@
+﻿@model MVC_PROJECT.ViewModels.Doctor.DoctorCourseDetailsViewModel
+
+@{
+    ViewData["Title"] = "Course Details";
+}
+
+<div class="container-fluid">
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+
+            <div class="d-flex justify-content-between align-items-center">
+
+                <div>
+                    <h2 class="fw-bold">
+                        @Model.CourseCode - @Model.CourseName
+                    </h2>
+
+                    <p class="text-muted mb-0">
+                        Semester: @Model.Semester
+                    </p>
+                </div>
+
+                <a asp-action="Dashboard"
+                   asp-controller="Doctor"
+                   class="btn btn-outline-secondary">
+                    Back
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row mb-4">
+
+        <div class="col-md-4">
+            <div class="card border-start border-primary border-3 shadow-sm">
+                <div class="card-body">
+                    <h6 class="text-primary fw-bold">
+                        Total Sections
+                    </h6>
+
+                    <h3>@Model.TotalSections</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card border-start border-success border-3 shadow-sm">
+                <div class="card-body">
+                    <h6 class="text-success fw-bold">
+                        Total Students
+                    </h6>
+
+                    <h3>@Model.TotalStudents</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card border-start border-warning border-3 shadow-sm">
+                <div class="card-body">
+                    <h6 class="text-warning fw-bold">
+                        Sections With Issues
+                    </h6>
+
+                    <h3>
+                        @Model.Sections.Count(s => s.AttendanceRate < 75)
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card shadow-sm">
+
+        <div class="card-header bg-white">
+            <h5 class="mb-0 fw-bold">
+                Course Sections
+            </h5>
+        </div>
+
+        <div class="card-body">
+
+            <div class="table-responsive">
+
+                <table class="table table-hover align-middle">
+
+                    <thead class="table-light">
+
+                        <tr>
+                            <th>Section</th>
+                            <th>Department</th>
+                            <th>TA</th>
+                            <th>Students</th>
+                            <th>Attendance Sessions</th>
+                            <th>Quizzes</th>
+                            <th>Attendance Rate</th>
+                            <th>Status</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        @foreach (var section in Model.Sections)
+                        {
+                            <tr>
+
+                                <td>
+                                    Section @(section.SectionNumber)
+                                </td>
+
+                                <td>
+                                    @(section.DepartmentName)
+                                </td>
+
+                                <td>
+                                    @(section.TAName)
+                                </td>
+
+                                <td>
+                                    @(section.StudentCount)
+                                </td>
+
+                                <td>
+                                    @(section.TotalAttendanceSessions)
+                                </td>
+
+                                <td>
+                                    @(section.TotalQuizzes)
+                                </td>
+
+                                <td style="width: 220px;">
+
+                                    <div class="d-flex align-items-center">
+
+                                        <div class="progress flex-grow-1 me-2"
+                                             style="height: 8px;">
+
+                                            <div class="progress-bar
+                                                @(section.AttendanceRate >= 75
+                                                    ? "bg-success"
+                                                    : section.AttendanceRate >= 50
+                                                        ? "bg-warning"
+                                                        : "bg-danger")"
+
+                                                 style="width:@(section.AttendanceRate)%">
+                                            </div>
+
+                                        </div>
+
+                                        <span class="small fw-bold">
+                                            @(section.AttendanceRate)%
+                                        </span>
+
+                                    </div>
+
+                                </td>
+
+                                <td>
+
+                                    <span class="badge
+        @(section.Status == "Excellent"
+                                                  ? "bg-success"
+                                                  : section.Status == "Needs Attention"
+                                                      ? "bg-warning text-dark"
+                                                      : section.Status == "No Data"
+                                                          ? "bg-secondary"
+                                                          : "bg-danger")">
+
+                                </td>
+
+                            </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

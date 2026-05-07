@@ -1,6 +1,7 @@
 @{
     ViewData["Title"] = "Doctor Dashboard";
 }
+@model MVC_PROJECT.ViewModels.Doctor.DoctorDashboardViewModel
 
 <div class="row">
     <div class="col-xl-3 col-md-6 mb-4">
@@ -9,7 +10,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs fw-bold text-primary text-uppercase mb-1">Teaching Courses</div>
-                        <div class="h5 mb-0 fw-bold">3</div>
+                        <div class="h5 mb-0 fw-bold">@Model.TotalCourses</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-book fa-2x text-primary"></i>
@@ -25,7 +26,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs fw-bold text-success text-uppercase mb-1">Total Sections</div>
-                        <div class="h5 mb-0 fw-bold">12</div>
+                        <div class="h5 mb-0 fw-bold">@Model.TotalSections</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-users fa-2x text-success"></i>
@@ -40,8 +41,8 @@
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="text-xs fw-bold text-warning text-uppercase mb-1">TAs Assigned</div>
-                        <div class="h5 mb-0 fw-bold">8</div>
+                        <div class="text-xs fw-bold text-warning text-uppercase mb-1">Total Students</div>
+                        <div class="h5 mb-0 fw-bold">@Model.TotalStudents</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-user-tie fa-2x text-warning"></i>
@@ -89,78 +90,64 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    <div class="fw-bold">CS101</div>
-                                    <div class="text-muted small">Introduction to Programming</div>
-                                </td>
-                                <td>4</td>
-                                <td>100</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="progress flex-grow-1 me-2" style="height: 6px;">
-                                            <div class="progress-bar bg-success" style="width: 92%"></div>
+                            @foreach (var course in Model.Courses)
+                            {
+                                <tr>
+                                    <td>
+                                        <div class="fw-bold">@course.CourseCode</div>
+                                        <div class="text-muted small">@course.CourseName</div>
+                                    </td>
+
+                                    <td>@course.TotalSections</td>
+
+                                    <td>@course.TotalStudents</td>
+
+                                    <td>
+                                        <div class="d-flex align-items-center">
+
+                                            <div class="progress flex-grow-1 me-2"
+                                                 style="height: 6px;">
+
+                                                <div class="progress-bar bg-success"
+                                                     style="width: @course.AttendanceRate%">
+                                                </div>
+
+                                            </div>
+
+                                            <span class="small">
+                                                @course.AttendanceRate%
+                                            </span>
+
                                         </div>
-                                        <span class="small">92%</span>
-                                    </div>
-                                </td>
-                                <td><span class="badge bg-success">Excellent</span></td>
-                                <td>
-                                    <div class="btn-group btn-group-sm">
-                                        <a href="/Doctor/CourseConfiguration?courseId=1" class="btn btn-outline-primary">Configure</a>
-                                        <a href="/Doctor/TakeLectureAttendance?courseId=1" class="btn btn-primary">Take Attendance</a>
-                                        <a href="/Doctor/FullCourseReport?courseId=1" class="btn btn-outline-info">Report</a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="fw-bold">CS201</div>
-                                    <div class="text-muted small">Data Structures</div>
-                                </td>
-                                <td>4</td>
-                                <td>96</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="progress flex-grow-1 me-2" style="height: 6px;">
-                                            <div class="progress-bar bg-warning" style="width: 78%"></div>
+                                    </td>
+
+                                    <td>
+
+                                        <div class="btn-group btn-group-sm">
+
+                                            <a asp-controller="Doctor"
+                                               asp-action="CourseDetails"
+                                               asp-route-courseId="@course.CourseId"
+                                               class="btn btn-outline-primary">
+
+                                                Details
+
+                                            </a>
+
+                                            <a asp-controller="Doctor"
+                                               asp-action="CourseReport"
+                                               asp-route-courseId="@course.CourseId"
+                                               class="btn btn-outline-info">
+
+                                                Report
+
+                                            </a>
+
                                         </div>
-                                        <span class="small">78%</span>
-                                    </div>
-                                </td>
-                                <td><span class="badge bg-warning">Needs Attention</span></td>
-                                <td>
-                                    <div class="btn-group btn-group-sm">
-                                        <a href="/Doctor/CourseConfiguration?courseId=2" class="btn btn-outline-primary">Configure</a>
-                                        <a href="/Doctor/LectureReports?courseId=2" class="btn btn-outline-warning">Review</a>
-                                        <a href="/Doctor/FullCourseReport?courseId=2" class="btn btn-outline-info">Report</a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="fw-bold">MATH101</div>
-                                    <div class="text-muted small">Calculus</div>
-                                </td>
-                                <td>4</td>
-                                <td>104</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="progress flex-grow-1 me-2" style="height: 6px;">
-                                            <div class="progress-bar bg-danger" style="width: 65%"></div>
-                                        </div>
-                                        <span class="small">65%</span>
-                                    </div>
-                                </td>
-                                <td><span class="badge bg-danger">Critical</span></td>
-                                <td>
-                                    <div class="btn-group btn-group-sm">
-                                        <a href="/Doctor/CourseConfiguration?courseId=3" class="btn btn-outline-primary">Configure</a>
-                                        <a href="/Doctor/TakeLectureAttendance?courseId=3" class="btn btn-primary">Take Attendance</a>
-                                        <a href="/Doctor/LectureReports?courseId=3" class="btn btn-outline-danger">Investigate</a>
-                                    </div>
-                                </td>
-                            </tr>
+
+                                    </td>
+                                </tr>
+                            }
                         </tbody>
                     </table>
                 </div>

@@ -1,11 +1,13 @@
+@model MVC_PROJECT.ViewModels.Student.StudentCourseDetailsViewModel
+
 @{
     ViewData["Title"] = "Course Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
-        <h1 class="h3 mb-0">CS101 - Introduction to Programming</h1>
-        <p class="text-muted mb-0">Spring 2024 | Dr. Ahmed Mohamed</p>
+        <h1 class="h3 mb-0">@Model.CourseCode - @Model.CourseName</h1>
+        <p class="text-muted mb-0">Section @Model.SectionNumber | Dr. @Model.DoctorName</p>
     </div>
     <div>
         <a href="/Student/MyCourses" class="btn btn-outline-primary">
@@ -31,7 +33,7 @@
                     </div>
                     <div class="col-md-3 mb-3">
                         <div class="text-center">
-                            <div class="display-4 fw-bold text-info">85</div>
+                            <div class="display-4 fw-bold text-info">@Model.QuizMarks</div>
                             <div class="text-muted">Quiz Average</div>
                         </div>
                     </div>
@@ -43,7 +45,7 @@
                     </div>
                     <div class="col-md-3 mb-3">
                         <div class="text-center">
-                            <div class="display-4 fw-bold text-warning">2/5</div>
+                            <div class="display-4 fw-bold text-warning">@Model.AbsenceCount/@Model.AllowedAbsences</div>
                             <div class="text-muted">Absences Used</div>
                         </div>
                     </div>
@@ -52,12 +54,18 @@
                 <div class="mb-4">
                     <h6 class="fw-bold mb-3">Attendance Progress</h6>
                     <div class="progress" style="height: 20px;">
-                        <div class="progress-bar bg-success" style="width: 92%">
-                            <span class="fw-bold">92%</span>
+                        <div class="progress-bar bg-success" style="width:@(100 - ((Model.AbsenceCount * 100) / (Model.AllowedAbsences == 0 ? 1 : Model.AllowedAbsences)))%">
+                            <span class="fw-bold">
+                                @(
+                                                                Model.AllowedAbsences == 0
+                                                                ? 0
+                                                                : (100 - ((Model.AbsenceCount * 100) / Model.AllowedAbsences))
+                                                                ) %
+                            </span>
                         </div>
                     </div>
                     <div class="mt-2 text-muted small">
-                        <i class="fas fa-info-circle me-1"></i> 23 out of 25 sessions attended
+                        <i class="fas fa-info-circle me-1"></i> @Model.AbsenceCount absences used out of @Model.AllowedAbsences
                     </div>
                 </div>
 
@@ -67,37 +75,37 @@
                         <div class="col-md-6 mb-2">
                             <div class="d-flex justify-content-between">
                                 <span class="text-muted">Total Coursework Marks</span>
-                                <span class="fw-bold">100</span>
+                                <span class="fw-bold">@Model.TotalCourseworkMarks</span>
                             </div>
                         </div>
                         <div class="col-md-6 mb-2">
                             <div class="d-flex justify-content-between">
                                 <span class="text-muted">Section Attendance</span>
-                                <span class="fw-bold">20 marks</span>
+                                <span class="fw-bold">@Model.SectionAttendanceMarks marks</span>
                             </div>
                         </div>
                         <div class="col-md-6 mb-2">
                             <div class="d-flex justify-content-between">
                                 <span class="text-muted">Quiz Marks</span>
-                                <span class="fw-bold">30 marks</span>
+                                <span class="fw-bold">@Model.QuizMarks marks</span>
                             </div>
                         </div>
                         <div class="col-md-6 mb-2">
                             <div class="d-flex justify-content-between">
                                 <span class="text-muted">Lecture Attendance</span>
-                                <span class="fw-bold">10 marks</span>
+                                <span class="fw-bold">@Model.LectureAttendanceMarks marks</span>
                             </div>
                         </div>
                         <div class="col-md-6 mb-2">
                             <div class="d-flex justify-content-between">
                                 <span class="text-muted">Allowed Absences</span>
-                                <span class="fw-bold">5 sessions</span>
+                                <span class="fw-bold">@Model.AllowedAbsences sessions</span>
                             </div>
                         </div>
                         <div class="col-md-6 mb-2">
                             <div class="d-flex justify-content-between">
                                 <span class="text-muted">Best Quizzes Count</span>
-                                <span class="fw-bold">3 out of 5</span>
+                                <span class="fw-bold">Best @Model.BestQuizzesCount quizzes</span>
                             </div>
                         </div>
                     </div>
@@ -113,33 +121,32 @@
             </div>
             <div class="card-body p-0">
                 <div class="list-group list-group-flush">
-                    <div class="list-group-item border-0">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <div class="fw-bold small">Tomorrow, 10:00 AM</div>
-                                <div class="text-muted small">Lecture - Room 205</div>
+
+                    @foreach (var session in Model.UpcomingSessions)
+                    {
+                        <div class="list-group-item border-0">
+
+                            <div class="d-flex justify-content-between align-items-center">
+
+                                <div>
+                                    <div class="fw-bold small">
+                                        @session.Day, @session.Time
+                                    </div>
+
+                                    <div class="text-muted small">
+                                        @session.Type - @session.Location
+                                    </div>
+                                </div>
+
+                                <span class="badge bg-primary">
+                                    @session.Type
+                                </span>
+
                             </div>
-                            <span class="badge bg-primary">Lecture</span>
+
                         </div>
-                    </div>
-                    <div class="list-group-item border-0">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <div class="fw-bold small">Wednesday, 02:00 PM</div>
-                                <div class="text-muted small">Section - Lab 302</div>
-                            </div>
-                            <span class="badge bg-success">Section</span>
-                        </div>
-                    </div>
-                    <div class="list-group-item border-0">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <div class="fw-bold small">Friday, 11:00 AM</div>
-                                <div class="text-muted small">Lecture - Auditorium A</div>
-                            </div>
-                            <span class="badge bg-primary">Lecture</span>
-                        </div>
-                    </div>
+                    }
+
                 </div>
             </div>
         </div>
@@ -149,24 +156,31 @@
                 <h6 class="m-0 fw-bold"><i class="fas fa-users me-2 text-primary"></i> Teaching Team</h6>
             </div>
             <div class="card-body">
-                <div class="d-flex align-items-center mb-3">
-                    <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
-                        <i class="fas fa-user-md"></i>
+                @foreach (var member in Model.TeachingTeam)
+                {
+                    <div class="d-flex align-items-center mb-3">
+
+                        <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-3"
+                             style="width: 40px; height: 40px;">
+
+                            @member.Name.Substring(0, 1)
+
+                        </div>
+
+                        <div>
+
+                            <div class="fw-bold">
+                                @member.Name
+                            </div>
+
+                            <div class="text-muted small">
+                                @member.Role
+                            </div>
+
+                        </div>
+
                     </div>
-                    <div>
-                        <div class="fw-bold">Dr. Ahmed Mohamed</div>
-                        <div class="text-muted small">Course Doctor</div>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center">
-                    <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <div>
-                        <div class="fw-bold">TA Sarah Ali</div>
-                        <div class="text-muted small">Section 1 TA</div>
-                    </div>
-                </div>
+                }
             </div>
         </div>
     </div>
@@ -190,43 +204,50 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Quiz 1 - Variables & Data Types</td>
-                        <td>2024-02-15</td>
-                        <td class="fw-bold text-success">18/20</td>
-                        <td>20</td>
-                        <td>90%</td>
-                        <td><span class="badge bg-success">Counted</span></td>
-                    </tr>
-                    <tr>
-                        <td>Quiz 2 - Control Structures</td>
-                        <td>2024-03-01</td>
-                        <td class="fw-bold text-warning">16/20</td>
-                        <td>20</td>
-                        <td>80%</td>
-                        <td><span class="badge bg-success">Counted</span></td>
-                    </tr>
-                    <tr>
-                        <td>Quiz 3 - Functions</td>
-                        <td>2024-03-15</td>
-                        <td class="fw-bold text-info">19/20</td>
-                        <td>20</td>
-                        <td>95%</td>
-                        <td><span class="badge bg-success">Counted</span></td>
-                    </tr>
-                    <tr>
-                        <td>Quiz 4 - Arrays</td>
-                        <td>2024-03-29</td>
-                        <td class="fw-bold text-danger">14/20</td>
-                        <td>20</td>
-                        <td>70%</td>
-                        <td><span class="badge bg-secondary">Dropped</span></td>
-                    </tr>
+
+                    @foreach (var quiz in Model.QuizItems)
+                    {
+                        var percentage = quiz.MaxMark == 0
+                        ? 0
+                        : (quiz.StudentMark * 100) / quiz.MaxMark;
+
+                        <tr>
+
+                            <td>@quiz.QuizTitle</td>
+
+                            <td>@quiz.QuizDate.ToShortDateString()</td>
+
+                            <td class="fw-bold text-success">
+                                @quiz.StudentMark/@quiz.MaxMark
+                            </td>
+
+                            <td>@quiz.MaxMark</td>
+
+                            <td>@percentage%</td>
+
+                            <td>
+                                @if (quiz.IsCounted)
+                                {
+                                    <span class="badge bg-success">
+                                        Counted
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-secondary">
+                                        Dropped
+                                    </span>
+                                }
+                            </td>
+
+                        </tr>
+                    }
+
                 </tbody>
             </table>
         </div>
         <div class="mt-3 text-muted small">
-            <i class="fas fa-info-circle me-1"></i> Best 3 quizzes are counted towards final grade (Quiz 1, 2, 3)
+            <i class="fas fa-info-circle me-1"></i>Best @Model.BestQuizzesCount quizzes are counted towards final grade
         </div>
     </div>
 </div>

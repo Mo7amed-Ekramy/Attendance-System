@@ -290,6 +290,35 @@ namespace MVC_PROJECT.Services.Implementation
                 totalSections += courseSections.Count;
                 totalStudents += sectionCount;
 
+                var sectionIds = courseSections
+    .Select(cs => cs.Id)
+    .ToList();
+
+                var sessions = await _context.AttendanceSessions
+                    .Where(s => sectionIds.Contains(s.CourseSectionId))
+                    .ToListAsync();
+
+                var sessionIds = sessions
+                    .Select(s => s.Id)
+                    .ToList();
+
+                var records = await _context.AttendanceRecords
+                    .Where(r => sessionIds.Contains(r.AttendanceSessionId))
+                    .ToListAsync();
+
+                int totalStudentsInCourse = sectionCount;
+
+                double attendanceRate = 0;
+
+                if (sessions.Count > 0 && totalStudentsInCourse > 0)
+                {
+                    int presentCount = records.Count(r => r.IsPresent);
+
+                    attendanceRate =
+                        (double)presentCount /
+                        (sessions.Count * totalStudentsInCourse) * 100;
+                }
+
                 courseItems.Add(new DoctorCourseItemViewModel
                 {
                     CourseId = course.Id,
@@ -297,6 +326,7 @@ namespace MVC_PROJECT.Services.Implementation
                     CourseName = course.Name,
                     Semester = course.Semester,
                     TotalSections = courseSections.Count,
+                    AttendanceRate = Math.Round(attendanceRate, 0),
                     TotalStudents = sectionCount
                 });
             }

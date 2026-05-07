@@ -1,80 +1,480 @@
+@model MVC_PROJECT.ViewModels.Student.StudentDashboardViewModel
+
 @{
     ViewData["Title"] = "Student Dashboard";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="dashboard-container">
-    <h2 class="page-title">Dashboard</h2>
-    <p class="subtitle">Student • Current Semester</p>
+<div class="container-fluid">
 
-    <!-- Cards -->
-    <div class="cards">
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
 
-        <div class="card-box">
-            <div class="icon">%</div>
-            <h3>88%</h3>
-            <p>Attendance</p>
+        <div>
+            <h2 class="fw-bold mb-1">
+                Welcome, @Model.FullName
+            </h2>
+
+            <p class="text-muted mb-0">
+                @Model.DepartmentName • Level @Model.Level
+            </p>
         </div>
 
-        <div class="card-box">
-            <div class="icon">??</div>
-            <h3>3</h3>
-            <p>Absences</p>
-        </div>
+        <a asp-action="Notifications"
+           asp-controller="Student"
+           class="btn btn-outline-primary position-relative">
 
-        <div class="card-box">
-            <div class="icon">??</div>
-            <h3>85%</h3>
-            <p>Quiz Average</p>
-        </div>
+            <i class="fas fa-bell me-2"></i>
+            Notifications
+
+            @if (Model.RecentNotifications.Any())
+            {
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    @Model.RecentNotifications.Count
+                </span>
+            }
+
+        </a>
 
     </div>
 
-    <!-- Main Content -->
-    <div class="grid">
+    <!-- Top Cards -->
+    <div class="row mb-4">
 
         <!-- Attendance -->
-        <div class="box">
-            <h4>Attendance History</h4>
+        <div class="col-xl-3 col-md-6 mb-4">
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Course</th>
-                        <th>Section</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
+            <div class="card border-start border-success border-3 shadow-sm h-100">
 
-                <tbody>
-                    <tr>
-                        <td>Today</td>
-                        <td>CS101</td>
-                        <td>A1</td>
-                        <td class="status present">Present</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+                <div class="card-body">
 
-        <!-- Quiz -->
-        <div class="box">
-            <div class="box-header">
-                <h4>Quiz Grades</h4>
-                <button class="export-btn">Export</button>
+                    <div class="d-flex justify-content-between align-items-center">
+
+                        <div>
+
+                            <div class="text-success text-uppercase small fw-bold mb-2">
+                                Attendance Rate
+                            </div>
+
+                            @{
+                                double attendanceRate =
+                                Model.AllowedAbsences == 0
+                                ? 100
+                                : (1 - ((double)Model.TotalAbsences / Model.AllowedAbsences)) * 100;
+
+                                attendanceRate = Math.Max(0, attendanceRate);
+                            }
+
+                            <h3 class="fw-bold">
+                                @Math.Round(attendanceRate, 0)%
+                            </h3>
+
+                        </div>
+
+                        <i class="fas fa-user-check fa-2x text-success"></i>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <p class="empty">No quizzes yet.</p>
+        </div>
+
+        <!-- Absences -->
+        <div class="col-xl-3 col-md-6 mb-4">
+
+            <div class="card border-start border-danger border-3 shadow-sm h-100">
+
+                <div class="card-body">
+
+                    <div class="d-flex justify-content-between align-items-center">
+
+                        <div>
+
+                            <div class="text-danger text-uppercase small fw-bold mb-2">
+                                Total Absences
+                            </div>
+
+                            <h3 class="fw-bold">
+                                @Model.TotalAbsences
+                            </h3>
+
+                        </div>
+
+                        <i class="fas fa-calendar-times fa-2x text-danger"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Coursework -->
+        <div class="col-xl-3 col-md-6 mb-4">
+
+            <div class="card border-start border-primary border-3 shadow-sm h-100">
+
+                <div class="card-body">
+
+                    <div class="d-flex justify-content-between align-items-center">
+
+                        <div>
+
+                            <div class="text-primary text-uppercase small fw-bold mb-2">
+                                Coursework
+                            </div>
+
+                            <h3 class="fw-bold">
+                                @Math.Round(Model.TotalCourseworkMark, 0)%
+                            </h3>
+
+                        </div>
+
+                        <i class="fas fa-chart-line fa-2x text-primary"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Courses -->
+        <div class="col-xl-3 col-md-6 mb-4">
+
+            <div class="card border-start border-warning border-3 shadow-sm h-100">
+
+                <div class="card-body">
+
+                    <div class="d-flex justify-content-between align-items-center">
+
+                        <div>
+
+                            <div class="text-warning text-uppercase small fw-bold mb-2">
+                                Registered Courses
+                            </div>
+
+                            <h3 class="fw-bold">
+                                @Model.TotalCourses
+                            </h3>
+
+                        </div>
+
+                        <i class="fas fa-book fa-2x text-warning"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
 
     </div>
 
-    <!-- Notifications -->
-    <div class="box">
-        <h4>Notifications</h4>
-        <p class="empty">No notifications yet</p>
+    <!-- Main Row -->
+    <div class="row">
+
+        <!-- Courses Table -->
+        <div class="col-lg-8 mb-4">
+
+            <div class="card shadow-sm">
+
+                <div class="card-header bg-white d-flex justify-content-between align-items-center">
+
+                    <h5 class="mb-0 fw-bold">
+                        <i class="fas fa-book-open me-2 text-primary"></i>
+                        My Courses
+                    </h5>
+
+                    <a asp-action="Courses"
+                       asp-controller="Student"
+                       class="btn btn-sm btn-outline-primary">
+
+                        View All
+
+                    </a>
+
+                </div>
+
+                <div class="card-body">
+
+                    <div class="table-responsive">
+
+                        <table class="table table-hover align-middle">
+
+                            <thead class="table-light">
+
+                                <tr>
+                                    <th>Course</th>
+                                    <th>Doctor</th>
+                                    <th>Section</th>
+                                    <th>Absences</th>
+                                    <th>Coursework</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody>
+
+                                @foreach (var course in Model.Courses)
+                                {
+                                    <tr>
+
+                                        <td>
+
+                                            <div class="fw-bold">
+                                                @course.CourseCode
+                                            </div>
+
+                                            <div class="text-muted small">
+                                                @course.CourseName
+                                            </div>
+
+                                        </td>
+
+                                        <td>
+                                            @course.DoctorName
+                                        </td>
+
+                                        <td>
+                                            Section @course.SectionNumber
+                                        </td>
+
+                                        <td>
+
+                                            <span class="fw-bold">
+                                                @course.AbsenceCount
+                                            </span>
+
+                                            /
+
+                                            @course.AllowedAbsences
+
+                                        </td>
+
+                                        <td style="width:220px;">
+
+                                            <div class="d-flex align-items-center">
+
+                                                <div class="progress flex-grow-1 me-2"
+                                                     style="height:8px;">
+
+                                                    <div class="progress-bar
+                                                            @(course.CourseworkMark >= 75
+                                                                                                                     ? "bg-success"
+                                                                                                                     : course.CourseworkMark >= 50
+                                                                                                                         ? "bg-warning"
+                                                                                                                         : "bg-danger")"
+                                                                                                                                       style="width:@course.CourseworkMark%">
+                                                                                                                                  </div>
+
+                                                </div>
+
+                                                <span class="small fw-bold">
+                                                    @Math.Round(course.CourseworkMark, 0)%
+                                                </span>
+
+                                            </div>
+
+                                        </td>
+
+                                        <td>
+
+                                            <span class="badge
+                                                    @(course.AbsenceStatus == "OK"
+                                                                                                      ? "bg-success"
+                                                                                                      : "bg-danger")">
+
+                                                @(course.AbsenceStatus == "OK"
+                                                                                            ? "Safe"
+                                                                                            : "At Risk")
+
+                                        </span>
+
+                                        </td>
+
+                                        <td>
+
+                                            <div class="btn-group btn-group-sm">
+
+                                                <a asp-action="CourseDetails"
+                                                   asp-controller="Student"
+                                                   asp-route-courseId="@course.CourseId"
+                                                   class="btn btn-outline-primary">
+
+                                                    Details
+
+                                                </a>
+
+                                                <a asp-action="Attendance"
+                                                   asp-controller="Student"
+                                                   asp-route-courseId="@course.CourseId"
+                                                   class="btn btn-outline-success">
+
+                                                    Attendance
+
+                                                </a>
+
+                                                <a asp-action="QuizMarks"
+                                                   asp-controller="Student"
+                                                   asp-route-courseId="@course.CourseId"
+                                                   class="btn btn-outline-info">
+
+                                                    Grades
+
+                                                </a>
+
+                                            </div>
+
+                                        </td>
+
+                                    </tr>
+                                                                }
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Right Side -->
+        <div class="col-lg-4 mb-4">
+
+            <!-- Notifications -->
+            <div class="card shadow-sm mb-4">
+
+                <div class="card-header bg-white">
+
+                    <h5 class="mb-0 fw-bold">
+                        <i class="fas fa-bell me-2 text-warning"></i>
+                        Recent Notifications
+                    </h5>
+
+                </div>
+
+                <div class="card-body">
+
+                    @if (Model.RecentNotifications.Any())
+                    {
+                        @foreach (var notification in Model.RecentNotifications.Take(5))
+                        {
+                            <div class="border rounded p-3 mb-2">
+
+                                <div class="fw-bold small">
+                                    @notification.Title
+                                </div>
+
+                                <div class="text-muted small">
+                                    @notification.CreatedAt.ToShortDateString()
+                                </div>
+
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="text-muted text-center py-4">
+
+                            <i class="fas fa-bell-slash fa-2x mb-3"></i>
+
+                            <p class="mb-0">
+                                No notifications yet
+                            </p>
+
+                        </div>
+                    }
+
+                </div>
+
+            </div>
+
+            <!-- Attendance Summary -->
+            <div class="card shadow-sm">
+
+                <div class="card-header bg-white">
+
+                    <h5 class="mb-0 fw-bold">
+                        <i class="fas fa-chart-pie me-2 text-success"></i>
+                        Attendance Summary
+                    </h5>
+
+                </div>
+
+                <div class="card-body">
+
+                    <div class="mb-3">
+
+                        <div class="d-flex justify-content-between mb-1">
+
+                            <span>Total Absences</span>
+
+                            <span class="fw-bold">
+                                @Model.TotalAbsences
+                            </span>
+
+                        </div>
+
+                        <div class="progress"
+                             style="height:10px;">
+
+                            <div class="progress-bar bg-danger"
+                                 style="width:@(Model.AllowedAbsences == 0 ? 0 : ((double)Model.TotalAbsences / Model.AllowedAbsences) * 100)%">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="mt-4">
+
+                        <div class="alert
+                            @(Model.TotalAbsences >= Model.AllowedAbsences
+                                                             ? "alert-danger"
+                                                             : "alert-success")">
+
+                            @if (Model.TotalAbsences >= Model.AllowedAbsences)
+                            {
+                                <strong>
+                                    Warning:
+                                </strong>
+
+                                <span>
+                                    You exceeded the allowed absences.
+                                </span>
+                            }
+                            else
+                            {
+                                <strong>
+                                    Good Standing:
+                                </strong>
+
+                                <span>
+                                    Your attendance is within the safe range.
+                                </span>
+                            }
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
-    ```
 
 </div>

@@ -23,6 +23,7 @@ namespace MVC_PROJECT.Services.Interfaces
 
         // Doctor-specific methods
         Task<DoctorCourseDetailsViewModel> GetCourseDetailsForDoctorAsync(int courseId);
+        Task<DoctorCourseReportViewModel> GetCourseReportAsync(int courseId);
         Task<int> GetSectionCountByCourseAsync(int courseId);
         Task<int> GetStudentCountByCourseAsync(int courseId);
     }
