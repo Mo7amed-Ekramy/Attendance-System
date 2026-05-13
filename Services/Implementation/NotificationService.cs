@@ -39,7 +39,7 @@ namespace MVC_PROJECT.Services.Implementation
                     Title = notification.Title,
                     Type = notification.Type.ToString(),
                     IsRead = notification.IsRead,
-                    CreatedAt = DateTime.UtcNow
+                    CreatedAt = notification.CreatedAt
                 });
             }
 
@@ -69,7 +69,7 @@ namespace MVC_PROJECT.Services.Implementation
                 Title = notification.Title,
                 Type = notification.Type.ToString(),
                 IsRead = notification.IsRead,
-                CreatedAt = DateTime.UtcNow
+                CreatedAt = notification.CreatedAt
             };
         }
 
@@ -97,32 +97,26 @@ namespace MVC_PROJECT.Services.Implementation
             await _context.SaveChangesAsync();
         }
 
-        public async Task CreateQuizAnnouncementAsync(int courseId, string courseName)
+        public async Task CreateQuizAnnouncementAsync(int sectionId, string quizTitle)
         {
-            var sectionIds = await _context.CourseSections
-                .Where(cs => cs.CourseId == courseId)
-                .Select(cs => cs.Id)
-                .ToListAsync();
-
             var enrollments = await _context.Enrollments
                 .Include(e => e.Student)
-                .Where(e => sectionIds.Contains(e.CourseSectionId))
+                .Where(e => e.CourseSectionId == sectionId)
                 .ToListAsync();
 
-            var studentIds = new List<int>();
             foreach (var enrollment in enrollments)
             {
                 var student = enrollment.Student;
                 if (student != null)
                 {
-                    studentIds.Add(student.Id);
-
                     var notification = new Notification
                     {
                         UserId = student.UserId,
-                        Title = $"New quiz scheduled for {courseName}",
-                        Type = AttendanceSessionType.Section,
-                        IsRead = false
+                        Title = $"New quiz: {quizTitle}",
+                        Message = $"A new quiz '{quizTitle}' has been scheduled for your section.",
+                        Type = AttendanceSessionType.Quiz,
+                        IsRead = false,
+                        CreatedAt = DateTime.UtcNow
                     };
                     _context.Notifications.Add(notification);
                 }
@@ -130,16 +124,40 @@ namespace MVC_PROJECT.Services.Implementation
 
             await _context.SaveChangesAsync();
 
-            // Send real-time notifications to all students in course sections
-            foreach (var sectionId in sectionIds)
+            // Send real-time notifications to all students in the section (group broadcast)
+            await _hubContext.Clients.Group($"Section-{sectionId}")
+                .SendAsync("ReceiveNotification", new
+                {
+                    title = $"New quiz: {quizTitle}",
+                    message = $"A new quiz '{quizTitle}' has been scheduled for your section.",
+                    type = AttendanceSessionType.Quiz.ToString(),
+                    createdAt = DateTime.UtcNow
+                });
+
+            // Also send directly to each student's SignalR user id for reliable delivery
+            foreach (var enrollment in enrollments)
             {
-                await _hubContext.Clients.Group($"Section-{sectionId}")
-                    .SendAsync("ReceiveNotification", new
+                var student = enrollment.Student;
+                if (student == null) continue;
+
+                try
+                {
+                    if (student.UserId > 0)
                     {
-                        title = $"New quiz scheduled for {courseName}",
-                        type = AttendanceSessionType.Section.ToString(),
-                        createdAt = DateTime.UtcNow
-                    });
+                        await _hubContext.Clients.User(student.UserId.ToString()).SendAsync("ReceiveNotification", new
+                        {
+                            title = $"New quiz: {quizTitle}",
+                            message = $"A new quiz '{quizTitle}' has been scheduled for your section.",
+                            type = AttendanceSessionType.Quiz.ToString(),
+                            createdAt = DateTime.UtcNow
+                        });
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // swallow and continue (logging will help diagnose unexpected issues)
+                    // If logging is needed, it should be added via ILogger injection; keeping minimal changes
+                }
             }
         }
 
@@ -198,6 +216,58 @@ namespace MVC_PROJECT.Services.Implementation
                     type = AttendanceSessionType.Section.ToString(),
                     createdAt = DateTime.UtcNow
                 });
+        }
+        public async Task NotifyQuizGradesUploadedAsync(int quizId)
+        {
+            // Get quiz, section, and grades
+            var quiz = await _context.Quizzes.Include(q => q.CourseSection).FirstOrDefaultAsync(q => q.Id == quizId);
+            if (quiz == null) return;
+
+            var grades = await _context.QuizGrades
+                .Include(g => g.Enrollment)
+                .ThenInclude(e => e.Student)
+                .Where(g => g.QuizId == quizId)
+                .ToListAsync();
+
+            foreach (var grade in grades)
+            {
+                var student = grade.Enrollment.Student;
+                if (student == null) continue;
+
+                var notification = new Notification
+                {
+                    UserId = student.UserId,
+                    Title = $"Quiz grades uploaded: {quiz.Title}",
+                    Message = $"Your grade for quiz '{quiz.Title}' has been uploaded.",
+                    Type = AttendanceSessionType.Section, // Or a new enum value if needed
+                    IsRead = false,
+                    CreatedAt = DateTime.UtcNow
+                };
+                _context.Notifications.Add(notification);
+
+                // SignalR real-time notification
+                await _hubContext.Clients.Group($"Student-{student.Id}").SendAsync("ReceiveNotification", new
+                {
+                    title = notification.Title,
+                    message = notification.Message,
+                    type = notification.Type.ToString(),
+                    createdAt = notification.CreatedAt
+                });
+
+                // Also send directly to the application user (reliable if client connections are associated with the user id)
+                if (student.UserId > 0)
+                {
+                    await _hubContext.Clients.User(student.UserId.ToString()).SendAsync("ReceiveNotification", new
+                    {
+                        title = notification.Title,
+                        message = notification.Message,
+                        type = notification.Type.ToString(),
+                        createdAt = notification.CreatedAt
+                    });
+                }
+            }
+
+            await _context.SaveChangesAsync();
         }
     }
 }

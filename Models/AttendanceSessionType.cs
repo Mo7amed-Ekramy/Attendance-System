@@ -8,7 +8,8 @@ namespace MVC_PROJECT.Models
         public enum AttendanceSessionType
         {
             Lecture = 1,
-            Section = 2
+            Section = 2,
+            Quiz = 3
         }
 
 }

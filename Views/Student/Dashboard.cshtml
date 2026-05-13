@@ -28,7 +28,7 @@
 
             @if (Model.RecentNotifications.Any())
             {
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                <span id="studentHeaderNotifBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                     @Model.RecentNotifications.Count
                 </span>
             }
@@ -366,11 +366,12 @@
 
                 <div class="card-body">
 
+                    <div id="studentRecentNotifications">
                     @if (Model.RecentNotifications.Any())
                     {
                         @foreach (var notification in Model.RecentNotifications.Take(5))
                         {
-                            <div class="border rounded p-3 mb-2">
+                            <div class="border rounded p-3 mb-2 student-notification-item">
 
                                 <div class="fw-bold small">
                                     @notification.Title
@@ -385,7 +386,7 @@
                     }
                     else
                     {
-                        <div class="text-muted text-center py-4">
+                        <div id="studentNoNotifications" class="text-muted text-center py-4">
 
                             <i class="fas fa-bell-slash fa-2x mb-3"></i>
 
@@ -395,6 +396,7 @@
 
                         </div>
                     }
+                    </div>
 
                 </div>
 

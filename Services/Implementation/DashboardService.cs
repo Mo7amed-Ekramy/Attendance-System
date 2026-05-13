@@ -93,7 +93,8 @@ namespace MVC_PROJECT.Services.Implementation
                     NotificationId = notification.Id,
                     Title = notification.Title,
                     Type = notification.Type.ToString(),
-                    IsRead = notification.IsRead
+                    IsRead = notification.IsRead,
+                    CreatedAt = notification.CreatedAt
                 });
             }
 

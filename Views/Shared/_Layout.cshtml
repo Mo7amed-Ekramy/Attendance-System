@@ -58,21 +58,14 @@
 
             <div class="user-menu d-flex align-items-center">
                 <div class="dropdown me-3">
-                    <button class="btn btn-link text-white p-0 position-relative" type="button" data-bs-toggle="dropdown">
+                    @{ var currentUserId = MVC_PROJECT.Extensions.ClaimsPrincipalExtensions.GetUserId(Context.User); }
+                    <button id="notificationsToggle" class="btn btn-link text-white p-0 position-relative" type="button" data-bs-toggle="dropdown" data-user-id="@currentUserId" data-user-role="@userRole">
                         <i class="fas fa-bell fs-5"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-light">
-                            3
-                        </span>
+                        <span id="notificationBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-light" style="display:none">0</span>
                     </button>
-                    <div class="dropdown-menu dropdown-menu-end notification-dropdown shadow-lg border-0">
+                    <div class="dropdown-menu dropdown-menu-end notification-dropdown shadow-lg border-0" id="notificationDropdown">
                         <h6 class="dropdown-header">Recent Notifications</h6>
-                        <div class="notification-item">
-                            <div class="notification-icon bg-success"><i class="fas fa-check"></i></div>
-                            <div class="notification-content">
-                                <div class="notification-title">Attendance Submitted</div>
-                                <div class="notification-time">5 mins ago</div>
-                            </div>
-                        </div>
+                        <div id="notificationItems" class="px-2 py-1">Loading...</div>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item text-center small text-primary" href="/Notifications">View All</a>
                     </div>
@@ -291,6 +284,171 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+
+    <script>
+        (function () {
+            const badge = document.getElementById('notificationBadge');
+            const itemsContainer = document.getElementById('notificationItems');
+            const toggleBtn = document.getElementById('notificationsToggle');
+            const userId = toggleBtn ? parseInt(toggleBtn.getAttribute('data-user-id')) : 0;
+            const userRole = toggleBtn ? toggleBtn.getAttribute('data-user-role') : null;
+
+            function formatTime(dtStr) {
+                try {
+                    const d = new Date(dtStr);
+                    const diff = Math.floor((Date.now() - d.getTime()) / 1000);
+                    if (diff < 60) return diff + 's ago';
+                    if (diff < 3600) return Math.floor(diff / 60) + 'm ago';
+                    if (diff < 86400) return Math.floor(diff / 3600) + 'h ago';
+                    return d.toLocaleString();
+                } catch { return '' }
+            }
+
+            async function loadRecent() {
+                if (!userId || userId <= 0) return;
+                try {
+                    const res = await fetch('/Notifications/Recent');
+                    const data = await res.json();
+                    if (!data || !data.success) return;
+
+                    const unread = data.unreadCount || 0;
+                    if (unread > 0) {
+                        badge.style.display = 'inline-block';
+                        badge.textContent = unread;
+                    } else {
+                        badge.style.display = 'none';
+                    }
+
+                    const notifs = data.notifications || [];
+                    if (!notifs.length) {
+                        itemsContainer.innerHTML = '<div class="p-2 small text-muted">No notifications</div>';
+                        // update student dashboard area if present
+                        const studentContainer = document.getElementById('studentRecentNotifications');
+                        const studentBadge = document.getElementById('studentHeaderNotifBadge');
+                        const studentNo = document.getElementById('studentNoNotifications');
+                        if (studentContainer) {
+                            studentContainer.innerHTML = '<div id="studentNoNotifications" class="text-muted text-center py-4">\n                            <i class="fas fa-bell-slash fa-2x mb-3"></i>\n                            <p class="mb-0">No notifications yet</p>\n                        </div>';
+                        }
+                        if (studentBadge) studentBadge.style.display = 'none';
+                        return;
+                    }
+
+                    itemsContainer.innerHTML = '';
+                    notifs.slice(0,8).forEach(n => {
+                        const item = document.createElement('a');
+                        item.href = '/Notifications';
+                        item.className = 'dropdown-item d-flex align-items-start';
+                        item.innerHTML = `
+                            <div class="me-2 notification-icon bg-primary text-white rounded-circle p-2"><i class="fas fa-bell"></i></div>
+                            <div class="notification-content flex-grow-1">
+                                <div class="notification-title fw-bold">${n.title}</div>
+                                <div class="notification-time small text-muted">${formatTime(n.createdAt)}</div>
+                            </div>`;
+                        itemsContainer.appendChild(item);
+                    });
+
+                    // also update student dashboard card if present
+                    const studentContainer = document.getElementById('studentRecentNotifications');
+                    const studentBadge = document.getElementById('studentHeaderNotifBadge');
+                    const studentNo = document.getElementById('studentNoNotifications');
+                    if (studentContainer) {
+                        studentContainer.innerHTML = '';
+                        notifs.slice(0,5).forEach(n => {
+                            const div = document.createElement('div');
+                            div.className = 'border rounded p-3 mb-2 student-notification-item';
+                            div.innerHTML = `<div class="fw-bold small">${n.title}</div><div class="text-muted small">${formatTime(n.createdAt)}</div>`;
+                            studentContainer.appendChild(div);
+                        });
+                        if (studentNo) studentNo.style.display = 'none';
+                    }
+                    if (studentBadge) {
+                        if (data.unreadCount && data.unreadCount > 0) {
+                            studentBadge.style.display = 'inline-block';
+                            studentBadge.textContent = data.unreadCount;
+                        } else {
+                            studentBadge.style.display = 'none';
+                        }
+                    }
+                } catch (e) {
+                    console.error('Failed to load notifications', e);
+                }
+            }
+
+            // SignalR connection
+            if (userId && userId > 0) {
+                const connection = new signalR.HubConnectionBuilder()
+                    .withUrl('/notificationHub')
+                    .withAutomaticReconnect()
+                    .build();
+
+                connection.on('ReceiveNotification', function (payload) {
+                    try {
+                        // increment badge
+                        const current = parseInt(badge.textContent) || 0;
+                        badge.style.display = 'inline-block';
+                        badge.textContent = current + 1;
+
+                        // prepend new notification
+                        const a = document.createElement('a');
+                        a.href = '/Notifications';
+                        a.className = 'dropdown-item d-flex align-items-start';
+                        const title = payload.title || payload.titleText || 'Notification';
+                        const message = payload.message || '';
+                        const createdAt = payload.createdAt || new Date().toISOString();
+                        a.innerHTML = `
+                            <div class="me-2 notification-icon bg-primary text-white rounded-circle p-2"><i class="fas fa-bell"></i></div>
+                            <div class="notification-content flex-grow-1">
+                                <div class="notification-title fw-bold">${title}</div>
+                                <div class="notification-time small text-muted">${formatTime(createdAt)}</div>
+                            </div>`;
+
+                        if (itemsContainer.firstChild) itemsContainer.insertBefore(a, itemsContainer.firstChild);
+                        else itemsContainer.appendChild(a);
+
+                        // update student dashboard card if present
+                        try {
+                            const studentContainer = document.getElementById('studentRecentNotifications');
+                            const studentBadge = document.getElementById('studentHeaderNotifBadge');
+                            const studentNo = document.getElementById('studentNoNotifications');
+                            if (studentContainer) {
+                                const div = document.createElement('div');
+                                div.className = 'border rounded p-3 mb-2 student-notification-item';
+                                div.innerHTML = `<div class="fw-bold small">${title}</div><div class="text-muted small">${formatTime(createdAt)}</div>`;
+                                if (studentContainer.firstChild) studentContainer.insertBefore(div, studentContainer.firstChild);
+                                else studentContainer.appendChild(div);
+                                if (studentNo) studentNo.style.display = 'none';
+                            }
+
+                            if (studentBadge) {
+                                const cur = parseInt(studentBadge.textContent) || 0;
+                                studentBadge.style.display = 'inline-block';
+                                studentBadge.textContent = cur + 1;
+                            }
+                        } catch (e) { console.error(e); }
+                    } catch (e) { console.error(e); }
+                });
+
+                connection.start().then(function () {
+                    console.log('[SignalR] connection started');
+                    // join student group when role is Student (case-insensitive)
+                    try {
+                        if (userRole && userRole.toString().toLowerCase() === 'student') {
+                            console.log('[SignalR] invoking JoinStudentGroup', userId);
+                            connection.invoke('JoinStudentGroup', userId).then(() => console.log('[SignalR] joined Student group')).catch(err => console.error('[SignalR] JoinStudentGroup failed', err));
+                        }
+                    } catch (e) { console.error('[SignalR] join group error', e); }
+                }).catch(err => console.error('[SignalR] connection start failed', err.toString()));
+
+                connection.onclose(e => {
+                    console.warn('[SignalR] connection closed', e);
+                });
+            }
+
+            // initial load
+            document.addEventListener('DOMContentLoaded', loadRecent);
+        })();
+    </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {

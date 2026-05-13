@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using System.Linq;
 using MVC_PROJECT.Extensions;
 using MVC_PROJECT.Services.Interfaces;
 using System.Threading.Tasks;
@@ -14,6 +16,32 @@ namespace MVC_PROJECT.Controllers
         public NotificationsController(INotificationService notificationService)
         {
             _notificationService = notificationService;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Recent()
+        {
+            int userId = User.GetUserId();
+            if (userId <= 0)
+            {
+                return Json(new { success = false, message = "Unable to identify user." });
+            }
+
+            var list = await _notificationService.GetNotificationsByUserAsync(userId);
+
+            return Json(new
+            {
+                success = true,
+                unreadCount = list.UnreadCount,
+                totalCount = list.TotalCount,
+                notifications = list.Notifications.Select(n => new {
+                    id = n.NotificationId,
+                    title = n.Title,
+                    type = n.Type,
+                    isRead = n.IsRead,
+                    createdAt = n.CreatedAt
+                })
+            });
         }
 
         [HttpGet]

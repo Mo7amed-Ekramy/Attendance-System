@@ -75,10 +75,20 @@ namespace MVC_PROJECT.Controllers
             if (!isAssigned)
                 return Forbid();
 
-            await _quizService.CreateQuizAsync(
+            var quiz = await _quizService.CreateQuizAsync(
                 viewModel.CourseSectionId,
                 viewModel.QuizTitle,
                 viewModel.MaxMark);
+
+            // Notify all students in the section about the new quiz
+            if (quiz != null)
+            {
+                var notificationService = HttpContext.RequestServices.GetService(typeof(MVC_PROJECT.Services.Interfaces.INotificationService)) as MVC_PROJECT.Services.Interfaces.INotificationService;
+                if (notificationService != null)
+                {
+                    await notificationService.CreateQuizAnnouncementAsync(quiz.CourseSectionId, quiz.Title);
+                }
+            }
 
             return RedirectToAction("SectionDetails", "TA", new { sectionId = viewModel.CourseSectionId });
         }
@@ -179,6 +189,13 @@ namespace MVC_PROJECT.Controllers
             }
 
             await _quizService.SaveQuizGradesAsync(viewModel.QuizId, grades);
+
+            // Notify affected students about grade upload
+            var notificationService = HttpContext.RequestServices.GetService(typeof(MVC_PROJECT.Services.Interfaces.INotificationService)) as MVC_PROJECT.Services.Interfaces.INotificationService;
+            if (notificationService != null)
+            {
+                await notificationService.NotifyQuizGradesUploadedAsync(viewModel.QuizId);
+            }
 
             return RedirectToAction("SectionDetails", "TA", new { sectionId = quiz.CourseSectionId });
         }
