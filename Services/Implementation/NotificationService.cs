@@ -3,11 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using MVC_PROJECT.Hubs;
 using MVC_PROJECT.Models;
 using MVC_PROJECT.Models.Data;
-using MVC_PROJECT.ViewModels.Notifications;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using MVC_PROJECT.Services.Interfaces;
-
+using MVC_PROJECT.ViewModels.Notifications;
 
 namespace MVC_PROJECT.Services.Implementation
 {
@@ -16,7 +13,9 @@ namespace MVC_PROJECT.Services.Implementation
         private readonly AppDbContext _context;
         private readonly IHubContext<NotificationHub> _hubContext;
 
-        public NotificationService(AppDbContext context, IHubContext<NotificationHub> hubContext)
+        public NotificationService(
+            AppDbContext context,
+            IHubContext<NotificationHub> hubContext)
         {
             _context = context;
             _hubContext = hubContext;
@@ -26,7 +25,7 @@ namespace MVC_PROJECT.Services.Implementation
         {
             var notifications = await _context.Notifications
                 .Where(n => n.UserId == userId)
-                .OrderByDescending(n => n.Id)
+                .OrderByDescending(n => n.CreatedAt)
                 .ToListAsync();
 
             var notificationItems = new List<NotificationItemViewModel>();
@@ -37,18 +36,17 @@ namespace MVC_PROJECT.Services.Implementation
                 {
                     NotificationId = notification.Id,
                     Title = notification.Title,
+                    Message = notification.Message,
                     Type = notification.Type.ToString(),
                     IsRead = notification.IsRead,
                     CreatedAt = notification.CreatedAt
                 });
             }
 
-            var unreadCount = notifications.Count(n => !n.IsRead);
-
             return new NotificationsListViewModel
             {
                 Notifications = notificationItems,
-                UnreadCount = unreadCount,
+                UnreadCount = notifications.Count(n => !n.IsRead),
                 TotalCount = notifications.Count
             };
         }
@@ -67,6 +65,7 @@ namespace MVC_PROJECT.Services.Implementation
             {
                 NotificationId = notification.Id,
                 Title = notification.Title,
+                Message = notification.Message,
                 Type = notification.Type.ToString(),
                 IsRead = notification.IsRead,
                 CreatedAt = notification.CreatedAt
@@ -75,7 +74,9 @@ namespace MVC_PROJECT.Services.Implementation
 
         public async Task MarkAsReadAsync(int notificationId)
         {
-            var notification = await _context.Notifications.FindAsync(notificationId);
+            var notification = await _context.Notifications
+                .FindAsync(notificationId);
+
             if (notification != null)
             {
                 notification.IsRead = true;
@@ -97,7 +98,12 @@ namespace MVC_PROJECT.Services.Implementation
             await _context.SaveChangesAsync();
         }
 
-        public async Task CreateQuizAnnouncementAsync(int sectionId, string quizTitle)
+        public async Task CreateQuizAnnouncementAsync(
+            int sectionId,
+            string quizTitle,
+            string courseName,
+            DateTime quizDate,
+            decimal maxMark)
         {
             var enrollments = await _context.Enrollments
                 .Include(e => e.Student)
@@ -107,56 +113,70 @@ namespace MVC_PROJECT.Services.Implementation
             foreach (var enrollment in enrollments)
             {
                 var student = enrollment.Student;
-                if (student != null)
+
+                if (student == null)
+                    continue;
+
+                var notification = new Notification
                 {
-                    var notification = new Notification
-                    {
-                        UserId = student.UserId,
-                        Title = $"New quiz: {quizTitle}",
-                        Message = $"A new quiz '{quizTitle}' has been scheduled for your section.",
-                        Type = AttendanceSessionType.Quiz,
-                        IsRead = false,
-                        CreatedAt = DateTime.UtcNow
-                    };
-                    _context.Notifications.Add(notification);
-                }
+                    UserId = student.UserId,
+
+                    Title = $"New Quiz Added - {courseName}",
+
+                    Message =
+                        $"Quiz: {quizTitle}\n" +
+                        $"Date: {quizDate:dd MMM yyyy - hh:mm tt}\n" +
+                        $"Max Mark: {maxMark}",
+
+                    Type = AttendanceSessionType.Quiz,
+                    IsRead = false,
+                    CreatedAt = DateTime.UtcNow
+                };
+
+                _context.Notifications.Add(notification);
             }
 
             await _context.SaveChangesAsync();
 
-            // Send real-time notifications to all students in the section (group broadcast)
+            // SignalR - Group Broadcast
             await _hubContext.Clients.Group($"Section-{sectionId}")
                 .SendAsync("ReceiveNotification", new
                 {
-                    title = $"New quiz: {quizTitle}",
-                    message = $"A new quiz '{quizTitle}' has been scheduled for your section.",
+                    title = $"New Quiz Added - {courseName}",
+
+                    message =
+                        $"Quiz: {quizTitle}\n" +
+                        $"Date: {quizDate:dd MMM yyyy - hh:mm tt}\n" +
+                        $"Max Mark: {maxMark}",
+
                     type = AttendanceSessionType.Quiz.ToString(),
                     createdAt = DateTime.UtcNow
                 });
 
-            // Also send directly to each student's SignalR user id for reliable delivery
+            // SignalR - Direct User Notifications
             foreach (var enrollment in enrollments)
             {
                 var student = enrollment.Student;
-                if (student == null) continue;
 
-                try
+                if (student == null)
+                    continue;
+
+                if (student.UserId > 0)
                 {
-                    if (student.UserId > 0)
-                    {
-                        await _hubContext.Clients.User(student.UserId.ToString()).SendAsync("ReceiveNotification", new
+                    await _hubContext.Clients
+                        .User(student.UserId.ToString())
+                        .SendAsync("ReceiveNotification", new
                         {
-                            title = $"New quiz: {quizTitle}",
-                            message = $"A new quiz '{quizTitle}' has been scheduled for your section.",
+                            title = $"New Quiz Added - {courseName}",
+
+                            message =
+                                $"Quiz: {quizTitle}\n" +
+                                $"Date: {quizDate:dd MMM yyyy - hh:mm tt}\n" +
+                                $"Max Mark: {maxMark}",
+
                             type = AttendanceSessionType.Quiz.ToString(),
                             createdAt = DateTime.UtcNow
                         });
-                    }
-                }
-                catch (Exception ex)
-                {
-                    // swallow and continue (logging will help diagnose unexpected issues)
-                    // If logging is needed, it should be added via ILogger injection; keeping minimal changes
                 }
             }
         }
@@ -164,64 +184,83 @@ namespace MVC_PROJECT.Services.Implementation
         public async Task CreateAbsenceWarningAsync(int studentId)
         {
             var student = await _context.Students.FindAsync(studentId);
+
             if (student == null)
-            {
                 return;
-            }
 
             var notification = new Notification
             {
                 UserId = student.UserId,
-                Title = "Warning: You have exceeded the allowed absence limit",
+                Title = "Warning: You exceeded the allowed absence limit",
+
+                Message =
+                    "Your absence percentage exceeded the allowed limit. " +
+                    "Please contact your instructor.",
+
                 Type = AttendanceSessionType.Section,
-                IsRead = false
+                IsRead = false,
+                CreatedAt = DateTime.UtcNow
             };
+
             _context.Notifications.Add(notification);
 
             await _context.SaveChangesAsync();
 
-            // Send real-time notification to the student
-            await _hubContext.Clients.Group($"Student-{studentId}")
+            await _hubContext.Clients
+                .Group($"Student-{studentId}")
                 .SendAsync("ReceiveNotification", new
                 {
-                    title = "Warning: You have exceeded the allowed absence limit",
-                    type = AttendanceSessionType.Section.ToString(),
-                    createdAt = DateTime.UtcNow
+                    title = notification.Title,
+                    message = notification.Message,
+                    type = notification.Type.ToString(),
+                    createdAt = notification.CreatedAt
                 });
         }
 
         public async Task CreateAttendanceUpdateAsync(int studentId)
         {
             var student = await _context.Students.FindAsync(studentId);
+
             if (student == null)
-            {
                 return;
-            }
 
             var notification = new Notification
             {
                 UserId = student.UserId,
-                Title = "Your attendance has been updated",
+                Title = "Attendance Updated",
+
+                Message =
+                    "Your attendance records have been updated successfully.",
+
                 Type = AttendanceSessionType.Section,
-                IsRead = false
+                IsRead = false,
+                CreatedAt = DateTime.UtcNow
             };
+
             _context.Notifications.Add(notification);
 
             await _context.SaveChangesAsync();
 
-            await _hubContext.Clients.Group($"Student-{studentId}")
+            await _hubContext.Clients
+                .Group($"Student-{studentId}")
                 .SendAsync("ReceiveNotification", new
                 {
-                    title = "Your attendance has been updated",
-                    type = AttendanceSessionType.Section.ToString(),
-                    createdAt = DateTime.UtcNow
+                    title = notification.Title,
+                    message = notification.Message,
+                    type = notification.Type.ToString(),
+                    createdAt = notification.CreatedAt
                 });
         }
+
         public async Task NotifyQuizGradesUploadedAsync(int quizId)
         {
-            // Get quiz, section, and grades
-            var quiz = await _context.Quizzes.Include(q => q.CourseSection).FirstOrDefaultAsync(q => q.Id == quizId);
-            if (quiz == null) return;
+            var quiz = await _context.Quizzes
+                .Include(q => q.CourseSection)
+                .ThenInclude(cs => cs.Course)
+                .FirstOrDefaultAsync(q => q.Id == quizId);
+
+            if (quiz == null)
+                return;
 
             var grades = await _context.QuizGrades
                 .Include(g => g.Enrollment)
@@ -232,38 +271,50 @@ namespace MVC_PROJECT.Services.Implementation
             foreach (var grade in grades)
             {
                 var student = grade.Enrollment.Student;
-                if (student == null) continue;
+
+                if (student == null)
+                    continue;
 
                 var notification = new Notification
                 {
                     UserId = student.UserId,
-                    Title = $"Quiz grades uploaded: {quiz.Title}",
-                    Message = $"Your grade for quiz '{quiz.Title}' has been uploaded.",
-                    Type = AttendanceSessionType.Section, // Or a new enum value if needed
+
+                    Title = $"Quiz Grades Uploaded - {quiz.CourseSection.Course.Name}",
+
+                    Message =
+                        $"Quiz: {quiz.Title}\n" +
+                        $"Your Mark: {grade.Mark} / {quiz.MaxMark}",
+
+                    Type = AttendanceSessionType.Quiz,
                     IsRead = false,
                     CreatedAt = DateTime.UtcNow
                 };
+
                 _context.Notifications.Add(notification);
 
-                // SignalR real-time notification
-                await _hubContext.Clients.Group($"Student-{student.Id}").SendAsync("ReceiveNotification", new
-                {
-                    title = notification.Title,
-                    message = notification.Message,
-                    type = notification.Type.ToString(),
-                    createdAt = notification.CreatedAt
-                });
-
-                // Also send directly to the application user (reliable if client connections are associated with the user id)
-                if (student.UserId > 0)
-                {
-                    await _hubContext.Clients.User(student.UserId.ToString()).SendAsync("ReceiveNotification", new
+                // SignalR Group
+                await _hubContext.Clients
+                    .Group($"Student-{student.Id}")
+                    .SendAsync("ReceiveNotification", new
                     {
                         title = notification.Title,
                         message = notification.Message,
                         type = notification.Type.ToString(),
                         createdAt = notification.CreatedAt
                     });
+
+                // SignalR Direct User
+                if (student.UserId > 0)
+                {
+                    await _hubContext.Clients
+                        .User(student.UserId.ToString())
+                        .SendAsync("ReceiveNotification", new
+                        {
+                            title = notification.Title,
+                            message = notification.Message,
+                            type = notification.Type.ToString(),
+                            createdAt = notification.CreatedAt
+                        });
                 }
             }
 

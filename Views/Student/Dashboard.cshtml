@@ -19,8 +19,8 @@
             </p>
         </div>
 
-        <a asp-action="Notifications"
-           asp-controller="Student"
+        <a asp-action="Index"
+           asp-controller="Notifications"
            class="btn btn-outline-primary position-relative">
 
             <i class="fas fa-bell me-2"></i>
@@ -375,6 +375,13 @@
 
                                 <div class="fw-bold small">
                                     @notification.Title
+                                        @if (!string.IsNullOrEmpty(notification.Message))
+                                        {
+                                            <div class="text-muted small mt-1"
+                                                 style="white-space: pre-line;">
+                                                @notification.Message
+                                            </div>
+                                        }
                                 </div>
 
                                 <div class="text-muted small">

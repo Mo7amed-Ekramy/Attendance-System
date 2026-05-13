@@ -10,6 +10,8 @@ namespace MVC_PROJECT.ViewModels.Student
         public int AbsenceCount { get; set; }
         public int AllowedAbsences { get; set; }
         public string AbsenceStatus { get; set; }
+        public string DepartmentName { get; set; }
         public decimal CourseworkMark { get; set; }
+        public double AttendanceRate { get; set; }
     }
 }

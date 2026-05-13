@@ -1,0 +1,44 @@
+﻿@model List<MVC_PROJECT.Models.CourseSection>
+
+<div class="container-fluid">
+
+    <h2 class="fw-bold mb-4">
+        Select Section For Attendance
+    </h2>
+
+    <div class="row">
+
+        @foreach (var section in Model)
+        {
+            <div class="col-md-4 mb-4">
+
+                <div class="card shadow-sm h-100">
+
+                    <div class="card-body">
+
+                        <h5 class="fw-bold">
+                            @(section.Course?.Name)
+                        </h5>
+
+                        <p class="text-muted">
+                            Section @(section.SectionNumber)
+                        </p>
+
+                        <a asp-action="TakeAttendance"
+                           asp-route-sectionId="@(section.Id)"
+                           class="btn btn-primary">
+
+                            Take Attendance
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+</div>

@@ -1,0 +1,201 @@
+﻿@model MVC_PROJECT.ViewModels.Student.StudentQuizMarksViewModel
+
+@{
+    ViewData["Title"] = "Quiz Grades";
+}
+
+<div class="container-fluid">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold">
+            <i class="fas fa-chart-bar text-primary me-2"></i>
+            Quiz Grades
+        </h2>
+
+        <a href="/Student/Courses" class="btn btn-outline-secondary">
+            Back
+        </a>
+    </div>
+
+    <!-- Course Info -->
+    <div class="card shadow-sm border-0 rounded-4 mb-4">
+        <div class="card-body">
+
+            <h3 class="fw-bold mb-1">
+                @Model.CourseCode - @Model.CourseName
+            </h3>
+
+            <p class="text-muted mb-0">
+                Software Engineering - Section @Model.SectionNumber
+            </p>
+
+        </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="row mb-4">
+
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm border-0 rounded-4">
+                <div class="card-body">
+                    <small class="text-muted">Average Grade</small>
+
+                    <h3 class="fw-bold text-success">
+                        @Math.Round(Model.AverageQuizMark, 1)
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm border-0 rounded-4">
+                <div class="card-body">
+                    <small class="text-muted">Quiz Weight</small>
+
+                    <h3 class="fw-bold text-primary">
+                        @Model.QuizMarks Marks
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm border-0 rounded-4">
+                <div class="card-body">
+                    <small class="text-muted">Best Quizzes Count</small>
+
+                    <h3 class="fw-bold text-warning">
+                        @Model.BestQuizzesCount
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Grades Table -->
+    <div class="card shadow-sm border-0 rounded-4">
+
+        <div class="card-body">
+
+            <h5 class="fw-bold mb-4">
+                Quiz Results
+            </h5>
+
+            <div class="table-responsive">
+
+                <table class="table table-hover align-middle">
+
+                    <thead class="table-light">
+                        <tr>
+                            <th>Quiz</th>
+                            <th>Date</th>
+                            <th>Mark</th>
+                            <th>Max</th>
+                            <th>Percentage</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @if (Model.Quizzes != null && Model.Quizzes.Any())
+                        {
+                            @foreach (var quiz in Model.Quizzes)
+                            {
+                                var percentage =
+                                quiz.MaxMark == 0
+                                ? 0
+                                : (quiz.Mark / quiz.MaxMark) * 100;
+
+                                <tr>
+
+                                    <td class="fw-semibold">
+                                        @quiz.QuizTitle
+                                    </td>
+
+                                    <td>
+                                        @quiz.Date.ToString("dd MMM yyyy")
+                                    </td>
+
+                                    <td>
+                                        @quiz.Mark
+                                    </td>
+
+                                    <td>
+                                        @quiz.MaxMark
+                                    </td>
+
+                                    <td style="width:220px">
+
+                                        <div class="d-flex align-items-center gap-2">
+
+                                            <div class="progress flex-grow-1"
+                                                 style="height:8px;">
+
+                                                <div class="progress-bar
+                                                            @(percentage >= 70
+                                                                                                             ? "bg-success"
+                                                                                                             : percentage >= 50
+                                                                                                                 ? "bg-warning"
+                                                                                                                 : "bg-danger")"
+                                             style="width:@percentage%">
+                                        </div>
+
+                                            </div>
+
+                                            <small class="fw-semibold">
+                                                @Math.Round(percentage, 0)%
+                                            </small>
+
+                                        </div>
+
+                                    </td>
+
+                                    <td>
+                                @if (percentage >= 70)
+                                        {
+                                            <span class="badge bg-success">
+                                                Excellent
+                                            </span>
+                                        }
+                                        else if (percentage >= 50)
+                                        {
+                                            <span class="badge bg-warning text-dark">
+                                                Good
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-danger">
+                                                Weak
+                                            </span>
+                                        }
+                                    </td>
+
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="6"
+                                    class="text-center text-muted py-4">
+
+                                    No quiz grades available.
+
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,102 @@
+﻿@model MVC_PROJECT.ViewModels.Notifications.NotificationsListViewModel
+
+@{
+    ViewData["Title"] = "Notifications";
+}
+
+<div class="container-fluid">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h2 class="fw-bold">
+            <i class="fas fa-bell text-warning me-2"></i>
+            Notifications
+        </h2>
+
+        @if (Model.UnreadCount > 0)
+        {
+            <form asp-action="MarkAllAsRead"
+                  asp-controller="Notifications"
+                  method="post">
+
+                @Html.AntiForgeryToken()
+
+                <button type="submit"
+                        class="btn btn-outline-primary">
+
+                    Mark All As Read
+
+                </button>
+
+            </form>
+        }
+
+    </div>
+
+    @if (Model.Notifications.Any())
+    {
+        <div class="card shadow-sm">
+
+            <div class="list-group list-group-flush">
+
+                @foreach (var notification in Model.Notifications)
+                {
+                    <div class="list-group-item p-4">
+
+                        <div class="d-flex justify-content-between align-items-start">
+
+                            <div>
+
+                                <h6 class="fw-bold mb-1">
+                                    @notification.Title
+                                    @if (!string.IsNullOrEmpty(notification.Message))
+                                    {
+                                        <div class="text-muted small mt-1"
+                                             style="white-space: pre-line;">
+                                            @notification.Message
+                                        </div>
+                                    }
+                                </h6>
+
+                                <div class="text-muted small">
+                                    @notification.CreatedAt.ToString("f")
+                                </div>
+
+                            </div>
+
+                            @if (!notification.IsRead)
+                            {
+                                <span class="badge bg-danger">
+                                    New
+                                </span>
+                            }
+
+                        </div>
+
+                    </div>
+                }
+
+            </div>
+
+        </div>
+    }
+    else
+    {
+        <div class="card shadow-sm">
+
+            <div class="card-body text-center py-5">
+
+                <i class="fas fa-bell-slash fa-3x text-muted mb-3"></i>
+
+                <h5>No Notifications Yet</h5>
+
+                <p class="text-muted">
+                    Your notifications will appear here.
+                </p>
+
+            </div>
+
+        </div>
+    }
+
+</div>

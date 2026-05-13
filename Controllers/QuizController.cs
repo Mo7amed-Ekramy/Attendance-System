@@ -86,7 +86,16 @@ namespace MVC_PROJECT.Controllers
                 var notificationService = HttpContext.RequestServices.GetService(typeof(MVC_PROJECT.Services.Interfaces.INotificationService)) as MVC_PROJECT.Services.Interfaces.INotificationService;
                 if (notificationService != null)
                 {
-                    await notificationService.CreateQuizAnnouncementAsync(quiz.CourseSectionId, quiz.Title);
+                    var section = await _sectionService
+    .GetSectionByIdAsync(quiz.CourseSectionId);
+
+                    await notificationService.CreateQuizAnnouncementAsync(
+                        quiz.CourseSectionId,
+                        quiz.Title,
+                        section.Course?.Name ?? "Unknown Course",
+                        quiz.Date,
+                        quiz.MaxMark
+                    );
                 }
             }
 

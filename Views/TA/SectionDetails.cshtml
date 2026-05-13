@@ -1,0 +1,169 @@
+﻿@model MVC_PROJECT.ViewModels.TA.SectionDetailsViewModel
+
+@{
+    ViewData["Title"] = "Section Details";
+}
+
+<div class="container-fluid">
+
+    <div class="mb-4">
+
+        <h2 class="fw-bold">
+            @Model.CourseName - Section @Model.SectionNumber
+        </h2>
+
+        <div class="text-muted">
+            Students: @Model.StudentsCount |
+            Quizzes: @Model.QuizzesCount |
+            Attendance: @Model.AttendanceRate%
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-lg-6">
+
+            <div class="card shadow-sm mb-4">
+
+                <div class="card-header fw-bold">
+                    Students
+                </div>
+
+                <div class="card-body">
+
+                    <table class="table">
+
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>University ID</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            @foreach (var student in Model.Students)
+                            {
+                                <tr>
+
+                                    <td>@student.FullName</td>
+
+                                    <td>@student.UniversityId</td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-6">
+
+            <div class="card shadow-sm">
+
+                <div class="card-header fw-bold">
+                    Quizzes
+                </div>
+
+                <div class="card-body">
+
+                    <table class="table">
+
+                        <thead>
+                            <tr>
+                                <th>Quiz</th>
+                                <th>Date</th>
+                                <th>Max</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            @foreach (var quiz in Model.Quizzes)
+                            {
+                                <tr>
+
+                                    <td>@quiz.Title</td>
+
+                                    <td>@quiz.Date.ToShortDateString()</td>
+
+                                    <td>@quiz.MaxMark</td>
+
+                                    <td>
+
+                                        @if (quiz.IsClosed)
+                                        {
+                                            <span class="badge bg-danger">
+                                                Closed
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-success">
+                                                Open
+                                            </span>
+                                        }
+
+                                    </td>
+                                    <td>
+
+                                        <div class="d-flex gap-2">
+
+                                            <a asp-action="RecordQuizMarks"
+                                               asp-controller="TA"
+                                               asp-route-quizId="@quiz.QuizId"
+                                               class="btn btn-sm btn-outline-primary">
+
+                                                Grade
+
+                                            </a>
+
+                                            @if (!quiz.IsClosed)
+                                            {
+                                                <form asp-action="CloseQuiz"
+                                                      asp-controller="TA"
+                                                      method="post">
+
+                                                    <input type="hidden"
+                                                           name="quizId"
+                                                           value="@quiz.QuizId" />
+
+                                                    <button type="submit"
+                                                            class="btn btn-sm btn-outline-danger">
+
+                                                        Close
+
+                                                    </button>
+
+                                                </form>
+                                            }
+
+                                        </div>
+
+                                    </td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

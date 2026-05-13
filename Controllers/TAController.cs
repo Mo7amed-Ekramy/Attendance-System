@@ -7,6 +7,7 @@ using MVC_PROJECT.Models.Data;
 using MVC_PROJECT.Services.Interfaces;
 using MVC_PROJECT.ViewModels.Attendance;
 using MVC_PROJECT.ViewModels.Quiz;
+using MVC_PROJECT.ViewModels.TA;
 using System.Security.Claims;
 
 namespace MVC_PROJECT.Controllers
@@ -17,15 +18,18 @@ namespace MVC_PROJECT.Controllers
         private readonly IDashboardService _dashboardService;
         private readonly ISectionService _sectionService;
         private readonly AppDbContext _context;
+        private readonly INotificationService _notificationService;
 
         public TAController(
-            IDashboardService dashboardService,
-            ISectionService sectionService,
-            AppDbContext context)
+             IDashboardService dashboardService,
+    ISectionService sectionService,
+    AppDbContext context,
+    INotificationService notificationService)
         {
             _dashboardService = dashboardService;
             _sectionService = sectionService;
             _context = context;
+            _notificationService = notificationService;
         }
 
         [HttpGet]
@@ -39,6 +43,168 @@ namespace MVC_PROJECT.Controllers
             var viewModel = await _dashboardService.GetTADashboardAsync(taId);
 
             return View(viewModel);
+        }
+        [HttpGet]
+        public async Task<IActionResult> ManageSections()
+        {
+            int taId = GetCurrentTAId();
+
+            var sections = await _context.CourseSections
+                .Where(cs => cs.TAId == taId)
+
+                .Include(cs => cs.Course)
+
+                .Include(cs => cs.Enrollments)
+
+                .Include(cs => cs.Quizzes)
+
+                .Include(cs => cs.AttendanceSessions)
+                    .ThenInclude(s => s.Records)
+
+                .ToListAsync();
+
+            var model = sections.Select(section =>
+            {
+                int totalAttendanceRecords = section.AttendanceSessions
+                    .SelectMany(s => s.Records)
+                    .Count();
+
+                int presentRecords = section.AttendanceSessions
+                    .SelectMany(s => s.Records)
+                    .Count(r => r.IsPresent);
+
+                double attendanceRate = totalAttendanceRecords == 0
+                    ? 0
+                    : (double)presentRecords / totalAttendanceRecords * 100;
+
+                return new ManageSectionsViewModel
+                {
+                    SectionId = section.Id,
+
+                    CourseName = section.Course?.Name ?? "Unknown",
+
+                    SectionNumber = section.SectionNumber,
+
+                    StudentsCount = section.Enrollments.Count,
+
+                    QuizzesCount = section.Quizzes.Count,
+
+                    AttendanceRate = Math.Round(attendanceRate, 1)
+                };
+            }).ToList();
+
+            return View(model);
+        }
+        [HttpGet]
+        public async Task<IActionResult> SelectSectionForAttendance()
+        {
+            int taId = GetCurrentTAId();
+
+            var sections = await _context.CourseSections
+                .Where(cs => cs.TAId == taId)
+                .Include(cs => cs.Course)
+                .ToListAsync();
+
+            return View(sections);
+        }
+        [HttpGet]
+        public async Task<IActionResult> SelectQuizForGrading()
+        {
+            int taId = GetCurrentTAId();
+
+            var quizzes = await _context.Quizzes
+
+                .Include(q => q.CourseSection)
+                    .ThenInclude(cs => cs.Course)
+
+                .Where(q => q.CourseSection.TAId == taId)
+
+                .OrderByDescending(q => q.Date)
+
+                .ToListAsync();
+
+            return View(quizzes);
+        }
+        [HttpGet]
+        public async Task<IActionResult> SelectSectionForQuiz()
+        {
+            int taId = GetCurrentTAId();
+
+            var sections = await _context.CourseSections
+                .Where(cs => cs.TAId == taId)
+                .Include(cs => cs.Course)
+                .ToListAsync();
+
+            return View(sections);
+        }
+        [HttpGet]
+        public async Task<IActionResult> SectionDetails(int sectionId)
+        {
+            int taId = GetCurrentTAId();
+
+            var section = await _context.CourseSections
+
+                .Include(cs => cs.Course)
+
+                .Include(cs => cs.Enrollments)
+                    .ThenInclude(e => e.Student)
+
+                .Include(cs => cs.Quizzes)
+
+                .Include(cs => cs.AttendanceSessions)
+                    .ThenInclude(s => s.Records)
+
+                .FirstOrDefaultAsync(cs =>
+                    cs.Id == sectionId &&
+                    cs.TAId == taId);
+
+            if (section == null)
+                return NotFound();
+
+            int totalAttendanceRecords = section.AttendanceSessions
+                .SelectMany(s => s.Records)
+                .Count();
+
+            int presentRecords = section.AttendanceSessions
+                .SelectMany(s => s.Records)
+                .Count(r => r.IsPresent);
+
+            double attendanceRate = totalAttendanceRecords == 0
+                ? 0
+                : (double)presentRecords / totalAttendanceRecords * 100;
+
+            var model = new SectionDetailsViewModel
+            {
+                CourseName = section.Course?.Name ?? "Unknown",
+
+                SectionNumber = section.SectionNumber,
+
+                StudentsCount = section.Enrollments.Count,
+
+                QuizzesCount = section.Quizzes.Count,
+
+                AttendanceRate = Math.Round(attendanceRate, 1),
+
+                Students = section.Enrollments
+                    .Select(e => new SectionStudentViewModel
+                    {
+                        FullName = e.Student.FullName,
+                        UniversityId = e.Student.UniversityId
+                    }).ToList(),
+
+                Quizzes = section.Quizzes
+                    .OrderByDescending(q => q.Date)
+                    .Select(q => new SectionQuizViewModel
+                    {
+                        QuizId = q.Id,
+                        Title = q.Title,
+                        Date = q.Date,
+                        MaxMark = q.MaxMark,
+                        IsClosed = q.IsClosed
+                    }).ToList()
+            };
+
+            return View(model);
         }
 
         [HttpGet]
@@ -358,6 +524,17 @@ namespace MVC_PROJECT.Controllers
 
             _context.Quizzes.Add(quiz);
             await _context.SaveChangesAsync();
+            var sectionWithCourse = await _context.CourseSections
+    .Include(cs => cs.Course)
+    .FirstOrDefaultAsync(cs => cs.Id == quiz.CourseSectionId);
+
+            await _notificationService.CreateQuizAnnouncementAsync(
+                quiz.CourseSectionId,
+                quiz.Title,
+                section?.Course?.Name ?? "Unknown Course",
+                quiz.Date,
+                quiz.MaxMark
+            );
 
             return RedirectToAction("Dashboard");
         }
@@ -440,6 +617,7 @@ namespace MVC_PROJECT.Controllers
             }
 
             await _context.SaveChangesAsync();
+            await _notificationService.NotifyQuizGradesUploadedAsync(quiz.Id);
 
             return RedirectToAction("RecordQuizMarks", new { quizId = model.QuizId });
         }

@@ -4,6 +4,7 @@ namespace MVC_PROJECT.ViewModels.TA
 {
     public class TADashboardViewModel
     {
+
         public int TAId { get; set; }
         public string FullName { get; set; }
         public string DepartmentName { get; set; }

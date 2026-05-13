@@ -1,0 +1,171 @@
+﻿@model IEnumerable<MVC_PROJECT.ViewModels.Student.StudentCourseItemViewModel>
+@{
+    ViewData["Title"] = "My Courses";
+}
+
+<div class="container-fluid">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h2 class="fw-bold">
+
+            <i class="fas fa-book text-primary me-2"></i>
+
+            My Courses
+
+        </h2>
+
+    </div>
+
+    <div class="card shadow-sm">
+
+        <div class="card-body">
+
+            <div class="table-responsive">
+
+                <table class="table table-hover align-middle">
+
+                    <thead class="table-light">
+
+                        <tr>
+
+                            <th>Course</th>
+
+                            <th>Doctor</th>
+
+                            <th>Section</th>
+
+                            <th>Attendance</th>
+
+                            <th>Status</th>
+
+                            <th>Actions</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        @foreach (var course in Model)
+                        {
+                            <tr>
+
+                                <td>
+
+                                    <div class="fw-bold">
+                                        @course.CourseCode
+                                    </div>
+
+                                    <small class="text-muted">
+                                        @course.CourseName
+                                    </small>
+
+                                </td>
+
+                                <td>
+                                    @course.DoctorName
+                                </td>
+
+                                <td>
+                                    @course.DepartmentName Section @course.SectionNumber
+                                </td>
+
+                                <td>
+
+                                    <div class="d-flex align-items-center gap-2">
+
+                                        <div class="progress"
+                                             style="width:120px;height:8px;">
+
+                                            <div class="@(course.AttendanceRate == 0
+                                                     ? "bg-secondary"
+                                                     : "bg-success")"
+                                                 style="width:@(course.AttendanceRate)%">
+                                            </div>
+
+                                        </div>
+
+                                        <small>
+                                            @(course.AttendanceRate)%
+                                        </small>
+
+                                    </div>
+
+                                </td>
+
+                                <td>
+
+                                    @if (course.AttendanceRate == 0)
+                                    {
+                                        <span class="badge bg-secondary">
+                                            No Records
+                                        </span>
+                                    }
+                                    else if (course.AttendanceRate >= 75)
+                                    {
+                                        <span class="badge bg-success">
+                                            Safe
+                                        </span>
+                                    }
+                                    else if (course.AttendanceRate >= 50)
+                                    {
+                                        <span class="badge bg-warning">
+                                            Warning
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-danger">
+                                            Critical
+                                        </span>
+                                    }
+
+                                </td>
+
+                                <td>
+
+                                    <div class="btn-group btn-group-sm">
+
+                                        <a asp-action="CourseDetails"
+                                           asp-route-courseId="@course.CourseId"
+                                           class="btn btn-outline-primary">
+
+                                            Details
+
+                                        </a>
+
+                                        <a asp-action="Attendance"
+                                           asp-route-courseId="@course.CourseId"
+                                           class="btn btn-outline-success">
+
+                                            Attendance
+
+                                        </a>
+
+                                        <a asp-action="QuizMarks"
+                                           asp-route-courseId="@course.CourseId"
+                                           class="btn btn-outline-info">
+
+                                            Grades
+
+                                        </a>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MVC_PROJECT.ViewModels.Student;
 using MVC_PROJECT.ViewModels.Doctor;
+using MVC_PROJECT.Models;
 
 namespace MVC_PROJECT.Services.Implementation
 {
@@ -45,7 +46,16 @@ namespace MVC_PROJECT.Services.Implementation
                         : 0,
                     AbsenceCount = 0,
                     AbsenceStatus = "Safe",
-                    CourseworkMark = 0
+                    CourseworkMark = 0,
+
+                    DepartmentName = e.CourseSection.DepartmentSection.Department.Name,
+                    AttendanceRate =
+    e.AttendanceRecords.Any()
+        ? Math.Round(
+            (double)e.AttendanceRecords.Count(a => a.IsPresent)
+            / e.AttendanceRecords.Count() * 100,
+            1)
+        : 0,
                 })
                 .ToListAsync();
         }

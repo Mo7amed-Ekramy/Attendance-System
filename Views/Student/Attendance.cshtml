@@ -1,0 +1,178 @@
+﻿@model MVC_PROJECT.ViewModels.Attendance.StudentAttendanceHistoryViewModel
+
+@{
+    ViewData["Title"] = "Attendance History";
+}
+
+<div class="container-fluid">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold">
+            <i class="fas fa-calendar-check text-success me-2"></i>
+            Attendance History
+        </h2>
+
+        <a href="/Student/Courses" class="btn btn-outline-secondary">
+            Back
+        </a>
+    </div>
+
+    <!-- Course Info -->
+    <div class="card shadow-sm border-0 rounded-4 mb-4">
+        <div class="card-body">
+
+            <h3 class="fw-bold mb-1">
+                @Model.CourseCode - @Model.CourseName
+            </h3>
+
+            <p class="text-muted mb-0">
+                Software Engineering - Section @Model.SectionNumber
+            </p>
+
+        </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="row mb-4">
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow-sm border-0 rounded-4">
+                <div class="card-body">
+                    <small class="text-muted">Section Attendance</small>
+                    <h3 class="fw-bold text-success">
+                        @Model.SectionAttendanceCount
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow-sm border-0 rounded-4">
+                <div class="card-body">
+                    <small class="text-muted">Lecture Attendance</small>
+                    <h3 class="fw-bold text-primary">
+                        @Model.LectureAttendanceCount
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow-sm border-0 rounded-4">
+                <div class="card-body">
+                    <small class="text-muted">Total Absences</small>
+                    <h3 class="fw-bold text-danger">
+                        @Model.TotalAbsences / @Model.AllowedAbsences
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow-sm border-0 rounded-4">
+                <div class="card-body">
+                    <small class="text-muted">Status</small>
+
+                    <div class="mt-2">
+                        @if (Model.AbsenceStatus == "Safe")
+                        {
+                            <span class="badge bg-success">
+                                Safe
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-danger">
+                                At Risk
+                            </span>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Attendance Table -->
+    <div class="card shadow-sm border-0 rounded-4">
+
+        <div class="card-body">
+
+            <h5 class="fw-bold mb-4">
+                Attendance Records
+            </h5>
+
+            <div class="table-responsive">
+
+                <table class="table align-middle table-hover">
+
+                    <thead class="table-light">
+                        <tr>
+                            <th>Date</th>
+                            <th>Type</th>
+                            <th>Status</th>
+                            <th>Code</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @if (Model.AttendanceRecords != null &&
+                                                Model.AttendanceRecords.Any())
+                        {
+                            @foreach (var record in Model.AttendanceRecords)
+                            {
+                                <tr>
+
+                                    <td>
+                                        @record.Date.ToString("dd MMM yyyy")
+                                    </td>
+
+                                    <td>
+                                        @record.SessionType
+                                    </td>
+
+                                    <td>
+                                        @if (record.IsPresent)
+                                        {
+                                            <span class="badge bg-success">
+                                                Present
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-danger">
+                                                Absent
+                                            </span>
+                                        }
+                                </td>
+
+                                <td>
+                                    @(string.IsNullOrEmpty(record.AttendanceCode)
+                                                                    ? "-"
+                                                                    : record.AttendanceCode)
+                            </td>
+
+                                </tr>
+                                                }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="4" class="text-center text-muted py-4">
+                                    No attendance records found.
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

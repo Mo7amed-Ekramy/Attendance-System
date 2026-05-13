@@ -9,7 +9,12 @@ namespace MVC_PROJECT.Services.Interfaces
         Task<NotificationItemViewModel> GetNotificationByIdAsync(int notificationId);
         Task MarkAsReadAsync(int notificationId);
         Task MarkAllAsReadAsync(int userId);
-        Task CreateQuizAnnouncementAsync(int sectionId, string quizTitle);
+        Task CreateQuizAnnouncementAsync(
+    int sectionId,
+    string quizTitle,
+    string courseName,
+    DateTime quizDate,
+    decimal maxMark);
         Task CreateAbsenceWarningAsync(int studentId);
         Task CreateAttendanceUpdateAsync(int studentId);
         Task NotifyQuizGradesUploadedAsync(int quizId);

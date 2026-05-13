@@ -87,8 +87,12 @@
                 <h6 class="fw-bold m-0">
                     <i class="fas fa-users me-2 text-primary"></i> My Sections
                 </h6>
-                <a href="/TA/MySections" class="btn btn-sm btn-outline-primary">
+                <a asp-action="ManageSections"
+                   asp-controller="TA"
+                   class="btn btn-outline-primary">
+
                     Manage Sections
+
                 </a>
             </div>
 
@@ -113,7 +117,7 @@
                             <tr>
                                 <td>
                                     <div class="fw-bold">
-                                        @(sec.CourseName + " - Section " + sec.SectionNumber)
+                                            @(sec.CourseName + " - " + sec.DepartmentName + " Section " + sec.SectionNumber)
                                     </div>
                                 </td>
 
@@ -182,90 +186,91 @@
         </div>
     </div>
 
-    <!-- ===== RIGHT: QUICK ACTIONS ===== -->
+    <!-- ===== RIGHT: REPORTS + ALERTS ===== -->
     <div class="col-lg-4 mb-4">
 
         <div class="card shadow-sm">
+
             <div class="card-header bg-white">
                 <h6 class="fw-bold m-0">
-                    <i class="fas fa-tasks me-2 text-primary"></i> Quick Actions
+                    <i class="fas fa-chart-bar me-2 text-primary"></i>
+                    Reports & Alerts
                 </h6>
             </div>
 
             <div class="card-body">
 
-                <div class="d-grid gap-2">
+                <!-- ===== REPORT BUTTON ===== -->
 
-                    <a href="/TA/TakeAttendance?sectionId=@firstSection?.CourseSectionId"
-                       class="btn btn-primary btn-lg">
-                        Take Attendance
-                    </a>
+                <a asp-action="ExportAllSectionsReport"
+                   asp-controller="TA"
+                   class="btn btn-info btn-lg w-100 mb-4">
 
-                    <a href="/TA/CreateQuiz?sectionId=@firstSection?.CourseSectionId"
-                       class="btn btn-outline-primary btn-lg">
-                        Create Quiz
-                    </a>
+                    <i class="fas fa-file-excel me-2"></i>
 
-                    @if (firstSection?.LatestQuizId != null)
-                    {
-                        <a href="/TA/RecordQuizMarks?quizId=@firstSection.LatestQuizId"
-                           class="btn btn-outline-warning btn-lg">
-                            Record Quiz Marks
-                        </a>
-                    }
+                    Export Full Report
 
-                    <a asp-action="ExportAllSectionsReport"
-                       asp-controller="TA"
-                       class="btn btn-info">
-                        View Reports
-                    </a>
-
-                </div>
+                </a>
 
                 <!-- ===== ALERTS ===== -->
-                <div class="mt-4">
 
-                    <h6 class="fw-bold mb-3">
-                        <i class="fas fa-exclamation-circle me-2 text-warning"></i>
-                        Attention Needed
-                    </h6>
+                <h6 class="fw-bold mb-3">
 
-                    <div class="list-group">
+                    <i class="fas fa-exclamation-circle me-2 text-warning"></i>
 
-                        @if (Model.Alerts != null && Model.Alerts.Any())
+                    Attention Needed
+
+                </h6>
+
+                <div class="list-group">
+
+                    @if (Model.Alerts != null && Model.Alerts.Any())
+                    {
+                        @foreach (var alert in Model.Alerts)
                         {
-                            @foreach (var alert in Model.Alerts)
-                            {
-                                <div class="list-group-item border-0 bg-light">
-                                    <div class="d-flex justify-content-between">
+                            <div class="list-group-item border-0 bg-light mb-2 rounded">
 
-                                        <div>
-                                            <div class="fw-bold small">@alert.Title</div>
-                                            <div class="text-muted small">@alert.Message</div>
+                                <div class="d-flex justify-content-between">
+
+                                    <div>
+
+                                        <div class="fw-bold small">
+                                            @alert.Title
                                         </div>
 
-                                        <span class="badge bg-@alert.Type">
-                                            @(alert.Type == "danger" ? "Urgent" : "Warning")
-                                        </span>
+                                        <div class="text-muted small">
+                                            @alert.Message
+                                        </div>
 
                                     </div>
-                                </div>
-                            }
-                        }
-                        else
-                        {
-                            <div class="text-muted small">No alerts</div>
-                        }
 
-                    </div>
+                                    <span class="badge bg-@alert.Type align-self-start">
+
+                                        @(alert.Type == "danger"
+                                                                        ? "Urgent"
+                                                                        : "Warning")
+
+                            </span>
+
+                                </div>
+
+                            </div>
+                                        }
+                    }
+                    else
+                    {
+                        <div class="text-muted small">
+                            No alerts
+                        </div>
+                    }
+
                 </div>
 
             </div>
+
         </div>
 
     </div>
-</div>
-
 <!-- ===================== ACTIVITIES ===================== -->
 <div class="row">
     <div class="col-12">

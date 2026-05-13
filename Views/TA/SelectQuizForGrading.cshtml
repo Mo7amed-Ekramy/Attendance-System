@@ -1,0 +1,59 @@
+﻿@model List<MVC_PROJECT.Models.Quiz>
+
+<div class="container-fluid">
+
+    <h2 class="fw-bold mb-4">
+        Select Quiz For Grading
+    </h2>
+
+    <div class="card shadow-sm">
+
+        <div class="card-body">
+
+            <table class="table">
+
+                <thead>
+                    <tr>
+                        <th>Quiz</th>
+                        <th>Course</th>
+                        <th>Date</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var quiz in Model)
+                    {
+                        <tr>
+
+                            <td>@quiz.Title</td>
+
+                            <td>@quiz.CourseSection.Course.Name</td>
+
+                            <td>@quiz.Date.ToShortDateString()</td>
+
+                            <td>
+
+                                <a asp-action="RecordQuizMarks"
+                                   asp-route-quizId="@quiz.Id"
+                                   class="btn btn-outline-primary btn-sm">
+
+                                    Grade
+
+                                </a>
+
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>

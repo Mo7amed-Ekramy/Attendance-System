@@ -1,0 +1,106 @@
+﻿@model List<MVC_PROJECT.ViewModels.TA.ManageSectionsViewModel>
+
+@{
+    ViewData["Title"] = "Manage Sections";
+}
+
+<div class="container-fluid">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <h2 class="fw-bold">
+            <i class="fas fa-layer-group text-primary me-2"></i>
+            Manage Sections
+        </h2>
+
+    </div>
+
+    <div class="card shadow-sm">
+
+        <div class="card-body">
+
+            <div class="table-responsive">
+
+                <table class="table align-middle">
+
+                    <thead>
+                        <tr>
+                            <th>Course</th>
+                            <th>Section</th>
+                            <th>Students</th>
+                            <th>Quizzes</th>
+                            <th>Attendance</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @foreach (var section in Model)
+                        {
+                            <tr>
+
+                                <td>
+                                    <strong>@(section.CourseName)</strong>
+                                </td>
+
+                                <td>
+                                    Section @(section.SectionNumber)
+                                </td>
+
+                                <td>
+                                    @(section.StudentsCount)
+                                </td>
+
+                                <td>
+                                    @(section.QuizzesCount)
+                                </td>
+
+                                <td>
+
+                                    <div class="d-flex align-items-center gap-2">
+
+                                        <div class="progress"
+                                             style="width:120px;height:8px;">
+
+                                            <div class="progress-bar"
+                                                 role="progressbar"
+                                                 style="width:@(section.AttendanceRate)%">
+                                            </div>
+
+                                        </div>
+
+                                        <small>
+                                            @(section.AttendanceRate)%
+                                        </small>
+
+                                    </div>
+
+                                </td>
+
+                                <td>
+
+                                    <a asp-action="SectionDetails"
+                                       asp-route-sectionId="@(section.SectionId)"
+                                       class="btn btn-sm btn-outline-primary">
+
+                                        Details
+
+                                    </a>
+
+                                </td>
+
+                            </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
